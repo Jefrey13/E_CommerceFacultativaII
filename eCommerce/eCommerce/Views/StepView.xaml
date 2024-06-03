@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="eCommerce.Views.StepView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:eCommerce.Model"
+    BackgroundColor="White"
+    mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <viewmodels:DeliveryStepsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Margin="15" HorizontalOptions="FillAndExpand">
+
+            <!--  Nav Bar  -->
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    HasShadow="False"
+                    HeightRequest="40"
+                    WidthRequest="40">
+                    <Label
+                        Margin="0,10"
+                        FontFamily="MaterialFontFamily"
+                        FontSize="26"
+                        HorizontalOptions="StartAndExpand"
+                        Text="&#xf141;"
+                        TextColor="Black" />
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="OD - 424923192 - N"
+                    TextColor="Black"
+                    VerticalTextAlignment="Center">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="SFPro.ttf#Bold" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+
+                <StackLayout>
+                    <Image
+                        Margin="13,0,0,0"
+                        Aspect="AspectFit"
+                        HeightRequest="40"
+                        WidthRequest="40" />
+                </StackLayout>
+            </StackLayout>
+
+            <!--  Body  -->
+            <StackLayout>
+                <CollectionView Margin="20" ItemsSource="{Binding delList}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout
+                                Margin="10"
+                                Orientation="Horizontal"
+                                Spacing="0">
+                                <StackLayout>
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="12"
+                                        Text="{Binding dateMon}"
+                                        TextColor="#929292">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="10"
+                                        Text="{Binding tim}"
+                                        TextColor="#929292">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                </StackLayout>
+
+                                <StackLayout Margin="30,0,20,0">
+                                    <Frame
+                                        Margin="0"
+                                        Padding="0"
+                                        BackgroundColor="White"
+                                        CornerRadius="16"
+                                        HeightRequest="30"
+                                        WidthRequest="30">
+                                        <Frame
+                                            Margin="7"
+                                            Padding="0"
+                                            BackgroundColor="{Binding colorFrame}"
+                                            CornerRadius="8"
+                                            HeightRequest="16"
+                                            HorizontalOptions="CenterAndExpand"
+                                            VerticalOptions="CenterAndExpand"
+                                            WidthRequest="16" />
+                                    </Frame>
+                                    <BoxView
+                                        x:Name="line1"
+                                        Margin="0,-5,0,0"
+                                        BackgroundColor="{Binding colorLine}"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        WidthRequest="2" />
+                                </StackLayout>
+
+                                <StackLayout Margin="20,0,20,0">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="16"
+                                        Text="{Binding Name}"
+                                        TextColor="Black">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="12"
+                                        Text="{Binding Location}"
+                                        TextColor="Black">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+            </StackLayout>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
