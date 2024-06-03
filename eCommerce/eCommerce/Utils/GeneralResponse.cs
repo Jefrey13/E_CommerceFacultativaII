@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace eCommerce.Utils
 {
+	//Clase generica
 	public class GeneralResponse<T>
 	{
         public string Message { get; set; }
