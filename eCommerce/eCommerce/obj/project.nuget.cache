@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "puVG73v8uQRCUEVgdoJFSi89aq9KAmYwygNmbw1mS+AZ4PMt2Ky7DDBtDv/ExjKfeyfdqg9sP6vU9UbhQK0Ecw==",
+  "dgSpecHash": "ICUfxSzHacOU2wu5/INDT3lm0uLcKCZqIod7JTbfK2juEdyacr6J6dmluiphKrSg6xNMyqbvFGAluB5uWJxk7Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jefrey zuniga\\Downloads\\ecommerceXF\\eCommerce\\eCommerce\\eCommerce.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
+    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\rg.plugins.popup\\2.1.0\\rg.plugins.popup.2.1.0.nupkg.sha512",
@@ -16,7 +19,8 @@
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.3\\system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
+    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.essentials\\1.8.1\\xamarin.essentials.1.8.1.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.forms\\5.0.0.2662\\xamarin.forms.5.0.0.2662.nupkg.sha512"
   ],

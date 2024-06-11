@@ -14,12 +14,16 @@ namespace eCommerce.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class categoriesPage : ContentPage
     {
-        public categoriesPage(string titleName)
+		private categoriesViewModel ViewModel { get; set; } // Agregar una propiedad para el ViewModel
+		public categoriesPage(string categoryName)
         {
             InitializeComponent();
-            title.Text = titleName;
+            title.Text = categoryName;
 
-        }
+			// Crear una instancia de categoriesViewModel y asignarla como contexto de enlace
+			ViewModel = new categoriesViewModel(categoryName);
+			BindingContext = ViewModel;
+		}
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {

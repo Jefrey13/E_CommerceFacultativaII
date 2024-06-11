@@ -22,6 +22,9 @@ D:\ecommerceXF-master\eCommerce\eCommerce\obj\Debug\netstandard2.0\eCommerce.dll
 D:\ecommerceXF-master\eCommerce\eCommerce\obj\Debug\netstandard2.0\refint\eCommerce.dll
 D:\ecommerceXF-master\eCommerce\eCommerce\obj\Debug\netstandard2.0\eCommerce.pdb
 D:\ecommerceXF-master\eCommerce\eCommerce\obj\Debug\netstandard2.0\ref\eCommerce.dll
+C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\bin\Debug\netstandard2.0\eCommerce.deps.json
+C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\bin\Debug\netstandard2.0\eCommerce.dll
+C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\bin\Debug\netstandard2.0\eCommerce.pdb
 C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netstandard2.0\eCommerce.csproj.AssemblyReference.cache
 C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netstandard2.0\eCommerce.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netstandard2.0\App.xaml.g.cs
@@ -38,6 +41,9 @@ C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netst
 C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netstandard2.0\eCommerce.AssemblyInfoInputs.cache
 C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netstandard2.0\eCommerce.AssemblyInfo.cs
 C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netstandard2.0\eCommerce.csproj.CoreCompileInputs.cache
+C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netstandard2.0\eCommerce.sourcelink.json
+C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netstandard2.0\eCommerce.dll
 C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netstandard2.0\refint\eCommerce.dll
 C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netstandard2.0\eCommerce.pdb
+C:\Users\Jefrey zuniga\Downloads\ecommerceXF\eCommerce\eCommerce\obj\Debug\netstandard2.0\ref\eCommerce.dll

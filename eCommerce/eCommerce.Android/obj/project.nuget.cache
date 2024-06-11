@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "G3SCaKKCAWJZymG62PqgmBisYw4KOg2ZTb/3P/pYG9P9zBRV2eU0pglJ04p2oLhWLAw3aub6hGSQhLRE/6ZDWg==",
+  "dgSpecHash": "LS1zMcpCA+h+5M0kQt+O8LsDYIuS/K2wDqh04MOaoYr6AAfhHffHlVCNM4WHaFVtrkabMtLm5odn6CXUfoE3kg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jefrey zuniga\\Downloads\\ecommerceXF\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\rg.plugins.popup\\2.1.0\\rg.plugins.popup.2.1.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\sqlite-net-pcl\\1.9.172\\sqlite-net-pcl.1.9.172.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.1.2\\sqlitepclraw.bundle_green.2.1.2.nupkg.sha512",

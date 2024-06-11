@@ -11,42 +11,22 @@ namespace eCommerce.Model
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         [Required]
-        [System.ComponentModel.DataAnnotations.MaxLength(70)]
+        [System.ComponentModel.DataAnnotations.MaxLength(100)]
         public string Name { get; set; }
 		[Required]
-		[System.ComponentModel.DataAnnotations.MaxLength(200)]
+		[System.ComponentModel.DataAnnotations.MaxLength(300)]
 		public string Description { get; set; }
         [Required]
-        [Range(1.00, 1000.00)]
-        public decimal Price { get; set; }
+        //[Range(1.00, 1000.00)]
+        public string Price { get; set; }
 		[Required]
-		[Range(1.00, 100.00)]
-		public int Quantity { get; set; }
+		//[Range(1.00, 100.00)]
+		public int Stock { get; set; }
 		[Required]
-		[DataType(DataType.ImageUrl)]
+		//[DataType(DataType.ImageUrl)]
         public string Image { get; set; }
 
-        [DataType(DataType.Date)]
-		private DateTime createdAt;
-		[DataType(DataType.Date)]
-		private DateTime lastUpdatedAt;
-		[DataType(DataType.Date)]
-		private DateTime delateddAt;
-
-		public DateTime CreateAt { 
-			get { return createdAt; }
-			set { createdAt = DateTime.Now; } 
-		}
-		public DateTime LastUpdatedAt
-		{
-			get { return lastUpdatedAt; }
-			set { createdAt = DateTime.Now; }
-		}
-		public DateTime DeleteAt
-		{
-			get { return DeleteAt; }
-			set { createdAt = DateTime.Now; }
-		}
+        
 		[Required]
 		public bool Status { get; set; }
     }

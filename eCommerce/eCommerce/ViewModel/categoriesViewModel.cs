@@ -1,4 +1,5 @@
-﻿using eCommerce.Views;
+﻿using eCommerce.DataAccess;
+using eCommerce.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,18 +14,27 @@ namespace eCommerce.Model
 {  
     public class categoriesViewModel : INotifyPropertyChanged
     {
-        readonly IList<FeaturedBrands> source1;
-        public ObservableCollection<FeaturedBrands> featuredItemPreview { get; private set; }
+		private ProductCategoryDataAccess _productCategoryDataAccess;
+        private BrandTagDataAccess _brandTagDataAccess;
+		// Agregar una propiedad para almacenar el nombre de la categoría
+		public string SelectedCategoryName { get; private set; }
+
+		readonly IList<FeaturedBrands> sourceT;
+        public ObservableCollection<FeaturedBrands> topBItemPreview { get; private set; }
 
         readonly IList<ItemsPreview> source;
         public ObservableCollection<ItemsPreview> itemPreview { get; private set; }
 
         public ICommand FeaturedTapCommand { get; set; }
         public ICommand ItemTapCommand { get; set; }
-        public categoriesViewModel()
+        public categoriesViewModel(string categoryName)
         {
-            source = new List<ItemsPreview>();
-            source1 = new List<FeaturedBrands>();
+			SelectedCategoryName = categoryName; // Asignar el nombre recibido a la propiedad
+			_productCategoryDataAccess = new ProductCategoryDataAccess();
+            _brandTagDataAccess = new BrandTagDataAccess();
+
+			source = new List<ItemsPreview>();
+			sourceT = new List<FeaturedBrands>();
             CreateItemCollection();
             CreateFeaturedItemCollection();
 
@@ -42,59 +52,40 @@ namespace eCommerce.Model
 
         void CreateItemCollection()
         {
-            source.Add(new ItemsPreview
+			var productC = _productCategoryDataAccess.GetProductsByCategory(SelectedCategoryName);
+
+            if (productC.Data != null)
             {
-                ImageUrl = "Image3",
-                Name = "Smart Bluetooth Speaker",
-                brand = "Google LLC",
-                price = "$90"
-            });
-            source.Add(new ItemsPreview
-            {
-                ImageUrl = "Image5",
-                Name = "Smart Luggage",
-                brand = "Smart Inc",
-                price = "$450"
-            });
-            source.Add(new ItemsPreview
-            {
-                ImageUrl = "Image6",
-                Name = "Wireless Remote",
-                brand = "Tesla Inc",
-                price = "$790"
-            });
-            source.Add(new ItemsPreview
-            {
-                ImageUrl = "Image4",
-                Name = "Airpods",
-                brand = "Apple Inc",
-                price = "$120"
-            });
-            itemPreview = new ObservableCollection<ItemsPreview>(source);
+				foreach (var item in productC.Data)
+				{
+					source.Add(new ItemsPreview
+					{
+						ImageUrl = item.Image,
+						Name = item.Name,
+						price = item.Price
+					});
+				}
+			}
+			itemPreview = new ObservableCollection<ItemsPreview>(source);
         }
 
         void CreateFeaturedItemCollection()
         {
-            source1.Add(new FeaturedBrands
-            {
-                ImageUrl = "Icon_Apple",
-                brand = "Apple Inc",
-                details = "5693 Products"
-            });
-            source1.Add(new FeaturedBrands
-            {
-                ImageUrl = "beats",
-                brand = "Beats",
-                details = "1124 Products"
-            });
-            source1.Add(new FeaturedBrands
-            {
-                ImageUrl = "Icon_Bo",
-                brand = "B&o",
-                details = "5693 Products"
-            });
+            var topBrands = _brandTagDataAccess.GetBrandsByTag("TopBrand");
 
-            featuredItemPreview = new ObservableCollection<FeaturedBrands>(source1);
+            if(topBrands.Data != null)
+            {
+				foreach (var item in topBrands.Data)
+				{
+					sourceT.Add(new FeaturedBrands
+					{
+						ImageUrl = item.ImageUrl,
+						brand = item.Name,
+						details = item.Description
+					});
+				}
+				topBItemPreview = new ObservableCollection<FeaturedBrands>(sourceT);
+			}
         }
 
       

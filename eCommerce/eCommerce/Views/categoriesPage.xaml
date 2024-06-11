@@ -10,9 +10,7 @@
     BackgroundColor="White"
     mc:Ignorable="d">
 
-    <ContentPage.BindingContext>
-        <viewmodels:categoriesViewModel />
-    </ContentPage.BindingContext>
+    
 
     <ContentPage.Resources>
         <Style TargetType="Grid">
@@ -100,7 +98,7 @@
                         </StackLayout>
 
                         <Grid HeightRequest="80">
-                            <CollectionView ItemsSource="{Binding featuredItemPreview}">
+                            <CollectionView ItemsSource="{Binding topBItemPreview}">
 
                                 <CollectionView.ItemsLayout>
                                     <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />

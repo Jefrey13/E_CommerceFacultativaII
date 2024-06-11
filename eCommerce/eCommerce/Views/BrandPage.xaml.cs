@@ -1,8 +1,10 @@
-﻿using eCommerce.Model;
+﻿using eCommerce.DataAccess;
+using eCommerce.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -13,20 +15,51 @@ namespace eCommerce.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BrandPage : TabbedPage
     {
-        public BrandPage(String name)
+		private ProductTagDataAccess _productTagDataAccess;
+		readonly List<ItemsPreview> source1;
+		private string _categoryName;
+		public BrandPage(string name)
         {
-            InitializeComponent();
-            title.Text = name;
-            this.ItemsSource = new MainClass[] {
-                new MainClass ("All",new List<ItemsPreview>(){ new ItemsPreview {ImageUrl = "Image1",Name = "Smart Bluetooth Speaker", brand = "Bang and Olufsen",price = "$90"}, new ItemsPreview { ImageUrl = "Image7", Name = "B&o Desk Lamp", brand = "Bang and Olufsen", price = "$450" },new ItemsPreview { ImageUrl = "Image8", Name = "BeoPlay Stand Speaker", brand = "Bang and Olufsen", price = "$300" } }),
-                new MainClass ("Headphones",new List<ItemsPreview>(){ new ItemsPreview {ImageUrl = "Image1",Name = "Smart Bluetooth Speaker", brand = "Bang and Olufsen",price = "$90"}, new ItemsPreview { ImageUrl = "Image7", Name = "B&o Desk Lamp", brand = "Bang and Olufsen", price = "$450" },new ItemsPreview { ImageUrl = "Image8", Name = "BeoPlay Stand Speaker", brand = "Bang and Olufsen", price = "$300" } }),
-                new MainClass ("Speakers",new List<ItemsPreview>(){ new ItemsPreview {ImageUrl = "Image1",Name = "Smart Bluetooth Speaker", brand = "Bang and Olufsen",price = "$90"}, new ItemsPreview { ImageUrl = "Image7", Name = "B&o Desk Lamp", brand = "Bang and Olufsen", price = "$450" },new ItemsPreview { ImageUrl = "Image8", Name = "BeoPlay Stand Speaker", brand = "Bang and Olufsen", price = "$300" } }),
-                new MainClass ("Microphones",new List<ItemsPreview>(){ new ItemsPreview {ImageUrl = "Image1",Name = "Smart Bluetooth Speaker", brand = "Bang and Olufsen",price = "$90"}, new ItemsPreview { ImageUrl = "Image7", Name = "B&o Desk Lamp", brand = "Bang and Olufsen", price = "$450" },new ItemsPreview { ImageUrl = "Image8", Name = "BeoPlay Stand Speaker", brand = "Bang and Olufsen", price = "$300" } }),
-                
-            };
-        }
+			InitializeComponent();
 
-        class MainClass
+			title.Text = name;
+			_categoryName = name;
+			source1 = new List<ItemsPreview>(); // Inicializar source1 aquí
+			Thread loadData = new Thread(LoadData);
+			loadData.Start();
+		}
+		private void LoadData()
+		{
+			// Código a ejecutar en el nuevo hilo
+			_productTagDataAccess = new ProductTagDataAccess();
+			var productBestS = _productTagDataAccess.GetProductsByTag(_categoryName);
+
+			var e = productBestS.Data;
+			foreach (var item in productBestS.Data)
+			{
+				lock (source1)
+				{
+					source1.Add(new ItemsPreview
+					{
+						ImageUrl = item.Image,
+						Name = item.Name,
+						price = item.Price
+					});
+				}
+			}
+
+			Device.BeginInvokeOnMainThread(() =>
+			{
+				this.ItemsSource = new MainClass[] {
+					new MainClass ("All",  source1 ),
+					new MainClass ("Electronics", source1),
+					new MainClass ("Furniture", source1),
+					new MainClass ("Books", source1),
+				};
+			});
+		}
+
+		class MainClass
         {
             public MainClass(string name, IList<ItemsPreview> list)
             {
