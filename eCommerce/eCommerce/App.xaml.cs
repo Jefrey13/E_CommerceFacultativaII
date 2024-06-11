@@ -1,6 +1,7 @@
 ﻿using eCommerce.Data;
 using eCommerce.DataAccess;
 using eCommerce.Model;
+using eCommerce.Views;
 using Microsoft.Extensions.DependencyInjection;
 using SQLite;
 using System;
@@ -18,7 +19,8 @@ namespace eCommerce
 		public App()
         {
             InitializeComponent();
-			/**
+			
+			/*
 			#region Data
 			var categoryRepository = new CategoryDataAccess();
 			var productRepository = new ProductDataAccess();
@@ -164,11 +166,12 @@ namespace eCommerce
 			//brandRepository.DeleteAllBrands();
 			//brandTagRepository.DeleteAllBrandTags();
 			#endregion
-			**/
+			*/
 
 			//ConfigureServices();
 
-			MainPage = new Views.HomePage();
+			//MainPage = new Views.HomePage();
+			MainPage = new NavigationPage(new LoginPage());     //Arrancamos la app de momento desde el login-->Se carga la pagina solo(LoginPage)
 		}
 		/**private void ConfigureServices()
 		{
