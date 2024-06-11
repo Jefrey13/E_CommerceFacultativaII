@@ -10,6 +10,7 @@
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     BackgroundColor="White"
     mc:Ignorable="d">
+    
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation
             DurationIn="400"

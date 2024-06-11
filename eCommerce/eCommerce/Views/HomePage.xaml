@@ -109,13 +109,13 @@
                                                             Margin="15"
                                                             Aspect="AspectFit"
                                                             HorizontalOptions="CenterAndExpand"
-                                                            Source="{Binding image}"
+                                                            Source="{Binding Image}"
                                                             VerticalOptions="CenterAndExpand" />
                                                     </Frame>
                                                     <Label
                                                         FontSize="12"
                                                         HorizontalOptions="Center"
-                                                        Text="{Binding title}"
+                                                        Text="{Binding Name}"
                                                         TextColor="Black">
                                                         <Label.FontFamily>
                                                             <OnPlatform x:TypeArguments="x:String">
@@ -164,7 +164,7 @@
                                         </Label.FontFamily>
                                     </Label>
                                     <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
                                     </StackLayout.GestureRecognizers>
                                 </StackLayout>
 
@@ -200,19 +200,6 @@
                                                         HorizontalOptions="Center"
                                                         Text="{Binding Name}"
                                                         TextColor="Black"
-                                                        VerticalOptions="Start">
-                                                        <Label.FontFamily>
-                                                            <OnPlatform x:TypeArguments="x:String">
-                                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
-                                                            </OnPlatform>
-                                                        </Label.FontFamily>
-                                                    </Label>
-
-                                                    <Label
-                                                        FontSize="12"
-                                                        HorizontalOptions="Center"
-                                                        Text="{Binding brand}"
-                                                        TextColor="#929292"
                                                         VerticalOptions="Start">
                                                         <Label.FontFamily>
                                                             <OnPlatform x:TypeArguments="x:String">
@@ -376,7 +363,7 @@
                             </StackLayout>
 
                             <StackLayout HeightRequest="350">
-                                <CollectionView ItemsSource="{Binding itemPreview}">
+                                <CollectionView ItemsSource="{Binding itemPreview2}">
 
                                     <CollectionView.ItemsLayout>
                                         <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
@@ -406,19 +393,6 @@
                                                         HorizontalOptions="Center"
                                                         Text="{Binding Name}"
                                                         TextColor="Black"
-                                                        VerticalOptions="Start">
-                                                        <Label.FontFamily>
-                                                            <OnPlatform x:TypeArguments="x:String">
-                                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
-                                                            </OnPlatform>
-                                                        </Label.FontFamily>
-                                                    </Label>
-
-                                                    <Label
-                                                        FontSize="12"
-                                                        HorizontalOptions="Center"
-                                                        Text="{Binding brand}"
-                                                        TextColor="#929292"
                                                         VerticalOptions="Start">
                                                         <Label.FontFamily>
                                                             <OnPlatform x:TypeArguments="x:String">

@@ -1,10 +1,12 @@
-﻿using eCommerce.Views;
+﻿using eCommerce.DataAccess;
+using eCommerce.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -13,35 +15,53 @@ namespace eCommerce.Model
 {
     class ItemPreviewViewModel : INotifyPropertyChanged
     {
-        readonly IList<ItemsPreview> source;
-        public ObservableCollection<ItemsPreview> itemPreview { get; private set; }
 
-        readonly IList<FeaturedBrands> source1;
+		private CategoryDataAccess _categoryDataAccess;
+		private BrandTagDataAccess _brandTagDataAccess;
+		private ProductTagDataAccess _productTagDataAccess;
+
+		readonly IList<Category> source2;
+		readonly IList<FeaturedBrands> source1;
+		readonly IList<ItemsPreview> source;
+		readonly IList<ItemsPreview> sourceBS;
+
+		public ObservableCollection<ItemsPreview> itemPreview { get; private set; }
+        public ObservableCollection<ItemsPreview> itemPreview2 { get; private set; }
         public ObservableCollection<FeaturedBrands> featuredItemPreview { get; private set; }
-
-        readonly IList<Category> source2;
         public ObservableCollection<Category> categories { get; private set; }
 
         public ICommand FeaturedTapCommand { get; set; }
         public ICommand ItemTapCommand { get; set; }
         public ICommand CatTapCommand { get; set; }
-        public ItemPreviewViewModel()
+		public ItemPreviewViewModel()
         {
-            source = new List<ItemsPreview>();
-            source1 = new List<FeaturedBrands>();
+			//_categoryRepository = new CategoryImplementation();
+			//_tagRepository = new TagImplementation();
+			//_brandTagRepository = new BrandTagImplementation(); // Agrega esta línea
+
+			_categoryDataAccess = new CategoryDataAccess();
+			_brandTagDataAccess	 = new BrandTagDataAccess();
+			_productTagDataAccess = new ProductTagDataAccess();
+
+			source = new List<ItemsPreview>();
+			sourceBS = new List<ItemsPreview>();
+			source1 = new List<FeaturedBrands>();
             source2 = new List<Category>();
-            CreateItemCollection();
+
             CreateFeaturedItemCollection();
-            CreateCategoriesCollection();
+			CreateCategoriesCollection();
+			CreateItemCollection2();
+			CreateItemCollection();
 
             ItemTapCommand = new Command<ItemsPreview>(items =>
             {                
                 Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync((new ProductPage()));
             });
 
-            CatTapCommand = new Command<Category>(items =>
+            CatTapCommand = new Command<Category>(item =>
             {
-                string selcate = items.Title;
+				//Category name
+                string selcate = item.Name;
                 Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new categoriesPage(selcate));
             });
 
@@ -52,102 +72,90 @@ namespace eCommerce.Model
             });
         }
 
-       
-        void CreateCategoriesCollection()
-        {
-            source2.Add(new Category
-            {
-                Image = "Icon_Mens_Shoe",
-                Title = "Men",
-                Link = "5693 Products"
-            });
-            source2.Add(new Category
-            {
-                Image = "women_shoe",
-                Title = "Women",
-                Link = "1124 Products"
-            });
-            source2.Add(new Category
-            {
-                Image = "devices",
-                Title = "Devices",
-                Link = "5693 Products"
-            });
+		//Categories
+		void CreateCategoriesCollection()
+		{
+			var categoriesR = _categoryDataAccess.GetCategories();
 
-            source2.Add(new Category
-            {
-                Image = "headphone",
-                Title = "Gadgets",
-                Link = "5693 Products"
-            });
+			if(categoriesR != null)
+			{
+				foreach (var item in categoriesR.Data)
+				{
+					source2.Add(new Category
+					{
+						Image = item.Image,
+						Name = item.Name,
+						Link = item.Link
+					});
+				}
 
-            source2.Add(new Category
-            {
-                Image = "Icon_Gaming",
-                Title = "Gaming",
-                Link = "5693 Products"
-            });
+				categories = new ObservableCollection<Category>(source2);
+			}
+		}
 
-            categories = new ObservableCollection<Category>(source2);
-        }
-        void CreateFeaturedItemCollection()
-        {
-            source1.Add(new FeaturedBrands
-            {
-                ImageUrl = "Icon_Bo",
-                brand = "B&o",
-                details = "5693 Products"
-            });
-            source1.Add(new FeaturedBrands
-            {
-                ImageUrl = "beats",
-                brand = "Beats",
-                details = "1124 Products"
-            });
-            source1.Add(new FeaturedBrands
-            {
-                ImageUrl = "Icon_Apple",
-                brand = "Apple Inc",
-                details = "5693 Products"
-            });
+		//Featured Brands
+		void CreateFeaturedItemCollection()
+		{
+			var brandR = _brandTagDataAccess.GetBrandsByTag("Featured Brand");
 
-            featuredItemPreview = new ObservableCollection<FeaturedBrands>(source1);
-        }
-        void CreateItemCollection()
-        {
-            source.Add(new ItemsPreview
-            {
-                ImageUrl = "Image1",
-                Name= "BeoPlay Speaker",
-                brand= "Bang and Olufsen",
-                price= "$755"
-            });
-            source.Add(new ItemsPreview
-            {
-                ImageUrl = "Image2",
-                Name = "Leather Wristwatch",
-                brand = "Tag Heuer",
-                price = "$450"
-            });
-            source.Add(new ItemsPreview
-            {
-                ImageUrl = "Image3",
-                Name = "Smart Bluetooth Speaker",
-                brand = "Google LLC",
-                price = "$9000"
-            });
-            source.Add(new ItemsPreview
-            {
-                ImageUrl = "Image4",
-                Name = "Smart Luggage",
-                brand = "Smart Inc",
-                price = "$1200"
-            });
-            itemPreview = new ObservableCollection<ItemsPreview>(source);
-        }
+			if(brandR.Data != null)
+			{
+				foreach (var item in brandR.Data)
+				{
+					source1.Add(new FeaturedBrands
+					{
+						ImageUrl = item.ImageUrl,
+						brand = item.Name,
+						details = item.Description
+					});
+				}
 
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
+				featuredItemPreview = new ObservableCollection<FeaturedBrands>(source1);
+			}
+		}
+
+		//Best Selling products
+		void CreateItemCollection()
+		{
+			var productRecommended = _productTagDataAccess.GetProductsByTag("Bestseller");
+
+			if(productRecommended != null)
+			{
+				foreach (var item in productRecommended.Data)
+				{
+					source.Add(new ItemsPreview
+					{
+						ImageUrl = item.Image,
+						Name = item.Name,
+						price = item.Price
+					});
+				}
+				itemPreview = new ObservableCollection<ItemsPreview>(source);
+			}
+		}
+
+		//Recommended products
+		void CreateItemCollection2()
+		{
+			var productBestS = _productTagDataAccess.GetProductsByTag("Recommended");
+
+			if (productBestS != null)
+			{
+				foreach (var item in productBestS.Data)
+				{
+					sourceBS.Add(new ItemsPreview
+					{
+						ImageUrl = item.Image,
+						Name = item.Name,
+						price = item.Price
+					});
+				}
+				itemPreview2 = new ObservableCollection<ItemsPreview>(sourceBS);
+			}
+		}
+
+		#region INotifyPropertyChanged
+		public event PropertyChangedEventHandler PropertyChanged;
 
         void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerce.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -10,7 +11,8 @@ namespace eCommerce.Model
 {
     public class BrandViewModel : INotifyPropertyChanged
     {
-        readonly IList<BrandsItems> source;
+		private ProductTagDataAccess _productTagDataAccess;
+		readonly IList<BrandsItems> source;
         readonly IList<ItemsPreview> source1;
         public ObservableCollection<BrandsItems> itemList{ get; private set; }
         public ObservableCollection<ItemsPreview> itemPreview { get; private set; }
@@ -18,6 +20,8 @@ namespace eCommerce.Model
         ICommand tapCommand;
         public  BrandViewModel()
         {
+			_productTagDataAccess = new ProductTagDataAccess();
+
             source = new List<BrandsItems>();
             source1 = new List<ItemsPreview>();
             CreateMenuCollection();
@@ -33,35 +37,19 @@ namespace eCommerce.Model
         }
         void CreateItemCollection()
         {
-            source1.Add(new ItemsPreview
-            {
-                ImageUrl = "Image1",
-                Name = "Smart Bluetooth Speaker",
-                brand = "Bang and Olufsen",
-                price = "$90"
-            });
-            source1.Add(new ItemsPreview
-            {
-                ImageUrl = "Image7",
-                Name = "B&o Desk Lamp",
-                brand = "Bang and Olufsen",
-                price = "$450"
-            });
-            source1.Add(new ItemsPreview
-            {
-                ImageUrl = "Image8",
-                Name = "BeoPlay Stand Speaker",
-                brand = "Bang and Olufsen",
-                price = "$300"
-            });
-            source1.Add(new ItemsPreview
-            {
-                ImageUrl = "Image9",
-                Name = "Airpods",
-                brand = "B&o Phone Case",
-                price = "$30"
-            });
-            itemPreview = new ObservableCollection<ItemsPreview>(source1);
+			var productBestS = _productTagDataAccess.GetProductsByTag("Bestseller");
+
+			var e = productBestS.Data;
+			foreach (var item in productBestS.Data)
+			{
+				source1.Add(new ItemsPreview
+				{
+					ImageUrl = item.Image,
+					Name = item.Name,
+					price = item.Price
+				});
+			}
+			itemPreview = new ObservableCollection<ItemsPreview>(source1);
         }
         void CreateMenuCollection()
         {

@@ -1,32 +1,33 @@
 ﻿using eCommerce.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using eCommerce;
 
 namespace eCommerce.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-        public HomePage()
+		//private readonly ItemPreviewViewModel _viewModel;
+		public HomePage()
         {
-            InitializeComponent();           
-        }
+            InitializeComponent();
+			//_viewModel = (Application.Current as App).ServiceProvider.GetService<ItemPreviewViewModel>();
+			//_viewModel = App.Current.MainPage as ItemPreviewViewModel;
+			//_viewModel = App.ServiceProvider.GetService<ItemPreviewViewModel>();
+			//BindingContext = _viewModel;
+		}
      
         
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new BrandPage("Recommended"));
-        }
 
+		}
         private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new BrandPage("Best Selling")));
+            await Navigation.PushModalAsync(new NavigationPage(new BrandPage("Bestseller")));
         }
 
         private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
