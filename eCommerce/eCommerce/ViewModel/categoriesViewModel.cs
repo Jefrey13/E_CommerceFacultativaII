@@ -16,6 +16,7 @@ namespace eCommerce.Model
     {
 		private ProductCategoryDataAccess _productCategoryDataAccess;
         private BrandTagDataAccess _brandTagDataAccess;
+        private BrandCategoryDataAccess _brandCategoryDataAccess;
 		// Agregar una propiedad para almacenar el nombre de la categoría
 		public string SelectedCategoryName { get; private set; }
 
@@ -32,6 +33,7 @@ namespace eCommerce.Model
 			SelectedCategoryName = categoryName; // Asignar el nombre recibido a la propiedad
 			_productCategoryDataAccess = new ProductCategoryDataAccess();
             _brandTagDataAccess = new BrandTagDataAccess();
+            _brandCategoryDataAccess = new BrandCategoryDataAccess();
 
 			source = new List<ItemsPreview>();
 			sourceT = new List<FeaturedBrands>();
@@ -71,7 +73,7 @@ namespace eCommerce.Model
 
         void CreateFeaturedItemCollection()
         {
-            var topBrands = _brandTagDataAccess.GetBrandsByTag("TopBrand");
+            var topBrands = _brandCategoryDataAccess.GetBrandsByCategory(SelectedCategoryName);
 
             if(topBrands.Data != null)
             {

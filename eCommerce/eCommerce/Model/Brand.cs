@@ -8,6 +8,7 @@ namespace eCommerce.Model
 {
 	public class Brand
 	{
+		[PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
 		[Unique]

@@ -30,6 +30,7 @@ namespace eCommerce
 			var productBrandRepository = new ProductBrandDataAccess();
 			var productTagRepository = new ProductTagDataAccess();
 			var brandTagRepository = new BrandTagDataAccess();
+			var brandCategoryRepository = new BrandCategoryDataAccess();
 
 			brandRepository.DeleteAllBrands();
 			brandTagRepository.DeleteAllBrandTags();
@@ -79,7 +80,6 @@ namespace eCommerce
 			{
 				brandRepository.AddBrand(brand);
 			}
-
 
 			// Añadir etiquetas
 			var tags = new List<Tag>
@@ -162,16 +162,33 @@ namespace eCommerce
 			{
 				brandTagRepository.AddBrandTag(brandTag);
 			}
+			// Establecer relaciones entre marcas y categorías
+			var brandCategories = new List<BrandCategory>
+			{
+				new BrandCategory { BrandId = brands.FirstOrDefault(b => b.Name == "Apple").Id, CategoryId = categories.FirstOrDefault(c => c.Name == "Electronics").Id },
+				new BrandCategory { BrandId = brands.FirstOrDefault(b => b.Name == "Nike").Id, CategoryId = categories.FirstOrDefault(c => c.Name == "Fashion").Id },
+				new BrandCategory { BrandId = brands.FirstOrDefault(b => b.Name == "Samsung").Id, CategoryId = categories.FirstOrDefault(c => c.Name == "Electronics").Id },
+				new BrandCategory { BrandId = brands.FirstOrDefault(b => b.Name == "IKEA").Id, CategoryId = categories.FirstOrDefault(c => c.Name == "Furniture").Id },
+				new BrandCategory { BrandId = brands.FirstOrDefault(b => b.Name == "Penguin Random House").Id, CategoryId = categories.FirstOrDefault(c => c.Name == "Books").Id }
+			};
+
+			// Insertar las relaciones en la base de datos
+			foreach (var brandCategory in brandCategories)
+			{
+				brandCategoryRepository.AddBrandCategory(brandCategory);
+			}
 
 			//brandRepository.DeleteAllBrands();
 			//brandTagRepository.DeleteAllBrandTags();
 			#endregion
 			*/
 
+
 			//ConfigureServices();
 
-			//MainPage = new Views.HomePage();
-			MainPage = new NavigationPage(new LoginPage());     //Arrancamos la app de momento desde el login-->Se carga la pagina solo(LoginPage)
+			MainPage = new Views.HomePage();
+			//MainPage = new NavigationPage(new LoginPage());     //Arrancamos la app de momento desde el login-->Se carga la pagina solo(LoginPage)
+			//MainPage = new NavigationPage(new LoginPage());     //Arrancamos la app de momento desde el login-->Se carga la pagina solo(LoginPage)
 		}
 		/**private void ConfigureServices()
 		{
