@@ -3,12 +3,18 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "eCommerce.Android.dll" comes first in this list. */
 		"eCommerce.Android.dll",
+		"CommonServiceLocator.dll",
 		"eCommerce.dll",
 		"FormsViewGroup.dll",
+		"GalaSoft.MvvmLight.dll",
+		"GalaSoft.MvvmLight.Extras.dll",
+		"GalaSoft.MvvmLight.Platform.dll",
 		"Microsoft.Extensions.DependencyInjection.Abstractions.dll",
 		"Microsoft.Extensions.DependencyInjection.dll",
 		"Rg.Plugins.Popup.dll",
 		"SQLite-net.dll",
+		"SQLite.Net.dll",
+		"SQLite.Net.Platform.XamarinAndroid.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
 		"SQLitePCLRaw.core.dll",
 		"SQLitePCLRaw.lib.e_sqlite3.android.dll",

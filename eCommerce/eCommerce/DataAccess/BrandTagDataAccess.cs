@@ -54,6 +54,13 @@ namespace eCommerce.DataAccess
 		{
 			try
 			{
+
+				var brandTags = _sqlConnection.Table<BrandTag>().ToList();
+				foreach (var bt in brandTags)
+				{
+					Console.WriteLine($"BrandTagId: {bt.BrandTagId}, BrandId: {bt.BrandId}, TagId: {bt.TagId}");
+				}
+
 				if (string.IsNullOrEmpty(tagName))
 				{
 					return new GeneralResponse<List<Brand>> { Message = "Invalid tag", IsSuccess = false, Data = null };
@@ -61,26 +68,15 @@ namespace eCommerce.DataAccess
 
 				// Obtener la etiqueta correspondiente
 				var tag = _sqlConnection.Table<Tag>().FirstOrDefault(x => x.Name == tagName);
-				var bradnss = _sqlConnection.Table<Brand>().ToList();
 				if (tag == null)
 				{
 					return new GeneralResponse<List<Brand>> { Message = "Tag not found", IsSuccess = false, Data = null };
 				}
 
+				// Log para verificar el TagId
+				Console.WriteLine($"TagId encontrado: {tag.Id}");
+
 				// Obtener las marcas relacionadas con la etiqueta
-				/**
-				var brands = _sqlConnection.Table<Brand>()
-					.Join(
-						_sqlConnection.Table<BrandTag>(),
-						b => b.Id,
-						bt => bt.BrandId,
-						(b, bt) => new { Brand = b, BrandTag = bt }
-					)
-					.Where(x => x.BrandTag.TagId == tag.Id)
-					.Select(x => x.Brand)
-					.ToList();
-				*/
-				
 				var brands = _sqlConnection.Table<Brand>()
 					.Join(
 						_sqlConnection.Table<BrandTag>(),
@@ -93,6 +89,9 @@ namespace eCommerce.DataAccess
 					.Distinct()
 					.ToList();
 
+				// Log para verificar la cantidad de marcas encontradas
+				Console.WriteLine($"Cantidad de marcas encontradas para el TagId {tag.Id}: {brands.Count}");
+
 				return new GeneralResponse<List<Brand>> { Message = "Success", IsSuccess = true, Data = brands };
 			}
 			catch (Exception ex)
@@ -102,6 +101,8 @@ namespace eCommerce.DataAccess
 				return new GeneralResponse<List<Brand>> { Message = "An error occurred while retrieving brands by tag", IsSuccess = false, Data = null };
 			}
 		}
+
+
 
 		public GeneralResponse<bool> DeleteAllBrandTags()
 		{

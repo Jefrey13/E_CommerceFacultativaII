@@ -28,9 +28,9 @@ namespace eCommerce.Data
 				_sqlConnection.CreateTable<Tag>();
 				_sqlConnection.CreateTable<BrandTag>();
 				_sqlConnection.CreateTable<ProductTag>();
+				_sqlConnection.CreateTable<User>();
+				_sqlConnection.CreateTable<BrandCategory>();
 			}
-
-			Console.WriteLine(_sqlConnection.ToString());
 			return _sqlConnection;
 		}
 	}
