@@ -1,115 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using eCommerce.Views;
+using Firebase.Auth;
+using GalaSoft.MvvmLight.Command;
+using Newtonsoft.Json;
+using Plugin.Toast;
+using System;
 using System.Threading.Tasks;
-
-
+using System.Windows.Input;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace eCommerce.ViewModels
 {
-	using eCommerce.Model;
-	using eCommerce.Views;
-	using eCommerce.Model;
-	using eCommerce.Views;
-	using GalaSoft.MvvmLight.Command;
-	using System.ComponentModel;
-	using System.Windows.Input;
-	using Xamarin.Forms;
-	using eCommerce.ViewModels;
-	using eCommerce.DataAccess;
-
 	class LoginViewModel : BaseViewModel                                  //En vez de INotifyPropertyChanged, ver impl BaseViewModel
 	{
-		//Los atributos privados que necesitamos refrescar
-		#region Atributes
-		private string email;
-		private string password;
-		private bool isRunning;
-		private bool isEnabled;
-		private bool isRemembered;
-		private bool correct;
+		// El valor WebAPIkey se sustituye acorde al registro de Firebase que se genera al registrar la APP
+
+		#region Attribute
+		public string email;
+		public string password;
+		public bool isRunning;
+		public bool isVisible;
+		public bool isEnabled;
 		#endregion
 
 		#region Properties
-		public string Email
+		public string EmailTxt
 		{
-			get
-			{
-				return this.email;
-			}
-			set
-			{
-				SetValue(ref this.email, value);
-			}
+			get { return this.email; }
+			set { SetValue(ref this.email, value); }
 		}
 
-		//En vez de todo el chorizo de código como el que aparece abajo, usamos la clase BaseViewModel
-		/* public string Password
-         {
-             get
-             {
-                 return this.password;
-             }
-             set
-             {
-                 if(this.password != value)
-                 {
-                     this.password = value;
-                     //Para refrescar las instrucciones en tpo de ejecucion
-                     PropertyChanged?.Invoke(this,
-                         new PropertyChangedEventArgs(nameof(this.Password)));
-                 }
-             }
-         }*/
-
-		public string Password
+		public string PasswordTxt
 		{
-			get
-			{
-				return this.password;
-			}
-			set
-			{
-				SetValue(ref this.password, value);
-			}
+			get { return this.password; }
+			set { SetValue(ref this.password, value); }
 		}
 
-		public bool IsRunning
+		public bool IsRunningTxt
 		{
-			get
-			{
-				return this.isRunning;
-			}
-			set
-			{
-				SetValue(ref this.isRunning, value);
-			}
+			get { return this.isRunning; }
+			set { SetValue(ref this.isRunning, value); }
 		}
 
-		public bool IsRemembered
+
+		public bool IsVisibleTxt
 		{
-			get
-			{
-				return this.isRemembered;
-			}
-			set
-			{
-				SetValue(ref this.isRemembered, value);
-			}
+			get { return this.isVisible; }
+			set { SetValue(ref this.isVisible, value); }
 		}
 
-		public bool IsEnabled
+		public bool IsEnabledTxt
 		{
-			get
-			{
-				return this.isEnabled;
-			}
-			set
-			{
-				SetValue(ref this.isEnabled, value);
-			}
+			get { return this.isEnabled; }
+			set { SetValue(ref this.isEnabled, value); }
 		}
+
 		#endregion
 
 		#region Commands
@@ -117,141 +62,115 @@ namespace eCommerce.ViewModels
 		{
 			get
 			{
-				return new RelayCommand(Login);     //De la libreria instalada GalaSoft.MvvmLight.Command, y le pasamos un metodo por param
+				return new RelayCommand(LoginMethod);
 			}
 		}
+		#endregion
 
-		//Param del RelayCommand
-		private async void Login()      //Para manejar los alerts en dif dispos, hace falta metodos asincronos
+		#region Methods
+
+
+		public async void LoginMethod()
 		{
-			correct = true;
-			if (string.IsNullOrEmpty(this.Email))
-			{
-				await Application.Current.MainPage.DisplayAlert(
-					"Error",        //Titulo del error
-					"You must enter an email ",     //Mensaje del error
-					"Accept");      //Texto del boton
-				correct = false;
-				return;
-			}
-			if (string.IsNullOrEmpty(this.Password))
+			if (string.IsNullOrEmpty(this.email))
 			{
 				await Application.Current.MainPage.DisplayAlert(
 					"Error",
-					"You must enter a password ",
+					"You must enter an email.",
 					"Accept");
-				correct = false;
+				return;
+			}
+			if (string.IsNullOrEmpty(this.password))
+			{
+				await Application.Current.MainPage.DisplayAlert(
+					"Error",
+					"You must enter a password.",
+					"Accept");
 				return;
 			}
 
-			this.IsRunning = true;
-			this.IsEnabled = false;
-			//Esto es temporal, ya que esto debería ir a un archivo de recursos (solucion temporal) y luego en la BBDD
-			/*if (this.Email != "welltec@gmail.com" || this.Password != "1234")
+			string WebAPIkey = "AIzaSyCLiMPb_GvCkWFeR0pfdyIi9USwTUK9b58";
+
+
+			var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
+			try
+			{
+				var auth = await authProvider.SignInWithEmailAndPasswordAsync(EmailTxt.ToString(), PasswordTxt.ToString());
+				var content = await auth.GetFreshAuthAsync();
+				var serializedcontnet = JsonConvert.SerializeObject(content);
+
+				Preferences.Set("MyFirebaseRefreshToken", serializedcontnet);
+				CrossToastPopUp.Current.ShowCustomToast("Welcome to factus", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				await Application.Current.MainPage.Navigation.PushModalAsync(new HomePage());
+			}
+			catch (Exception ex)
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Invalid useremail or password", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				//await App.Current.MainPage.DisplayAlert("Alert", "Invalid useremail or password", "OK");
+			}
+
+			this.IsVisibleTxt = true;
+			this.IsRunningTxt = true;
+			this.IsEnabledTxt = false;
+
+			await Task.Delay(20);
+
+			/*
+
+            List<UserModel> e = App.Database.GetUsersValidate(email, password).Result;
+
+            if (e.Count == 0)
             {
-                this.IsRunning = false;
-                this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert(
-                   "Error",
-                   "Email or password incorrect ",
-                   "Accept");
-                //Limpiamos el campo del password al ingresar uno erroneo
-                this.Password = string.Empty;       //No va a funcionar pq no está referenciado en el ViewModel-->sol: Implementar la interfaz INotifyPropertyChanged
-                correct = false;
-                return;
-            }*/
+                  "Error",
+                  "Email or Password Incorrect.",
+                  "Accept");
 
-			this.IsRunning = false;
-			this.IsEnabled = true;
-			/*await Application.Current.MainPage.DisplayAlert(
-                "Ok",
-                "Hell Yeah!!",
-                "Accept");
-            return;*/
-			/*this.email = string.Empty;
-            this.password = string.Empty;*/
+                this.IsRunningTxt = false;
+                this.IsVisibleTxt = false;
+                this.IsEnabledTxt = true;
+            }
+            else if (e.Count > 0)
+            {
 
-			//LOGUEO
-			if (correct)
+                await Application.Current.MainPage.Navigation.PushAsync(new ContainerTabbedPage());
+
+                this.IsRunningTxt = false;
+                this.IsVisibleTxt = false;
+                this.IsEnabledTxt = true;
+
+            }
+
+            */
+
+			this.IsRunningTxt = false;
+			this.IsVisibleTxt = false;
+			this.IsEnabledTxt = true;
+
+		}
+
+		public async void ResetPasswordEmail()
+		{
+			string WebAPIkey = "AIzaSyCLiMPb_GvCkWFeR0pfdyIi9USwTUK9b58";
+
+			try
 			{
-				User u = null;
-				var data = new UserDataAccess();
-				
-					u = data.GetUsersValidate(this.email, this.password);
-				
-				if (u == null)
-				{
-					correct = false;
-					await Application.Current.MainPage.DisplayAlert(
-					"Error",
-					"Email or Password incorrect",
-					"Accept");
-				}
-				else
-				{
-					await Application.Current.MainPage.DisplayAlert(
-					"Ok",
-					"Access granted!",
-					"Accept");
-				}
+				var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
+				await authProvider.SendPasswordResetEmailAsync(email);
 			}
-
-			//Si todo es correcto y el logueo es correcto, pasamos al HomePage
-			if (correct)
+			catch (Exception ex)
 			{
-				MainViewModel.GetInstance().Home = new HomeViewModel();
-				//Toca pushear la pagina ComparePage al validar el Login
-				await Application.Current.MainPage.Navigation.PushAsync(new HomePage());
 
 			}
 
-			//Antes de ir a la pagina ComparePage, usamos ql patron Singleton e instanciamos nuestra MainViewModel
-
 		}
-
-		public ICommand RegisterCommand
-		{
-			get
-			{
-				return new RelayCommand(Register);
-			}
-		}
-
-		private async void Register()      //Para manejar los alerts en dif dispos, hace falta metodos asincronos
-		{
-			//Antes de ir a la pagina RegisterPage, usamos ql patron Singleton e instanciamos nuestra MainViewModel
-			MainViewModel.GetInstance().Register = new RegisterViewModel();
-			//Toca pushear la pagina RegisterPage al validar el registro
-			await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
-		}
-
-		public ICommand PreferenceCommand
-		{
-			get
-			{
-				return new RelayCommand(Preference);     //De la libreria instalada GalaSoft.MvvmLight.Command, y le pasamos un metodo por param
-			}
-		}
-
-		private async void Preference()
-		{
-			//Antes de ir a la pagina RegisterPage, usamos ql patron Singleton e instanciamos nuestra MainViewModel
-			MainViewModel.GetInstance().Preference = new PreferencesViewModel();
-			//Toca pushear la pagina RegisterPage al validar el registro
-			await Application.Current.MainPage.Navigation.PushAsync(new PreferencesPage());
-		}
-
 
 		#endregion
 
-		#region Constructors
+		#region Constructor
 		public LoginViewModel()
 		{
-			this.IsRemembered = true;
-			this.IsEnabled = true;
-
-			/*this.Email = "welltec@gmail.com";           //Luego se quita esto
-            this.Password = "1234";  */                   //Luego se quita esto
+			this.IsEnabledTxt = true;
 		}
 		#endregion
 	}

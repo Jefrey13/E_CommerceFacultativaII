@@ -10,6 +10,10 @@
 *.userosscache
 *.sln.docstates
 
+# Ignorar carpetas bin y obj generadas por Xamarin
+**/bin/
+**/obj/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

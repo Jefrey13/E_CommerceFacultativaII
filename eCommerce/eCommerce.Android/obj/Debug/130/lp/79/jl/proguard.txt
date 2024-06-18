@@ -1,23 +1,22 @@
--keepattributes AnnotationDefault,
-                RuntimeVisibleAnnotations,
-                RuntimeVisibleParameterAnnotations,
-                RuntimeVisibleTypeAnnotations
+# -------- PayPal SDK ----------
+# (does not include card.io)
 
--keepclassmembers enum androidx.lifecycle.Lifecycle$Event {
-    <fields>;
+-dontwarn com.google.android.gms.**
+# -- Ignoring warnings from okio based on https://github.com/square/okio/issues/60
+-dontwarn okio.*
+
+# This is added for okhttp 3.1.2 bug fix as shown at https://github.com/square/okhttp/issues/2323
+-keepclassmembers class * implements javax.net.ssl.SSLSocketFactory {
+    private javax.net.ssl.SSLSocketFactory delegate;
 }
 
--keep !interface * implements androidx.lifecycle.LifecycleObserver {
+# See https://github.com/paypal/PayPal-Android-SDK/issues/299
+-keep class org.json.* {
+    *;
 }
-
--keep class * implements androidx.lifecycle.GeneratedAdapter {
-    <init>(...);
+-keep interface org.json.* {
+    *;
 }
-
--keepclassmembers class ** {
-    @androidx.lifecycle.OnLifecycleEvent *;
+-keep enum org.json.* {
+    *;
 }
-
-# this rule is need to work properly when app is compiled with api 28, see b/142778206
-# Also this rule prevents registerIn from being inlined.
--keepclassmembers class androidx.lifecycle.ReportFragment$LifecycleCallbacks { *; }

@@ -11,6 +11,33 @@
           "lib/netstandard2.0/CommonServiceLocator.dll": {}
         }
       },
+      "FirebaseAuthentication.net/3.7.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Auth.dll": {}
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Threading.Tasks.Extensions": "4.5.2"
+        },
+        "compile": {
+          "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.DependencyInjection/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -84,6 +111,54 @@
           },
           "lib/monoandroid1/GalaSoft.MvvmLight.dll": {
             "related": ".pdb;.Platform.pdb;.Platform.XML;.XML"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "PayPal.Forms/2.18.6": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.1",
+          "Xamarin.Forms": "3.4.0.1029999",
+          "Xamarin.PayPal.Android": "2.18.1"
+        },
+        "compile": {
+          "lib/MonoAndroid10/PayPal.Forms.Abstractions.dll": {},
+          "lib/MonoAndroid10/PayPal.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/PayPal.Forms.Abstractions.dll": {},
+          "lib/MonoAndroid10/PayPal.Forms.dll": {}
+        }
+      },
+      "Plugin.Toast/2.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid10/Plugin.Toast.Abstractions.dll": {
+            "related": ".pdb"
+          },
+          "lib/MonoAndroid10/Plugin.Toast.dll": {
+            "related": ".Abstractions.pdb;.dll.mdb;.pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Plugin.Toast.Abstractions.dll": {
+            "related": ".pdb"
+          },
+          "lib/MonoAndroid10/Plugin.Toast.dll": {
+            "related": ".Abstractions.pdb;.dll.mdb;.pdb;.xml"
           }
         }
       },
@@ -209,6 +284,45 @@
           "lib/netstandard2.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
         }
       },
+      "Square.OkHttp3/3.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Square.OkIO": "1.11.0"
+        },
+        "compile": {
+          "lib/MonoAndroid/Square.OkHttp3.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid/Square.OkHttp3.dll": {}
+        }
+      },
+      "Square.OkIO/1.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid/Square.OkIO.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid/Square.OkIO.dll": {}
+        }
+      },
+      "Stripe.net/44.13.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "1.1.0",
+          "Newtonsoft.Json": "11.0.1",
+          "System.Configuration.ConfigurationManager": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Stripe.net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Stripe.net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Buffers/4.4.0": {
         "type": "package",
         "compile": {
@@ -229,6 +343,20 @@
         },
         "runtime": {
           "lib/MonoAndroid10/_._": {}
+        }
+      },
+      "System.Configuration.ConfigurationManager/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.Permissions": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
         }
       },
       "System.Memory/4.5.3": {
@@ -268,6 +396,66 @@
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "System.Security.AccessControl/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.Principal.Windows": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.AccessControl.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.AccessControl.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netstandard1.3/System.Security.AccessControl.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.Security.Permissions/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.AccessControl": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
+        }
+      },
+      "System.Security.Principal.Windows/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Security.Principal.Windows.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netstandard1.3/System.Security.Principal.Windows.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.2": {
+        "type": "package",
+        "compile": {
+          "ref/MonoAndroid10/_._": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/_._": {}
         }
       },
       "Xamarin.AndroidX.Activity/1.6.1": {
@@ -2493,20 +2681,60 @@
           "buildTransitive/monoandroid12.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
       },
+      "Xamarin.PayPal.Android/2.18.1": {
+        "type": "package",
+        "dependencies": {
+          "Square.OkHttp3": "3.5.0",
+          "Xamarin.PayPal.Android.CardIO": "2.0.1"
+        },
+        "compile": {
+          "lib/MonoAndroid10/Xamarin.PayPal.Android.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Xamarin.PayPal.Android.dll": {}
+        }
+      },
+      "Xamarin.PayPal.Android.CardIO/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid10/Xamarin.PayPal.Android.CardIO.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Xamarin.PayPal.Android.CardIO.dll": {}
+        }
+      },
+      "XamarinFastEntry.Behaviors/1.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.5.0.280555"
+        },
+        "compile": {
+          "lib/netstandard2.0/XamarinFastEntry.Behaviors.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/XamarinFastEntry.Behaviors.dll": {}
+        }
+      },
       "eCommerce/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "FirebaseAuthentication.net": "3.7.2",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
           "MvvmLightLibs": "5.4.1.1",
+          "Newtonsoft.Json": "13.0.3",
+          "PayPal.Forms": "2.18.6",
+          "Plugin.Toast": "2.2.0",
           "Rg.Plugins.Popup": "2.1.0",
           "SQLite.Net-PCL": "3.1.1",
           "SQLite.Net.Core-PCL": "3.1.1",
           "SQLitePCLRaw.bundle_green": "2.1.8",
           "SQLitePCLRaw.core": "2.1.8",
+          "Stripe.net": "44.13.0",
           "System.ComponentModel.Annotations": "5.0.0",
           "Xamarin.Essentials": "1.8.1",
           "Xamarin.Forms": "5.0.0.2662",
+          "XamarinFastEntry.Behaviors": "1.1.1",
           "sqlite-net-pcl": "1.9.172"
         },
         "compile": {
@@ -2534,6 +2762,42 @@
         "lib/netcoreapp1.0/CommonServiceLocator.dll",
         "lib/netstandard1.0/CommonServiceLocator.dll",
         "lib/netstandard2.0/CommonServiceLocator.dll"
+      ]
+    },
+    "FirebaseAuthentication.net/3.7.2": {
+      "sha512": "d0Zc0tiE7NutI/jMX/T81LU/rX3HVBH8vtvKTbIeN6BCIQ+wipstz7tm5MnIgAeh4ehqCHTiVuMOHztqfCVCBQ==",
+      "type": "package",
+      "path": "firebaseauthentication.net/3.7.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "firebaseauthentication.net.3.7.2.nupkg.sha512",
+        "firebaseauthentication.net.nuspec",
+        "lib/netstandard1.1/Firebase.Auth.dll"
+      ]
+    },
+    "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
+      "sha512": "1Am6l4Vpn3/K32daEqZI+FFr96OlZkgwK2LcT3pZ2zWubR5zTPW3/FkO1Rat9kb7oQOa4rxgl9LJHc5tspCWfg==",
+      "type": "package",
+      "path": "microsoft.bcl.asyncinterfaces/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml",
+        "microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
+        "microsoft.bcl.asyncinterfaces.nuspec",
+        "ref/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "ref/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
+        "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "Microsoft.Extensions.DependencyInjection/8.0.0": {
@@ -2756,6 +3020,89 @@
         "mvvmlightlibsstd10.nuspec"
       ]
     },
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "PayPal.Forms/2.18.6": {
+      "sha512": "WmTBbDTSVl8GlELpHYuiIwZk5WKqrn9MvdCG/xxH9Mq86/q9mgyfJJEiJVmAxPJHGpN1VizA1Lmhqy7dGbJiKw==",
+      "type": "package",
+      "path": "paypal.forms/2.18.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/PayPal.Forms.Abstractions.dll",
+        "lib/MonoAndroid10/PayPal.Forms.dll",
+        "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll",
+        "lib/Xamarin.iOS10/PayPal.Forms.dll",
+        "lib/netstandard1.0/PayPal.Forms.Abstractions.dll",
+        "lib/netstandard1.0/PayPal.Forms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/PayPal.Forms.Abstractions.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/PayPal.Forms.dll",
+        "paypal.forms.2.18.6.nupkg.sha512",
+        "paypal.forms.nuspec"
+      ]
+    },
+    "Plugin.Toast/2.2.0": {
+      "sha512": "PDq+r0P/WRu4YZimpwwfeLaTpHCVWlcw3MjJRC1be6Cg4ORfXL8YDz3HchnrRssRueUgP9ouwzLaQ4tLCD3Q4w==",
+      "type": "package",
+      "path": "plugin.toast/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/MonoAndroid10/Plugin.Toast.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Toast.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Toast.dll",
+        "lib/MonoAndroid10/Plugin.Toast.dll.mdb",
+        "lib/MonoAndroid10/Plugin.Toast.pdb",
+        "lib/MonoAndroid10/Plugin.Toast.xml",
+        "lib/UAP10/Plugin.Toast.Abstractions.dll",
+        "lib/UAP10/Plugin.Toast.Abstractions.pdb",
+        "lib/UAP10/Plugin.Toast.dll",
+        "lib/UAP10/Plugin.Toast.pdb",
+        "lib/UAP10/Plugin.Toast.pri",
+        "lib/Xamarin.iOS10/Plugin.Toast.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Toast.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.Toast.dll",
+        "lib/Xamarin.iOS10/Plugin.Toast.dll.mdb",
+        "lib/Xamarin.iOS10/Plugin.Toast.pdb",
+        "lib/Xamarin.iOS10/Plugin.Toast.xml",
+        "lib/netstandard/Plugin.Toast.Abstractions.dll",
+        "lib/netstandard/Plugin.Toast.Abstractions.pdb",
+        "lib/netstandard/Plugin.Toast.deps.json",
+        "lib/netstandard/Plugin.Toast.dll",
+        "lib/netstandard/Plugin.Toast.pdb",
+        "plugin.toast.2.2.0.nupkg.sha512",
+        "plugin.toast.nuspec"
+      ]
+    },
     "Rg.Plugins.Popup/2.1.0": {
       "sha512": "caKjkvimzpUqk4pO/WSFn3uOX43uZNW5rPWCx7eXkOlGG9Br90MTwNVS1nxhtyypB69uUe/0GQPEC3rz+kscbA==",
       "type": "package",
@@ -2910,6 +3257,58 @@
         "sqlitepclraw.provider.e_sqlite3.nuspec"
       ]
     },
+    "Square.OkHttp3/3.5.0": {
+      "sha512": "3oy8Gqf2drckI22TrGPLqzkXzAc1n4CaHO0/SFDjLhfgRS8GmaoD2YddmtCt9nSMZ2SWgvKruJvS/OTTb8ssnQ==",
+      "type": "package",
+      "path": "square.okhttp3/3.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "lib/MonoAndroid/Square.OkHttp3.dll",
+        "square.okhttp3.3.5.0.nupkg.sha512",
+        "square.okhttp3.nuspec"
+      ]
+    },
+    "Square.OkIO/1.11.0": {
+      "sha512": "RY+E9Lqvf79hsBWQKepC1dqSJ27Ig6VyHHE+82cojnUsAT/JmyIKJR+SreU0IDqStzteuJnlmz/LqcPunzPYOQ==",
+      "type": "package",
+      "path": "square.okio/1.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "lib/MonoAndroid/Square.OkIO.dll",
+        "square.okio.1.11.0.nupkg.sha512",
+        "square.okio.nuspec"
+      ]
+    },
+    "Stripe.net/44.13.0": {
+      "sha512": "4FaKJexaX7iafDpIk2lNvzpK9ku2j+PiVjS5VoTFlfpvtdy4pHut3fIy7dVMVFG7dKDlA1tu5YqJU05RW8Y9sA==",
+      "type": "package",
+      "path": "stripe.net/44.13.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "icon.png",
+        "lib/net461/Stripe.net.dll",
+        "lib/net461/Stripe.net.xml",
+        "lib/net5.0/Stripe.net.dll",
+        "lib/net5.0/Stripe.net.xml",
+        "lib/net6.0/Stripe.net.dll",
+        "lib/net6.0/Stripe.net.xml",
+        "lib/netcoreapp3.1/Stripe.net.dll",
+        "lib/netcoreapp3.1/Stripe.net.xml",
+        "lib/netstandard2.0/Stripe.net.dll",
+        "lib/netstandard2.0/Stripe.net.xml",
+        "stripe.net.44.13.0.nupkg.sha512",
+        "stripe.net.nuspec"
+      ]
+    },
     "System.Buffers/4.4.0": {
       "sha512": "AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==",
       "type": "package",
@@ -3025,6 +3424,27 @@
         "version.txt"
       ]
     },
+    "System.Configuration.ConfigurationManager/4.5.0": {
+      "sha512": "UIFvaFfuKhLr9u5tWMxmVoDPkFeD+Qv8gUuap4aZgVGYSYMdERck4OhLN/2gulAc0nYTEigWXSJNNWshrmxnng==",
+      "type": "package",
+      "path": "system.configuration.configurationmanager/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Configuration.ConfigurationManager.dll",
+        "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll",
+        "ref/net461/System.Configuration.ConfigurationManager.dll",
+        "ref/net461/System.Configuration.ConfigurationManager.xml",
+        "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll",
+        "ref/netstandard2.0/System.Configuration.ConfigurationManager.xml",
+        "system.configuration.configurationmanager.4.5.0.nupkg.sha512",
+        "system.configuration.configurationmanager.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Memory/4.5.3": {
       "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "type": "package",
@@ -3114,6 +3534,147 @@
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
         "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Security.AccessControl/4.5.0": {
+      "sha512": "vW8Eoq0TMyz5vAG/6ce483x/CP83fgm4SJe5P8Tb1tZaobcvPrbMEL7rhH1DRdrYbbb6F0vq3OlzmK0Pkwks5A==",
+      "type": "package",
+      "path": "system.security.accesscontrol/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/System.Security.AccessControl.dll",
+        "lib/net461/System.Security.AccessControl.dll",
+        "lib/netstandard1.3/System.Security.AccessControl.dll",
+        "lib/netstandard2.0/System.Security.AccessControl.dll",
+        "lib/uap10.0.16299/_._",
+        "ref/net46/System.Security.AccessControl.dll",
+        "ref/net461/System.Security.AccessControl.dll",
+        "ref/net461/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/System.Security.AccessControl.dll",
+        "ref/netstandard1.3/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/de/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/es/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/fr/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/it/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/ja/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/ko/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/ru/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/zh-hans/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/zh-hant/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/System.Security.AccessControl.dll",
+        "ref/netstandard2.0/System.Security.AccessControl.xml",
+        "ref/uap10.0.16299/_._",
+        "runtimes/win/lib/net46/System.Security.AccessControl.dll",
+        "runtimes/win/lib/net461/System.Security.AccessControl.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll",
+        "runtimes/win/lib/netstandard1.3/System.Security.AccessControl.dll",
+        "runtimes/win/lib/uap10.0.16299/_._",
+        "system.security.accesscontrol.4.5.0.nupkg.sha512",
+        "system.security.accesscontrol.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Security.Permissions/4.5.0": {
+      "sha512": "9gdyuARhUR7H+p5CjyUB/zPk7/Xut3wUSP8NJQB6iZr8L3XUXTMdoLeVAg9N4rqF8oIpE7MpdqHdDHQ7XgJe0g==",
+      "type": "package",
+      "path": "system.security.permissions/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Security.Permissions.dll",
+        "lib/netstandard2.0/System.Security.Permissions.dll",
+        "ref/net461/System.Security.Permissions.dll",
+        "ref/net461/System.Security.Permissions.xml",
+        "ref/netstandard2.0/System.Security.Permissions.dll",
+        "ref/netstandard2.0/System.Security.Permissions.xml",
+        "system.security.permissions.4.5.0.nupkg.sha512",
+        "system.security.permissions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Security.Principal.Windows/4.5.0": {
+      "sha512": "U77HfRXlZlOeIXd//Yoj6Jnk8AXlbeisf1oq1os+hxOGVnuG+lGSfGqTwTZBoORFF6j/0q7HXIl8cqwQ9aUGqQ==",
+      "type": "package",
+      "path": "system.security.principal.windows/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/System.Security.Principal.Windows.dll",
+        "lib/net461/System.Security.Principal.Windows.dll",
+        "lib/netstandard1.3/System.Security.Principal.Windows.dll",
+        "lib/netstandard2.0/System.Security.Principal.Windows.dll",
+        "lib/uap10.0.16299/_._",
+        "ref/net46/System.Security.Principal.Windows.dll",
+        "ref/net461/System.Security.Principal.Windows.dll",
+        "ref/net461/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/System.Security.Principal.Windows.dll",
+        "ref/netstandard1.3/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/de/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/es/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/fr/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/it/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ja/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ko/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ru/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/zh-hans/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/zh-hant/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/System.Security.Principal.Windows.dll",
+        "ref/netstandard2.0/System.Security.Principal.Windows.xml",
+        "ref/uap10.0.16299/_._",
+        "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/net46/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/net461/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/netstandard1.3/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/uap10.0.16299/_._",
+        "system.security.principal.windows.4.5.0.nupkg.sha512",
+        "system.security.principal.windows.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Threading.Tasks.Extensions/4.5.2": {
+      "sha512": "BG/TNxDFv0svAzx8OiMXDlsHfGw623BZ8tCXw4YLhDFDvDhNUEV58jKYMGRnkbJNm7c3JNNJDiN7JBMzxRBR2w==",
+      "type": "package",
+      "path": "system.threading.tasks.extensions/4.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard1.0/System.Threading.Tasks.Extensions.xml",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.xml",
+        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/netcoreapp2.1/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.threading.tasks.extensions.4.5.2.nupkg.sha512",
+        "system.threading.tasks.extensions.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -5068,6 +5629,42 @@
         "xamarin.kotlinx.coroutines.core.jvm.nuspec"
       ]
     },
+    "Xamarin.PayPal.Android/2.18.1": {
+      "sha512": "YecI7Dcm1oDtMHDEDgMu5F1XTl1F2Kt/hioNlP6XzqYVDLDgY0+DqJPDLAblR24KFwCvkc/tQksyUTJp1U19DQ==",
+      "type": "package",
+      "path": "xamarin.paypal.android/2.18.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Xamarin.PayPal.Android.dll",
+        "xamarin.paypal.android.2.18.1.nupkg.sha512",
+        "xamarin.paypal.android.nuspec"
+      ]
+    },
+    "Xamarin.PayPal.Android.CardIO/2.0.1": {
+      "sha512": "by/sVV8aFy5ZsGAGLzmxUMvzw0ipYx9mtxswT/bYjHMfK5Z64+8A6Pnv7TShoiFWk7id5JilmbsOE/beDqUBjg==",
+      "type": "package",
+      "path": "xamarin.paypal.android.cardio/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Xamarin.PayPal.Android.CardIO.dll",
+        "xamarin.paypal.android.cardio.2.0.1.nupkg.sha512",
+        "xamarin.paypal.android.cardio.nuspec"
+      ]
+    },
+    "XamarinFastEntry.Behaviors/1.1.1": {
+      "sha512": "wFocE4uJRpzgb5r6D2GLPa1hrR/Fs7v0r62YacxC2KxcVhV2okSGpu3/giboT5fCfHQ/8QzP4SbWi+tZnAqJOQ==",
+      "type": "package",
+      "path": "xamarinfastentry.behaviors/1.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/XamarinFastEntry.Behaviors.dll",
+        "xamarinfastentry.behaviors.1.1.1.nupkg.sha512",
+        "xamarinfastentry.behaviors.nuspec"
+      ]
+    },
     "eCommerce/1.0.0": {
       "type": "project",
       "path": "../eCommerce/eCommerce.csproj",
@@ -5096,11 +5693,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
       "projectName": "eCommerce.Android",
-      "projectPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
+      "projectPath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
       "packagesPath": "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\obj\\",
+      "outputPath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -5121,8 +5718,8 @@
       "frameworks": {
         "monoandroid13.0": {
           "projectReferences": {
-            "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj": {
-              "projectPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj"
+            "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj": {
+              "projectPath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj"
             }
           }
         }
@@ -5140,14 +5737,6 @@
             "target": "Package",
             "version": "[8.0.0, )"
           },
-          "Microsoft.Extensions.DependencyInjection": {
-            "target": "Package",
-            "version": "[8.0.0, )"
-          },
-          "MvvmLightLibsStd10": {
-            "target": "Package",
-            "version": "[5.4.1.1, )"
-          },
           "MvvmLightLibsStd10": {
             "target": "Package",
             "version": "[5.4.1.1, )"
@@ -5156,19 +5745,7 @@
             "target": "Package",
             "version": "[2.1.0, )"
           },
-          "Rg.Plugins.Popup": {
-            "target": "Package",
-            "version": "[2.1.0, )"
-          },
           "SQLite.Net-PCL": {
-            "target": "Package",
-            "version": "[3.1.1, )"
-          },
-          "SQLite.Net-PCL": {
-            "target": "Package",
-            "version": "[3.1.1, )"
-          },
-          "SQLite.Net.Core-PCL": {
             "target": "Package",
             "version": "[3.1.1, )"
           },
@@ -5180,14 +5757,6 @@
             "target": "Package",
             "version": "[2.1.8, )"
           },
-          "SQLitePCLRaw.bundle_green": {
-            "target": "Package",
-            "version": "[2.1.8, )"
-          },
-          "SQLitePCLRaw.core": {
-            "target": "Package",
-            "version": "[2.1.8, )"
-          },
           "SQLitePCLRaw.core": {
             "target": "Package",
             "version": "[2.1.8, )"
@@ -5196,21 +5765,9 @@
             "target": "Package",
             "version": "[1.8.1, )"
           },
-          "Xamarin.Essentials": {
-            "target": "Package",
-            "version": "[1.8.1, )"
-          },
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[5.0.0.2662, )"
-          },
-          "Xamarin.Forms": {
-            "target": "Package",
-            "version": "[5.0.0.2662, )"
-          },
-          "sqlite-net-pcl": {
-            "target": "Package",
-            "version": "[1.9.172, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",
