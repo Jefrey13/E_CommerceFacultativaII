@@ -186,7 +186,7 @@ namespace eCommerce
 
 			//ConfigureServices();
 
-			MainPage = new HomePage();
+			MainPage = new Views.AccessApp.LoginPage();
 			//MainPage = new Views.AccessApp.LoginPage();
 		}
 		/**private void ConfigureServices()
