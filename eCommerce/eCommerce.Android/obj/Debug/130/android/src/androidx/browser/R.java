@@ -164,7 +164,7 @@ public final class R {
 		public static final int fallback_menu_item_copy_link = 0x7f0e002d;
 		public static final int fallback_menu_item_open_in_browser = 0x7f0e002e;
 		public static final int fallback_menu_item_share_link = 0x7f0e002f;
-		public static final int status_bar_notification_info_overflow = 0x7f0e0075;
+		public static final int status_bar_notification_info_overflow = 0x7f0e0076;
 	}
 	public static final class style {
 		public static final int TextAppearance_Compat_Notification = 0x7f0f0183;

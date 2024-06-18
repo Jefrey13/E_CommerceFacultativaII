@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="eCommerce.Views.StripePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:FastEntry="clr-namespace:XamarinFastEntrySample.FastEntry;assembly=XamarinFastEntry.Behaviors">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame
+                Grid.ColumnSpan="2"
+                Margin="20"
+                CornerRadius="{OnPlatform Android=7}"
+                HasShadow="{OnPlatform Android=true,iOS=false}"
+                HorizontalOptions="Center"
+                Padding="{OnPlatform Android=8,iOS=0}">
+                <Entry
+                    Keyboard="Numeric"
+                    Placeholder="Amount to Pay"
+                    Text="{Binding Amount}"
+                    WidthRequest="150">
+                    <Entry.Behaviors>
+                        <FastEntry:XamarinFastEntryBehaviour Mask="#### #### #### ####" MaxLength="19" />
+                    </Entry.Behaviors>
+                </Entry>
+
+            </Frame>
+
+
+            <Label
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                FontAttributes="Bold"
+                HorizontalOptions="CenterAndExpand"
+                Text="Stripe Payment Gateway"
+                TextColor="Black" />
+            <Label
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Margin="10,0,0,0"
+                Text="Card Number"
+                TextColor="Black" />
+            <Frame
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Margin="10,0,10,20"
+                CornerRadius="{OnPlatform Android=7}"
+                HasShadow="{OnPlatform Android=true,iOS=false}"
+                Padding="{OnPlatform Android=8,iOS=0}">
+                <Entry
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    Keyboard="Numeric"
+                    Text="{Binding CardNumber}">
+                    <Entry.Behaviors>
+                        <FastEntry:XamarinFastEntryBehaviour Mask="#### #### #### ####" MaxLength="19" />
+                    </Entry.Behaviors>
+                </Entry>
+            </Frame>
+
+            <Label
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Margin="10,0,0,0"
+                Text="Expiry"
+                TextColor="Black" />
+            <Frame
+                Grid.Row="5"
+                Margin="10,0,0,0"
+                CornerRadius="{OnPlatform Android=7}"
+                HasShadow="{OnPlatform Android=true,iOS=false}"
+                Padding="{OnPlatform Android=8,iOS=0}">
+                <Entry
+                    Grid.Row="5"
+                    BackgroundColor="Transparent"
+                    Keyboard="Numeric"
+                    Placeholder="MM/YY"
+                    Text="{Binding Expiry}">
+                    <Entry.Behaviors>
+                        <FastEntry:XamarinFastEntryBehaviour Mask="##/##" MaxLength="5" />
+                    </Entry.Behaviors>
+                </Entry>
+            </Frame>
+
+
+            <Label
+                Grid.Row="4"
+                Grid.Column="1"
+                Text="CVV"
+                TextColor="Black" />
+            <Frame
+                Grid.Row="5"
+                Grid.Column="1"
+                Margin="0,0,10,0"
+                CornerRadius="{OnPlatform Android=7}"
+                HasShadow="{OnPlatform Android=true,iOS=false}"
+                Padding="{OnPlatform Android=8,iOS=0}">
+                <Entry
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    Keyboard="Numeric"
+                    Text="{Binding Cvv}">
+                    <Entry.Behaviors>
+                        <FastEntry:XamarinFastEntryBehaviour Mask="###" MaxLength="3" />
+                    </Entry.Behaviors>
+                </Entry>
+
+            </Frame>
+
+            <Button
+                Grid.Row="6"
+                Grid.ColumnSpan="2"
+                Margin="10,20,10,20"
+                Background="#00C569"
+                Command="{Binding PayCommand}"
+                CornerRadius="10"
+                FontAttributes="Bold"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand"
+                Text="Pay"
+                TextColor="White" />
+            <Button
+                Grid.Row="7"
+                Grid.ColumnSpan="2"
+                Margin="10,5,10,20"
+                Background="Black"
+                Command="{Binding PayCommand}"
+                CornerRadius="10"
+                FontAttributes="Bold"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand"
+                Text="Pay Later"
+                TextColor="White" />
+            <!-- Timeline-->
+            <Frame
+                Grid.Row="8"
+                Margin="10,0,-200,0"
+                CornerRadius="10"
+                HeightRequest="113">
+                <Grid ColumnDefinitions="Auto,Auto" RowDefinitions="Auto,Auto,Auto,Auto">
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        CharacterSpacing="2"
+                        FontSize="14"
+                        Text="TIMELINE"
+                        TextColor="Silver" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Padding="0,0,15,0"
+                        Text="Sept 26" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="13"
+                        Text="Confirm received commodity, $181.94 is included in this month bills." />
+                    <Line
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        Margin="0,5,0,0"
+                        HorizontalOptions="CenterAndExpand"
+                        Stroke="Silver"
+                        StrokeThickness="0.5"
+                        X1="260" />
+                    <Image
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        HorizontalOptions="End"
+                        Source="LogoPaypal"
+                        TranslationY="3" />
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Center"
+                        Padding="0,5,0,0"
+                        Text="lyh4852@icloud.com" />
+                </Grid>
+            </Frame>
+            <!-- Paymnet buttons-->
+            <Label
+                Grid.Row="9"
+                Grid.ColumnSpan="2"
+                Margin="10,10,10,0"
+                HorizontalTextAlignment="Center"
+                VerticalOptions="CenterAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            FontAttributes="Bold"
+                            FontSize="15"
+                            Text="Have problem about this bill?"
+                            TextColor="Silver" />
+                        <Span
+                            FontAttributes="Bold"
+                            FontSize="15"
+                            Text=" Customer service"
+                            TextColor="#4e4e4e" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
