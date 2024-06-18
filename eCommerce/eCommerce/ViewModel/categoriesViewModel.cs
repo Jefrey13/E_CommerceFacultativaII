@@ -40,9 +40,10 @@ namespace eCommerce.Model
             CreateItemCollection();
             CreateFeaturedItemCollection();
 
-            ItemTapCommand = new Command<ItemsPreview>(items =>
+            ItemTapCommand = new Command<ItemsPreview>(item =>
             {
-                Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync((new ProductPage()));
+                int Id = item.Id;
+                Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync((new ProductPage(Id)));
             });
 
             FeaturedTapCommand = new Command<FeaturedBrands>(brand =>

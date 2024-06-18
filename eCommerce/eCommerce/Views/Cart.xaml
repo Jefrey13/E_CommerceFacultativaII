@@ -7,17 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:eCommerce.Model"
     BackgroundColor="White"
-    mc:Ignorable="d">
-
-    <ContentPage.BindingContext>
-        <viewmodels:CardViewModel />
-    </ContentPage.BindingContext>
+    mc:Ignorable="d"
+    x:Name="cartPage">
 
     <ContentPage.Content>
         <StackLayout>
 
             <StackLayout Margin="20,20,20,0">
-                <CollectionView x:Name="collectionView" ItemsSource="{Binding itemPreview}">
+                <CollectionView x:Name="collectionView" ItemsSource="{Binding itemPreviewP}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <SwipeView>
@@ -52,7 +49,7 @@
                                                 <Image
                                                     Aspect="AspectFit"
                                                     HeightRequest="120"
-                                                    Source="{Binding image}"
+                                                    Source="{Binding ImageUrl}"
                                                     WidthRequest="120" />
                                             </StackLayout>
 
@@ -61,7 +58,7 @@
                                                 <Label
                                                     FontSize="16"
                                                     HorizontalOptions="StartAndExpand"
-                                                    Text="{Binding name}"
+                                                    Text="{Binding Name}"
                                                     TextColor="Black">
                                                     <Label.FontFamily>
                                                         <OnPlatform x:TypeArguments="x:String">
@@ -107,7 +104,8 @@
                                                                 </Label.FontFamily>
                                                             </Label>
                                                             <StackLayout.GestureRecognizers>
-                                                                <TapGestureRecognizer Command="{Binding IncreaseTapCommand}" CommandParameter="{Binding numbers}" />
+                                                                <!--<TapGestureRecognizer Command="{Binding IncreaseTapCommand}" CommandParameter="{Binding numbers}" />-->
+                                                                <TapGestureRecognizer Command="{Binding Source={x:Reference cartPage}, Path = BindingContext.IncreaseTapCommand}" CommandParameter="{Binding .}" />
                                                             </StackLayout.GestureRecognizers>
                                                         </StackLayout>
 
@@ -118,7 +116,7 @@
                                                             <Label
                                                                 FontSize="16"
                                                                 HorizontalOptions="Center"
-                                                                Text="{Binding numbers}"
+                                                                Text="{Binding Quantity}"
                                                                 TextColor="Black"
                                                                 VerticalOptions="CenterAndExpand"
                                                                 VerticalTextAlignment="Center">
@@ -149,7 +147,8 @@
                                                                 </Label.FontFamily>
                                                             </Label>
                                                             <StackLayout.GestureRecognizers>
-                                                                <TapGestureRecognizer Command="{Binding DecreseTapCommand}" CommandParameter="{Binding .}" />
+                                                                <!--<TapGestureRecognizer Command="{Binding DecreseTapCommand}" CommandParameter="{Binding .}" />-->
+                                                                <TapGestureRecognizer Command="{Binding Source={x:Reference cartPage}, Path=BindingContext.DecreseTapCommand}" CommandParameter="{Binding .}" />
                                                             </StackLayout.GestureRecognizers>
                                                         </StackLayout>
 

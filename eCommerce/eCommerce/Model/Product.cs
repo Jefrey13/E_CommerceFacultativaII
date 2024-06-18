@@ -29,5 +29,6 @@ namespace eCommerce.Model
         
 		[Required]
 		public bool Status { get; set; }
-    }
+		public int Quantity { get; set; }
+	}
 }

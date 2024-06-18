@@ -84,7 +84,7 @@ namespace eCommerce.Views
         async void OnItemSelected(object sender, SelectionChangedEventArgs e)
         {
 
-            await Navigation.PushModalAsync(new ProductPage());
+            await Navigation.PushModalAsync(new ProductPage(1));
         }
 
       

@@ -1,24 +1,68 @@
-﻿using System;
+﻿using eCommerce.DataAccess;
+using eCommerce.Views;
+using Plugin.Toast;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace eCommerce.Model
 {
     public class ProductViewModel: INotifyPropertyChanged
     {
-        readonly IList<Reviews> source;
+        private int _id;
+
+        private ProductDataAccess _productDataAccess;
+        private CartDataAccess _productCartDataAccess;
+
+		readonly List<ItemsPreview> sourceP;
+		public ObservableCollection<ItemsPreview> itemPreviewP { get; private set; }
+
+		readonly IList<Reviews> source;
         public ObservableCollection<Reviews> itemPreview { get; private set; }
-
-        public ProductViewModel()
+		public ICommand AddCommand { get; set; }
+		public ProductViewModel(int id)
         {
-            source = new List<Reviews>();            
-            CreateItemCollection();
-        }
+            _id = id;
+            _productDataAccess = new ProductDataAccess();
+			_productCartDataAccess  = new CartDataAccess();
+			source = new List<Reviews>();            
+            sourceP = new List<ItemsPreview>();
+			CreateItemCollection();
+            CreateDetailItemCollection();
 
-        void CreateItemCollection()
+            AddCommand = new Command(OnItemTapCommand);
+
+		}
+		void OnItemTapCommand()
+		{
+            var cart = _productCartDataAccess.AddCartItem(_id, 1);
+			CrossToastPopUp.Current.ShowCustomToast("Success", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+
+			Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync((new Cart()));
+		}
+		void CreateDetailItemCollection()
+		{
+			var product = _productDataAccess.GetProductsById(_id);
+
+			if (product.Data != null)
+			{
+					sourceP.Add(new ItemsPreview
+					{
+						ImageUrl = product.Data.Image,
+						Name = product.Data.Name,
+						price = product.Data.Price,
+						Description = product.Data.Description
+					});
+				itemPreviewP = new ObservableCollection<ItemsPreview>(sourceP);
+			}
+		}
+
+		void CreateItemCollection()
         {
             source.Add(new Reviews
             {

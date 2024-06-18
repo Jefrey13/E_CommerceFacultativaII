@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerce.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,13 +15,18 @@ namespace eCommerce.Views
     {
         double lastScrollIndex;
         double currentScrollIndex;
-       
-        public ProductPage()
+		private ProductViewModel ViewModel { get; set; } // Agregar una propiedad para el ViewModel
+
+		public ProductPage(int Id)
         {
             InitializeComponent();
-            review.HeightRequest = 4 * 90;
+            //review.HeightRequest = 4 * 90;
 
-        }
+			// Crear una instancia de categoriesViewModel y asignarla como contexto de enlace
+			ViewModel = new ProductViewModel(Id);
+			BindingContext = ViewModel;
+
+		}
 
         private void ScrollView_Scrolled(object sender, ScrolledEventArgs e)
         {
@@ -46,7 +52,7 @@ namespace eCommerce.Views
         private async  void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
             string action = await DisplayActionSheet("Select Size", "Cancel", null, "X", "XL", "XXL");
-            size.Text = action;
+           // size.Text = action;
         }
     }
 }

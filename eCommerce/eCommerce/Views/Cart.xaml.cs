@@ -1,4 +1,6 @@
-﻿using System;
+﻿using eCommerce.Model;
+using eCommerce.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +13,15 @@ namespace eCommerce.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Cart : ContentPage
-    {       
-        public Cart()
+    {
+		private CartViewModel ViewModel { get; set; } // Agregar una propiedad para el ViewModel
+		public Cart()
         {
             InitializeComponent();
-        }
+			// Crear una instancia de categoriesViewModel y asignarla como contexto de enlace
+			ViewModel = new CartViewModel();
+			BindingContext = ViewModel;
+		}
 
         async void OnDeleteSwipeItemInvoked(object sender, EventArgs e)
         {
@@ -36,7 +42,5 @@ namespace eCommerce.Views
         {
             await Navigation.PushModalAsync(new Account());
         }
-
-      
     }
 }
