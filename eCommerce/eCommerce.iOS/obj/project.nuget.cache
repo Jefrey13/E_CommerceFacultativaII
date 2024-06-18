@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "REZqdBnoixAnfyNd31K1/pzSg8b4IRS7XtwI/rSy+9Wa6TnCdrQOCUHnPEq/e76lw3SNipR+aK+JiWezMu4xFw==",
+  "dgSpecHash": "qpa28sZJKkFEX4oIiL/wim0Q25pXmSBnvIFIZgJqP+tjOuPDGIi2pBnJfGEniJprIdQK4+3lP2Usw291CNod7Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.iOS\\eCommerce.iOS.csproj",
+  "projectFilePath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.iOS\\eCommerce.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\commonservicelocator\\2.0.2\\commonservicelocator.2.0.2.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\firebaseauthentication.net\\3.7.2\\firebaseauthentication.net.3.7.2.nupkg.sha512",

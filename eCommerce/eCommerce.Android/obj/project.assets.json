@@ -5693,11 +5693,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
       "projectName": "eCommerce.Android",
-      "projectPath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
+      "projectPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
       "packagesPath": "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\obj\\",
+      "outputPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -5718,8 +5718,8 @@
       "frameworks": {
         "monoandroid13.0": {
           "projectReferences": {
-            "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj": {
-              "projectPath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj"
+            "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj": {
+              "projectPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj"
             }
           }
         }
@@ -5737,6 +5737,14 @@
             "target": "Package",
             "version": "[8.0.0, )"
           },
+          "Microsoft.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[8.0.0, )"
+          },
+          "MvvmLightLibsStd10": {
+            "target": "Package",
+            "version": "[5.4.1.1, )"
+          },
           "MvvmLightLibsStd10": {
             "target": "Package",
             "version": "[5.4.1.1, )"
@@ -5745,7 +5753,19 @@
             "target": "Package",
             "version": "[2.1.0, )"
           },
+          "Rg.Plugins.Popup": {
+            "target": "Package",
+            "version": "[2.1.0, )"
+          },
           "SQLite.Net-PCL": {
+            "target": "Package",
+            "version": "[3.1.1, )"
+          },
+          "SQLite.Net-PCL": {
+            "target": "Package",
+            "version": "[3.1.1, )"
+          },
+          "SQLite.Net.Core-PCL": {
             "target": "Package",
             "version": "[3.1.1, )"
           },
@@ -5757,6 +5777,14 @@
             "target": "Package",
             "version": "[2.1.8, )"
           },
+          "SQLitePCLRaw.bundle_green": {
+            "target": "Package",
+            "version": "[2.1.8, )"
+          },
+          "SQLitePCLRaw.core": {
+            "target": "Package",
+            "version": "[2.1.8, )"
+          },
           "SQLitePCLRaw.core": {
             "target": "Package",
             "version": "[2.1.8, )"
@@ -5765,9 +5793,21 @@
             "target": "Package",
             "version": "[1.8.1, )"
           },
+          "Xamarin.Essentials": {
+            "target": "Package",
+            "version": "[1.8.1, )"
+          },
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[5.0.0.2662, )"
+          },
+          "Xamarin.Forms": {
+            "target": "Package",
+            "version": "[5.0.0.2662, )"
+          },
+          "sqlite-net-pcl": {
+            "target": "Package",
+            "version": "[1.9.172, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",

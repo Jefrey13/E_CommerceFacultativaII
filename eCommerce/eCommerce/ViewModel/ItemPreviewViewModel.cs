@@ -53,9 +53,10 @@ namespace eCommerce.Model
 			CreateItemCollection2();
 			CreateItemCollection();
 
-            ItemTapCommand = new Command<ItemsPreview>(items =>
-            {                
-                Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync((new ProductPage()));
+            ItemTapCommand = new Command<ItemsPreview>(item =>
+            {
+				int Id = item.Id;
+                Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync((new ProductPage(Id)));
             });
 
             CatTapCommand = new Command<Category>(item =>
@@ -125,6 +126,7 @@ namespace eCommerce.Model
 				{
 					source.Add(new ItemsPreview
 					{
+						Id = item.Id,
 						ImageUrl = item.Image,
 						Name = item.Name,
 						price = item.Price
@@ -145,6 +147,7 @@ namespace eCommerce.Model
 				{
 					sourceBS.Add(new ItemsPreview
 					{
+						Id = item.Id,
 						ImageUrl = item.Image,
 						Name = item.Name,
 						price = item.Price

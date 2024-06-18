@@ -7,17 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:eCommerce.Model"
     BackgroundColor="White"
-    mc:Ignorable="d">
-
-    <ContentPage.BindingContext>
-        <viewmodels:CardViewModel />
-    </ContentPage.BindingContext>
+    mc:Ignorable="d"
+    x:Name="cartPage">
 
     <ContentPage.Content>
         <StackLayout>
 
             <StackLayout Margin="20,20,20,0">
-                <CollectionView x:Name="collectionView" ItemsSource="{Binding itemPreview}">
+                <CollectionView x:Name="collectionView" ItemsSource="{Binding itemPreviewP}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <SwipeView>
@@ -52,7 +49,7 @@
                                                 <Image
                                                     Aspect="AspectFit"
                                                     HeightRequest="120"
-                                                    Source="{Binding image}"
+                                                    Source="{Binding ImageUrl}"
                                                     WidthRequest="120" />
                                             </StackLayout>
 
@@ -61,7 +58,7 @@
                                                 <Label
                                                     FontSize="16"
                                                     HorizontalOptions="StartAndExpand"
-                                                    Text="{Binding name}"
+                                                    Text="{Binding Name}"
                                                     TextColor="Black">
                                                     <Label.FontFamily>
                                                         <OnPlatform x:TypeArguments="x:String">
@@ -107,7 +104,8 @@
                                                                 </Label.FontFamily>
                                                             </Label>
                                                             <StackLayout.GestureRecognizers>
-                                                                <TapGestureRecognizer Command="{Binding IncreaseTapCommand}" CommandParameter="{Binding numbers}" />
+                                                                <!--<TapGestureRecognizer Command="{Binding IncreaseTapCommand}" CommandParameter="{Binding numbers}" />-->
+                                                                <TapGestureRecognizer Command="{Binding Source={x:Reference cartPage}, Path = BindingContext.IncreaseTapCommand}" CommandParameter="{Binding .}" />
                                                             </StackLayout.GestureRecognizers>
                                                         </StackLayout>
 
@@ -118,7 +116,7 @@
                                                             <Label
                                                                 FontSize="16"
                                                                 HorizontalOptions="Center"
-                                                                Text="{Binding numbers}"
+                                                                Text="{Binding Quantity}"
                                                                 TextColor="Black"
                                                                 VerticalOptions="CenterAndExpand"
                                                                 VerticalTextAlignment="Center">
@@ -149,7 +147,8 @@
                                                                 </Label.FontFamily>
                                                             </Label>
                                                             <StackLayout.GestureRecognizers>
-                                                                <TapGestureRecognizer Command="{Binding DecreseTapCommand}" CommandParameter="{Binding .}" />
+                                                                <!--<TapGestureRecognizer Command="{Binding DecreseTapCommand}" CommandParameter="{Binding .}" />-->
+                                                                <TapGestureRecognizer Command="{Binding Source={x:Reference cartPage}, Path=BindingContext.DecreseTapCommand}" CommandParameter="{Binding .}" />
                                                             </StackLayout.GestureRecognizers>
                                                         </StackLayout>
 
@@ -174,83 +173,80 @@
             <StackLayout>
                 <!--  Footer_checkOut  -->
                 <StackLayout
-                    Margin="0,-5,0,0"
-                    BackgroundColor="White"
-                    HeightRequest="80"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="EndAndExpand">
+    Margin="0,-5,0,0"
+    BackgroundColor="White"
+    HeightRequest="80"
+    HorizontalOptions="FillAndExpand"
+    VerticalOptions="EndAndExpand">
                     <BoxView
-                        Margin="0"
-                        BackgroundColor="#F7F7F7"
-                        HeightRequest="1"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="StartAndExpand" />
+        Margin="0"
+        BackgroundColor="#F7F7F7"
+        HeightRequest="1"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="StartAndExpand" />
                     <Frame
-                        Padding="0"
-                        BackgroundColor="Transparent"
-                        HasShadow="True"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="CenterAndExpand">
+        BackgroundColor="Transparent"
+        HasShadow="True"
+        HorizontalOptions="FillAndExpand"
+        Padding="0"
+        VerticalOptions="CenterAndExpand">
                         <StackLayout
-                            Margin="0,0,0,10"
-                            Orientation="Horizontal"
-                            VerticalOptions="CenterAndExpand">
+            Margin="0,0,0,10"
+            Orientation="Horizontal"
+            VerticalOptions="CenterAndExpand">
                             <StackLayout>
                                 <Label
-                                    Margin="30,0,35,0"
-                                    FontSize="12"
-                                    HorizontalOptions="Center"
-                                    Text="PRICE"
-                                    TextColor="#929292"
-                                    VerticalOptions="CenterAndExpand"
-                                    VerticalTextAlignment="Center">
+                    Margin="30,0,35,0"
+                    FontSize="12"
+                    HorizontalOptions="Center"
+                    Text="TOTAL"
+                    TextColor="#929292"
+                    VerticalOptions="CenterAndExpand"
+                    VerticalTextAlignment="Center">
                                     <Label.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
                                         </OnPlatform>
                                     </Label.FontFamily>
                                 </Label>
 
                                 <Label
-                                    Margin="30,0,35,0"
-                                    FontSize="18"
-                                    HorizontalOptions="Center"
-                                    Text="$7500"
-                                    TextColor="#00C569"
-                                    VerticalOptions="CenterAndExpand"
-                                    VerticalTextAlignment="Center">
+                    Margin="30,0,35,0"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="$7500"
+                    TextColor="#00C569"
+                    VerticalOptions="CenterAndExpand"
+                    VerticalTextAlignment="Center">
                                     <Label.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
                                         </OnPlatform>
                                     </Label.FontFamily>
                                 </Label>
 
                             </StackLayout>
 
-
-                            <Frame
-                                Margin="0,0,30,0"
-                                Padding="0"
-                                BackgroundColor="#00C569"
-                                CornerRadius="5"
-                                HasShadow="False"
-                                HorizontalOptions="EndAndExpand"
-                                VerticalOptions="CenterAndExpand">
-                                <Label
-                                    Margin="35,15,35,15"
-                                    FontSize="14"
-                                    HorizontalOptions="Center"
-                                    Text="CHECKOUT"
-                                    TextColor="White"
-                                    VerticalTextAlignment="Center">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="Android" Value="SFPro.ttf#Bold" />
-                                        </OnPlatform>
-                                    </Label.FontFamily>
-                                </Label>
-                            </Frame>
+                            <Button
+               x:Name="btnStrapi"
+               Margin="85,15,-10,15"
+               BackgroundColor="#00C569"
+               CornerRadius="5"
+               FontSize="14"
+               HorizontalOptions="CenterAndExpand"
+               Text="Strapi"
+               TextColor="White" 
+                Clicked="btnStrapi_Clicked"/>
+                            <Button
+                x:Name="btnPayment"
+                Margin="15,15,10,15"
+                BackgroundColor="#00C569"
+                Clicked="btnPayment_Clicked"
+                CornerRadius="5"
+                FontSize="14"
+                HorizontalOptions="Center"
+                Text="PayPal"
+                TextColor="White" />
                         </StackLayout>
                     </Frame>
 

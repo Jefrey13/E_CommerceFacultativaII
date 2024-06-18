@@ -13,5 +13,6 @@ namespace eCommerce.Utils
 
 		// T as private member data type.
 		public T Data { get; set; }
+		public int Quantity { get; set; }
 	}
 }

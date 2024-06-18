@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj": {}
+    "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj": {
+    "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
+        "projectUniqueName": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
         "projectName": "eCommerce.Android",
-        "projectPath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
+        "projectPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
         "packagesPath": "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\obj\\",
+        "outputPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid13.0": {
             "projectReferences": {
-              "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj": {
-                "projectPath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj"
+              "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj": {
+                "projectPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj"
               }
             }
           }
@@ -91,14 +91,14 @@
         }
       }
     },
-    "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj": {
+    "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj",
+        "projectUniqueName": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj",
         "projectName": "eCommerce",
-        "projectPath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj",
+        "projectPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj",
         "packagesPath": "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\obj\\",
+        "outputPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

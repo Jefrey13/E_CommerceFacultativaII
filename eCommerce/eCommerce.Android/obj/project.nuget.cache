@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "l0CC8vSwVPQsqZjCltFzFdUpJnilfwZN+LcNN5Q4ZwxyLy2DuOr4T100bSuustDj27HK/180m5hEzvrq0iMk4Q==",
+  "dgSpecHash": "TQJTK+e2TV3JomeoLqskRbWpLyxro4gpDPsIepVdI+vh5Yb/yGDiJZRohASmccZgIXpifasIgTK/GtcHggHLvA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jefrey zuniga\\Source\\Repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
+  "projectFilePath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\commonservicelocator\\2.0.2\\commonservicelocator.2.0.2.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\firebaseauthentication.net\\3.7.2\\firebaseauthentication.net.3.7.2.nupkg.sha512",

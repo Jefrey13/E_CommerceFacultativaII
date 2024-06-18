@@ -13,10 +13,6 @@ namespace eCommerce.Views
 		public HomePage()
 		{
 			InitializeComponent();
-			//_viewModel = (Application.Current as App).ServiceProvider.GetService<ItemPreviewViewModel>();
-			//_viewModel = App.Current.MainPage as ItemPreviewViewModel;
-			//_viewModel = App.ServiceProvider.GetService<ItemPreviewViewModel>();
-			//BindingContext = _viewModel;
 		}
 
 
