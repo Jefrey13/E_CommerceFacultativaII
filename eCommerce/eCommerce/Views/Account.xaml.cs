@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerce.Views.AccessApp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace eCommerce.Views
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new TrackOrder());
+            await Navigation.PushModalAsync(new ConfigUserPage());
         }
 
         private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)

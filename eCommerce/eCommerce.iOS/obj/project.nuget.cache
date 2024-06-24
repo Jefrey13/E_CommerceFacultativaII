@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qpa28sZJKkFEX4oIiL/wim0Q25pXmSBnvIFIZgJqP+tjOuPDGIi2pBnJfGEniJprIdQK4+3lP2Usw291CNod7Q==",
+  "dgSpecHash": "f/PcbIYaeGL59NJqPc95UAcGvtkW/TN/L9T+Bu16E4kaNCjYZmPObK1IG59A62IXkK2EZ8N5JzBXMYVVV7lvpg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.iOS\\eCommerce.iOS.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,7 @@
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\sqlitepclraw.provider.sqlite3\\2.1.8\\sqlitepclraw.provider.sqlite3.2.1.8.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\stripe.net\\44.13.0\\stripe.net.44.13.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.componentmodel\\4.3.0\\system.componentmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
@@ -34,6 +35,7 @@
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.2\\system.threading.tasks.extensions.4.5.2.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.essentials\\1.8.1\\xamarin.essentials.1.8.1.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.forms\\5.0.0.2662\\xamarin.forms.5.0.0.2662.nupkg.sha512",
+    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.forms.pancakeview\\2.3.0.759\\xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.paypal.ios\\2.18.0\\xamarin.paypal.ios.2.18.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarinfastentry.behaviors\\1.1.1\\xamarinfastentry.behaviors.1.1.1.nupkg.sha512"
   ],

@@ -33,6 +33,7 @@ namespace eCommerce.Model
         public ICommand FeaturedTapCommand { get; set; }
         public ICommand ItemTapCommand { get; set; }
         public ICommand CatTapCommand { get; set; }
+		public ICommand SearchCommand { get; set; }
 		public ItemPreviewViewModel()
         {
 			//_categoryRepository = new CategoryImplementation();
@@ -71,6 +72,10 @@ namespace eCommerce.Model
                 string selBrand = brand.brand;
                 Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new BrandPage(selBrand)));
             });
+			SearchCommand = new Command<string>(contain =>
+			{
+				Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new SearchPage(contain));
+			});
         }
 
 		//Categories

@@ -35,6 +35,7 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2662" />
     <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
     <PackageReference Include="XamarinFastEntry.Behaviors" Version="1.1.1" />
   </ItemGroup>
 
@@ -68,6 +69,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ProductPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SearchPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ShowPage.xaml">
       <Generator>MSBuild:Compile</Generator>
