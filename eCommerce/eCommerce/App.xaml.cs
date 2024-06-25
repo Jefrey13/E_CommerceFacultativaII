@@ -21,7 +21,7 @@ namespace eCommerce
             InitializeComponent();
 			
 			
-			/*
+			/**
 			#region Data
 			var categoryRepository = new CategoryDataAccess();
 			var productRepository = new ProductDataAccess();
@@ -182,8 +182,9 @@ namespace eCommerce
 			//brandRepository.DeleteAllBrands();
 			//brandTagRepository.DeleteAllBrandTags();
 			#endregion
-			
 			*/
+			
+			
 
 			//ConfigureServices();
 

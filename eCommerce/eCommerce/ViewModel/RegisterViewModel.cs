@@ -92,6 +92,17 @@ namespace eCommerce.ViewModels
 				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				return;
 			}
+			if (string.IsNullOrEmpty(this.NameTxt))
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a name.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				return;
+			}
+			if (string.IsNullOrEmpty(this.AgeTxt))
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a age.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				return;
+			}
+
 
 			string WebAPIkey = "AIzaSyCLiMPb_GvCkWFeR0pfdyIi9USwTUK9b58";
 

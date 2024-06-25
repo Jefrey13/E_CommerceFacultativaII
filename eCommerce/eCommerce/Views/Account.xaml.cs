@@ -35,8 +35,18 @@ namespace eCommerce.Views
 
 		public async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
 		{
-			SecureStorage.Remove("firebase_refresh_token");
-			Application.Current.MainPage = new LoginPage(); // Navigate to login page or appropriate page
+			var resultadoD = await this.DisplayAlert("Alert!", "Do you want to log out?", "Yes", "No");
+
+			if (resultadoD)
+			{
+				SecureStorage.Remove("firebase_refresh_token");
+				Application.Current.MainPage = new LoginPage(); // Navigate to login page or appropriate page
+			}
+			else
+			{
+				return;
+			}
 		}
+		
 	}
 }

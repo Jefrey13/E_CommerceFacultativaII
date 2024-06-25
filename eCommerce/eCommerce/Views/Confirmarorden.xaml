@@ -320,7 +320,9 @@
                         BackgroundColor="#3E3CFF"
                         CornerRadius="7"
                         Text="Pay"
-                        TextColor="White" />
+                        TextColor="White"
+                        Command="{Binding GenerarFacturaCommand}"/>
+
                 </StackLayout>
             </StackLayout>
         </ScrollView>

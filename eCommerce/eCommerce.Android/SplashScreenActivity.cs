@@ -5,7 +5,7 @@ using eCommerce.Droid;
 
 namespace ComparePro.Droid
 {
-	[Activity(Label = "SplashScreenActivity",
+	[Activity(Label = "Factus",
 		Theme = "@style/Theme.Splash",
 		MainLauncher = true,
 		NoHistory = true)]
