@@ -63,6 +63,7 @@ namespace eCommerce.Model
 				{
 					source.Add(new ItemsPreview
 					{
+                        Id = item.Id,
 						ImageUrl = item.Image,
 						Name = item.Name,
 						price = item.Price

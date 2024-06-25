@@ -47,7 +47,20 @@ namespace eCommerce.Views
 		}
 		private async void btnConfirmar_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new Confirmarorden());
+			// Obtener la instancia del ViewModel desde el contexto de datos
+			if (BindingContext is CartViewModel viewModel)
+			{
+				// Acceder a la colección itemPreviewP y pasarla a la siguiente página
+				var items = viewModel.itemPreviewP;
+
+				// Aquí puedes pasar 'items' a la siguiente página como parámetro si es necesario
+				await Navigation.PushModalAsync(new Confirmarorden(items));
+			}
+			else
+			{
+				// Manejar el caso en que el contexto de datos no sea del tipo esperado
+				await DisplayAlert("Error", "ViewModel not found", "OK");
+			}
 		}
 
 		private async void btnPayment_Clicked(object sender, EventArgs e)

@@ -8,9 +8,6 @@
     xmlns:viewmodels="clr-namespace:eCommerce.ViewModel"
     mc:Ignorable="d"
     BackgroundColor="White">
-    <ContentPage.BindingContext>
-        <viewmodels:ConfirmarordenViewModel />
-    </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never">
@@ -243,7 +240,7 @@
                                 Margin="80,0,0,0"
                                 FontSize="{OnPlatform Android=16,iOS=16}"
                                 HorizontalOptions="Center"
-                                Text="Unit Price"
+                                Text="Price"
                                 TextColor="Black" />
                         </StackLayout>
                         <CollectionView x:Name="collectionView" ItemsSource="{Binding ItemPreview}">
@@ -262,17 +259,17 @@
                                             <Label
                                                 FontSize="{OnPlatform Android=16,iOS=16}"
                                                 HorizontalOptions="StartAndExpand"
-                                                Text="{Binding Nombre}"
+                                                Text="{Binding Name}"
                                                 TextColor="Black" />
                                             <Label
                                                 FontSize="{OnPlatform Android=16,iOS=16}"
                                                 HorizontalOptions="Center"
-                                                Text="{Binding Cantidad, StringFormat='{N2}'}"
+                                                Text="{Binding Quantity, StringFormat='{N2}'}"
                                                 TextColor="Black" />
                                             <Label
                                                 FontSize="{OnPlatform Android=16,iOS=16}"
                                                 HorizontalOptions="End"
-                                                Text="{Binding Precio, StringFormat='{0:C}'}"
+                                                Text="{Binding price, StringFormat='{0:C}'}"
                                                 TextColor="#00C569" />
                                         </StackLayout>
                                     </Frame>

@@ -22,9 +22,18 @@ namespace eCommerce.Views
             BindingContext = searchViewModel;
         }
 
+
+
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
-    }
+
+		private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new NavigationPage(new ProductsTag("Bestseller")));
+		}
+
+
+	}
 }

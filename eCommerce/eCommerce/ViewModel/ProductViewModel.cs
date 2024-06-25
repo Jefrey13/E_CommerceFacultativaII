@@ -32,7 +32,6 @@ namespace eCommerce.Model
 			_productCartDataAccess  = new CartDataAccess();
 			source = new List<Reviews>();            
             sourceP = new List<ItemsPreview>();
-			CreateItemCollection();
             CreateDetailItemCollection();
 
             AddCommand = new Command(OnItemTapCommand);
@@ -61,39 +60,6 @@ namespace eCommerce.Model
 				itemPreviewP = new ObservableCollection<ItemsPreview>(sourceP);
 			}
 		}
-
-		void CreateItemCollection()
-        {
-            source.Add(new Reviews
-            {
-                image = "user1",
-                name = "Samuel Smith",
-                review = "Wonderful jean, perfect gift for my girl for our anniversary!",
-                rating = "4"
-            });
-            source.Add(new Reviews
-            {
-                image = "user2",
-                name = "Beth Aida",
-                review = "I love this, paired it with a nice blouse and all eyes on me.",
-                rating = "3"
-            });
-            source.Add(new Reviews
-            {
-                image = "user1",
-                name = "Samuel Smith",
-                review = "Wonderful jean, perfect gift for my girl for our anniversary!",
-                rating = "4"
-            });
-            source.Add(new Reviews
-            {
-                image = "user2",
-                name = "Beth Aida",
-                review = "I love this, paired it with a nice blouse and all eyes on me.",
-                rating = "3"
-            });
-            itemPreview = new ObservableCollection<Reviews>(source);
-        }
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

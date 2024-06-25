@@ -18,12 +18,12 @@ namespace eCommerce.Views
 
 		private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new BrandPage("Recommended"));
+			await Navigation.PushModalAsync(new NavigationPage(new ProductsTag("Recommended")));
 
 		}
 		private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new NavigationPage(new BrandPage("Bestseller")));
+			await Navigation.PushModalAsync(new NavigationPage(new ProductsTag("Bestseller")));
 		}
 
 		private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)

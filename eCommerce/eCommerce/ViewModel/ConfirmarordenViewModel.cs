@@ -1,8 +1,11 @@
-﻿using eCommerce.Model;
+﻿using eCommerce.DataAccess;
+using eCommerce.Model;
+using Stripe;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Windows.Input;
 
 namespace eCommerce.ViewModel
@@ -19,25 +22,29 @@ namespace eCommerce.ViewModel
         private DateTime _fecha;
 
 
-        public ObservableCollection<Item> ItemPreview { get; set; }
+		public ObservableCollection<ItemsPreview> ItemPreview { get; set; }
 
-        public ConfirmarordenViewModel()
+        public ConfirmarordenViewModel(ObservableCollection<ItemsPreview> items)
         {
             NumeroFactura = GenerateRandomInvoiceNumber();
             Fecha = DateTime.Now;
-            ItemPreview = new ObservableCollection<Item>
-            {
-                new Item { Nombre = "Producto 1", Precio = 10 },
-                new Item { Nombre = "Producto 2", Precio = 20 },
-                new Item { Nombre = "Producto 3", Precio = 30 }
-            };
-
+            ItemPreview = items;
+            Load();
            
-            SubTotal = CalculateSubTotal();
-            Iva = SubTotal * 0.15m;
-            Total = SubTotal + Iva ;
-        }
+		}
+		public void Load()
+        {
 
+			if (ItemPreview != null)
+			{
+				foreach (var item in ItemPreview)
+				{
+					SubTotal += Convert.ToDecimal(item.price);
+					Iva = SubTotal * 0.15m;
+					Total = SubTotal + Iva;
+				}
+			}
+		}
         private string GenerateRandomInvoiceNumber()
         {
             Random random = new Random();
@@ -102,16 +109,6 @@ namespace eCommerce.ViewModel
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private decimal CalculateSubTotal()
-        {
-            decimal subtotal = 0;
-            foreach (var item in ItemPreview)
-            {
-                subtotal += item.Precio;
-            }
-            return subtotal;
         }
     }
 

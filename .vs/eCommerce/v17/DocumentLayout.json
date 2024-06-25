@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\views\\brandpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\views\\brandpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\views\\accessapp\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\views\\accessapp\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\dataaccess\\productbranddataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\dataaccess\\productbranddataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\views\\accessapp\\loginpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\views\\accessapp\\loginpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\viewmodel\\brandviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\viewmodel\\brandviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\views\\brandpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
-      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\views\\brandpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,53 +43,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BrandPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Views\\BrandPage.xaml.cs",
-              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\Views\\BrandPage.xaml.cs",
-              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Views\\BrandPage.xaml.cs",
-              "RelativeToolTip": "eCommerce\\eCommerce\\Views\\BrandPage.xaml.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAtwBsAAAADAAAA",
+              "Title": "LoginPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Views\\AccessApp\\LoginPage.xaml.cs",
+              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\Views\\AccessApp\\LoginPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Views\\AccessApp\\LoginPage.xaml.cs",
+              "RelativeToolTip": "eCommerce\\eCommerce\\Views\\AccessApp\\LoginPage.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T02:41:30.562Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BrandViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\ViewModel\\BrandViewModel.cs",
-              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\ViewModel\\BrandViewModel.cs",
-              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\ViewModel\\BrandViewModel.cs",
-              "RelativeToolTip": "eCommerce\\eCommerce\\ViewModel\\BrandViewModel.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAYwEoAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T03:17:33.71Z",
+              "WhenOpened": "2024-06-25T07:21:59.194Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProductBrandDataAccess.cs",
-              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\DataAccess\\ProductBrandDataAccess.cs",
-              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\DataAccess\\ProductBrandDataAccess.cs",
-              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\DataAccess\\ProductBrandDataAccess.cs",
-              "RelativeToolTip": "eCommerce\\eCommerce\\DataAccess\\ProductBrandDataAccess.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAFAAAA",
+              "Title": "LoginPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Views\\AccessApp\\LoginPage.xaml",
+              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\Views\\AccessApp\\LoginPage.xaml",
+              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Views\\AccessApp\\LoginPage.xaml",
+              "RelativeToolTip": "eCommerce\\eCommerce\\Views\\AccessApp\\LoginPage.xaml",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAAAKkAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-25T07:21:36.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\ViewModel\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\ViewModel\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\ViewModel\\LoginViewModel.cs",
+              "RelativeToolTip": "eCommerce\\eCommerce\\ViewModel\\LoginViewModel.cs",
+              "ViewState": "AQIAAI0AAAAAAAAAAAAqwKYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T03:00:03.498Z",
+              "WhenOpened": "2024-06-25T07:20:08.709Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "BrandPage.xaml",
-              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Views\\BrandPage.xaml",
-              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\Views\\BrandPage.xaml",
-              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Views\\BrandPage.xaml",
-              "RelativeToolTip": "eCommerce\\eCommerce\\Views\\BrandPage.xaml",
-              "ViewState": "AQIAAL0AAAAAAAAAAAAAANEAAABCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-25T02:57:15.266Z",
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Model\\UserModel.cs",
+              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\Model\\UserModel.cs",
+              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Model\\UserModel.cs",
+              "RelativeToolTip": "eCommerce\\eCommerce\\Model\\UserModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T07:19:58.277Z",
               "EditorCaption": ""
             }
           ]

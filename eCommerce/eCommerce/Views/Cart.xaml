@@ -253,16 +253,16 @@
                 
                 -->
 
-                                <Button
-                    x:Name="btnConfirmar"
-                    Margin="15,15,10,15"
-                    BackgroundColor="#3E3CFF"
-                    Clicked="btnConfirmar_Clicked"
-                    CornerRadius="5"
-                    FontSize="14"
-                    HorizontalOptions="EndAndExpand"
-                    Text="Checkout"
-                    TextColor="White" />
+                            <Button
+                                x:Name="btnConfirmar"
+                                Margin="15,15,10,15"
+                                BackgroundColor="#3E3CFF"
+                                Clicked="btnConfirmar_Clicked"
+                                CornerRadius="5"
+                                FontSize="14"
+                                HorizontalOptions="EndAndExpand"
+                                Text="Checkout"
+                                TextColor="White" />        
                             </StackLayout>
                         </Frame>
 

@@ -35,15 +35,15 @@ namespace eCommerce.ViewModel
 			CreateItemCollection();
 			TopBrandItemCollection();
 
-			ProductDetailCommand = new Command<ItemsPreview>(product =>
+			ProductDetailCommand = new Command<ItemsPreview>(item =>
 			{
-				//string selBrand = brand.brand;
-				//Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new BrandPage(selBrand)));
+				int Id = item.Id;
+				Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync((new ProductPage(Id)));
 			});
 			BrandDetailCommand = new Command<FeaturedBrands>(brand =>
 			{
-				//string selBrand = brand.brand;
-				//Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new BrandPage(selBrand)));
+				string selBrand = brand.brand;
+				Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new BrandPage(selBrand)));
 			});
 		}
 
@@ -77,6 +77,7 @@ namespace eCommerce.ViewModel
 				{
 					source.Add(new ItemsPreview
 					{
+						Id = item.Id,
 						ImageUrl = item.Image,
 						Name = item.Name,
 						price = item.Price
