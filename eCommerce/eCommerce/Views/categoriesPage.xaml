@@ -8,9 +8,8 @@
     xmlns:viewmodels="clr-namespace:eCommerce.Model"
     x:Name="catPage"
     BackgroundColor="White"
-    mc:Ignorable="d">
-
-    
+    mc:Ignorable="d"
+    NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Resources>
         <Style TargetType="Grid">
@@ -38,7 +37,7 @@
                         Padding="0"
                         BackgroundColor="Transparent"
                         HasShadow="False"
-                        HeightRequest="40"
+                        HeightRequest="100"
                         WidthRequest="40">
                         <Label
                             Margin="0,10"

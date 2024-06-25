@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Plugin.Toast;
 
 namespace eCommerce.Views
 {
@@ -25,7 +26,6 @@ namespace eCommerce.Views
 			ViewModel = new CartViewModel();
 			BindingContext = ViewModel;
 		}
-
 		async void OnDeleteSwipeItemInvoked(object sender, EventArgs e)
 		{
 			await DisplayAlert("SwipeView", "Delete invoked.", "OK");
@@ -50,11 +50,17 @@ namespace eCommerce.Views
 			// Obtener la instancia del ViewModel desde el contexto de datos
 			if (BindingContext is CartViewModel viewModel)
 			{
-				// Acceder a la colección itemPreviewP y pasarla a la siguiente página
-				var items = viewModel.itemPreviewP;
+				if (viewModel.itemPreviewP.Count != 0)
+				{
+					// Acceder a la colección itemPreviewP y pasarla a la siguiente página
+					var items = viewModel.itemPreviewP;
 
-				// Aquí puedes pasar 'items' a la siguiente página como parámetro si es necesario
-				await Navigation.PushModalAsync(new Confirmarorden(items));
+					// Aquí puedes pasar 'items' a la siguiente página como parámetro si es necesario
+					await Navigation.PushModalAsync(new Confirmarorden(items));
+				}
+				else{
+					CrossToastPopUp.Current.ShowCustomToast("Adding producto to the cart", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				}
 			}
 			else
 			{

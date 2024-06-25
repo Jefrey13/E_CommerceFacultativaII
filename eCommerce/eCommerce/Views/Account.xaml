@@ -243,7 +243,7 @@
                                         FontAttributes="Bold"
                                         FontSize="16"
                                         HorizontalTextAlignment="Center"
-                                        Text="."
+                                        Text=""
                                         TextColor="Black"
                                         VerticalTextAlignment="Start">
                                         <Label.FontFamily>
@@ -252,16 +252,11 @@
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
-
                                 </StackLayout>
-
                             </Frame>
-
                         </StackLayout>
-
                     </StackLayout>
                 </Frame>
-
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

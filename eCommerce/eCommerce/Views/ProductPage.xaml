@@ -8,15 +8,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:eCommerce.Model"
     BackgroundColor="White"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
-        <Grid>
+        <Grid Margin="0,5,0,0">
             <!--  Body  -->
             <CollectionView ItemsSource="{Binding itemPreviewP}">
 
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+                    <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal"/>
                 </CollectionView.ItemsLayout>
 
                 <CollectionView.ItemTemplate>
@@ -27,8 +28,7 @@
                              Aspect="AspectFit"
                              HeightRequest="200"
                              Source="{Binding ImageUrl}"
-                               
-                                />
+                            />
                             <BoxView Color="LightGray" HeightRequest="0.5" HorizontalOptions="FillAndExpand" Margin="0,5,0,0" />
                             <ScrollView Scrolled="ScrollView_Scrolled" >
                                 <StackLayout>
@@ -418,7 +418,7 @@ VerticalOptions="FillAndExpand">
                 BackgroundColor="Transparent"
                 CornerRadius="45"
                 HasShadow="False"
-                HeightRequest="40"
+                HeightRequest="300"
                 HorizontalOptions="StartAndExpand"
                 Padding="0"
                 WidthRequest="40">

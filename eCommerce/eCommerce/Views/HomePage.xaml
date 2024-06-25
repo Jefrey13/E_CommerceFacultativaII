@@ -9,7 +9,8 @@
     xmlns:viewmodels="clr-namespace:eCommerce.Model"
     x:Name="mainView"
     BackgroundColor="White"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    NavigationPage.HasNavigationBar="False">
 
     <ContentPage.BindingContext>
         <viewmodels:ItemPreviewViewModel />
@@ -49,7 +50,7 @@
                                 Margin="20,10,0,10"
                                 Aspect="AspectFit"
                                 HeightRequest="18"
-                                Source="search"
+                                Source="https://factus.com.co/_astro/favicon.DMncryqX.ico" 
                                 WidthRequest="18" />    
                             <ecommerce:CustomEntry HorizontalOptions="FillAndExpand" 
                                                    x:Name="txtSearch"/>
@@ -477,7 +478,7 @@
                                     FontAttributes="Bold"
                                     FontSize="16"
                                     HorizontalTextAlignment="Center"
-                                    Text="."
+                                    Text=""
                                     TextColor="Black"
                                     VerticalTextAlignment="Start">
                                     <Label.FontFamily>
