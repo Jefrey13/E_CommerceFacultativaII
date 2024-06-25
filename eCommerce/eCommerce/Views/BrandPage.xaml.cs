@@ -15,49 +15,85 @@ namespace eCommerce.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BrandPage : TabbedPage
     {
-		private ProductTagDataAccess _productTagDataAccess;
+		private ProductBrandDataAccess _productBrandDataAccess;
 		readonly List<ItemsPreview> source1;
-		private string _categoryName;
+		private string _brandName;
 		public BrandPage(string name)
-        {
+		{
 			InitializeComponent();
 
 			title.Text = name;
-			_categoryName = name;
+			_brandName = name;
 			source1 = new List<ItemsPreview>(); // Inicializar source1 aquí
 			Thread loadData = new Thread(LoadData);
 			loadData.Start();
 		}
+
 		private void LoadData()
 		{
-			// Código a ejecutar en el nuevo hilo
-			_productTagDataAccess = new ProductTagDataAccess();
-			var productBestS = _productTagDataAccess.GetProductsByTag(_categoryName);
-
-			var e = productBestS.Data;
-			foreach (var item in productBestS.Data)
+			try
 			{
-				lock (source1)
+				// Inicializar las instancias de acceso a datos
+				_productBrandDataAccess = new ProductBrandDataAccess();
+
+				// Obtener la marca por nombre
+				var brandResponse = _productBrandDataAccess.GetBrandByName(_brandName);
+
+				if (brandResponse.IsSuccess && brandResponse.Data != null)
 				{
-					source1.Add(new ItemsPreview
+					// Obtener el BrandId de la marca obtenida
+					int brandId = brandResponse.Data.Id;
+
+					// Obtener los productos de la marca usando el BrandId
+					var productsResponse = _productBrandDataAccess.GetProductsByBrand(brandId);
+
+					if (productsResponse.IsSuccess && productsResponse.Data != null)
 					{
-						ImageUrl = item.Image,
-						Name = item.Name,
-						price = item.Price
-					});
+						var products = productsResponse.Data;
+						foreach (var item in products)
+						{
+							lock (source1)
+							{
+								source1.Add(new ItemsPreview
+								{
+									ImageUrl = item.Image,
+									Name = item.Name,
+									price = item.Price
+								});
+							}
+						}
+
+						// Actualizar la interfaz de usuario en el hilo principal
+						Device.BeginInvokeOnMainThread(() =>
+						{
+							this.ItemsSource = new MainClass[]
+							{
+						new MainClass("All", source1),
+						new MainClass("Electronics", source1),
+						new MainClass("Furniture", source1),
+						new MainClass("Books", source1),
+							};
+						});
+					}
+					else
+					{
+						// Manejar el error al obtener los productos
+						Console.WriteLine(productsResponse.Message);
+					}
+				}
+				else
+				{
+					// Manejar el error al obtener la marca
+					Console.WriteLine(brandResponse.Message);
 				}
 			}
-
-			Device.BeginInvokeOnMainThread(() =>
+			catch (Exception ex)
 			{
-				this.ItemsSource = new MainClass[] {
-					new MainClass ("All",  source1 ),
-					new MainClass ("Electronics", source1),
-					new MainClass ("Furniture", source1),
-					new MainClass ("Books", source1),
-				};
-			});
+				// Manejar cualquier excepción que ocurra
+				Console.WriteLine("Error: " + ex.Message);
+			}
 		}
+
 
 		class MainClass
         {
