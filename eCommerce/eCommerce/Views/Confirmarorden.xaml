@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="eCommerce.Views.Confirmarorden"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:eCommerce.ViewModel"
+    mc:Ignorable="d"
+    BackgroundColor="White">
+    <ContentPage.BindingContext>
+        <viewmodels:ConfirmarordenViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <StackLayout Margin="20">
+                <Frame
+                    Margin="0,0,0,20"
+                    BackgroundColor="White"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    Padding="10">
+                    <StackLayout>
+                        <Label
+                            Margin="0,0,0,10"
+                            FontSize="{OnPlatform Android=16,iOS=16}"
+                            HorizontalOptions="Center"
+                            Text="Billing information"
+                            TextColor="Black" />
+                        <StackLayout
+                            HorizontalOptions="Center"
+                            Orientation="Vertical"
+                            WidthRequest="{OnPlatform iOS=500,Android=500}">
+                            <Label
+                                FontSize="{OnPlatform Android=13}"
+                                Text="Date"
+                                TextColor="Black" />
+                            <Frame
+                                CornerRadius="{OnPlatform Android=7}"
+                                HasShadow="{OnPlatform Android=true,iOS=false}"
+                                Padding="{OnPlatform Android=6,iOS=0}">
+                                <Entry
+                                    FontSize="{OnPlatform Android=13,iOS=13}"
+                                    IsEnabled="False"
+                                    Keyboard="Text"
+                                    MaxLength="25"
+                                    Text="{Binding Fecha, StringFormat='{0:dd/MM/yyyy}'}" />
+                            </Frame>
+                        </StackLayout>
+                        <!--
+                        <Frame
+                            Margin="0,0,0,5"
+                            BackgroundColor="White"
+                            CornerRadius="{OnPlatform Android=7}"
+                            HasShadow="{OnPlatform Android=true,iOS=false}"
+                            Padding="{OnPlatform Android=6,iOS=0}">
+                            <Label
+                                BackgroundColor="White"
+                                FontSize="{OnPlatform Android=15,iOS=16}"
+                                HorizontalOptions="Start"
+                                Text="{Binding Fecha, StringFormat='{0:dd/MM/yyyy}'}"
+                                TextColor="Black"
+                                VerticalOptions="Center" />
+                        </Frame>
+                        -->
+                        <StackLayout
+                            HorizontalOptions="Center"
+                            Orientation="Vertical"
+                            WidthRequest="{OnPlatform iOS=500,Android=500}">
+                            <Label
+                                FontSize="{OnPlatform Android=13}"
+                                Text="Invoice Number"
+                                TextColor="Black" />
+                            <Frame
+                                CornerRadius="{OnPlatform Android=7}"
+                                HasShadow="{OnPlatform Android=true,iOS=false}"
+                                Padding="{OnPlatform Android=6,iOS=0}">
+                                <Entry
+                                    FontSize="{OnPlatform Android=13,iOS=13}"
+                                    IsEnabled="False"
+                                    Keyboard="Text"
+                                    MaxLength="25"
+                                    Text="{Binding NumeroFactura}" />
+                            </Frame>
+                        </StackLayout>
+                        <!--<Frame
+                            Margin="0,0,0,5"
+                            BackgroundColor="White"
+                            CornerRadius="5"
+                            HasShadow="True"
+                            Padding="5">
+                            <Label
+                                BackgroundColor="White"
+                                FontSize="{OnPlatform Android=15,iOS=16}"
+                                HorizontalOptions="Start"
+                                Text="{Binding NumeroFactura}"
+                                TextColor="Black"
+                                VerticalOptions="Center" />
+                        </Frame>-->
+                        <Label
+                            Margin="0,0,0,10"
+                            FontSize="{OnPlatform Android=16,iOS=16}"
+                            HorizontalOptions="Center"
+                            Text="Customer information"
+                            TextColor="Black" />
+                        <StackLayout
+                            HorizontalOptions="Center"
+                            Orientation="Vertical"
+                            WidthRequest="{OnPlatform iOS=500,Android=500}">
+                            <Label
+                                FontSize="{OnPlatform Android=13}"
+                                Text="Client's name"
+                                TextColor="Black" />
+                            <Frame
+                                CornerRadius="{OnPlatform Android=7}"
+                                HasShadow="{OnPlatform Android=true,iOS=false}"
+                                Padding="{OnPlatform Android=6,iOS=0}">
+                                <Entry
+                                    FontSize="{OnPlatform Android=15,iOS=16}"
+                                    Keyboard="Text"
+                                    MaxLength="25"
+                                    Placeholder="John Smith"
+                                    Text="{Binding NombreCliente}" />
+                            </Frame>
+                        </StackLayout>
+                        <!--<Frame
+                                Margin="0,0,0,5"
+                                BackgroundColor="White"
+                                CornerRadius="{OnPlatform Android=7}"
+                                HasShadow="{OnPlatform Android=true,iOS=false}"
+                                Padding="{OnPlatform Android=6,iOS=0}">
+                                <Entry
+                                    BackgroundColor="White"
+                                    FontSize="18"
+                                    HorizontalOptions="Start"
+                                    MaxLength="25"
+                                    Placeholder="Ingrese su nombre"
+                                    Text="{Binding NombreCliente}"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+                                  >-->
+                        <StackLayout
+                            Grid.Row="3"
+                            HorizontalOptions="Center"
+                            Orientation="Vertical"
+                            WidthRequest="{OnPlatform iOS=500,Android=500}">
+                            <Label
+                                FontSize="{OnPlatform Android=13}"
+                                Text="Customer's address"
+                                TextColor="Black" />
+                            <Frame
+                                CornerRadius="{OnPlatform Android=7}"
+                                HasShadow="{OnPlatform Android=true,iOS=false}"
+                                Padding="{OnPlatform Android=6,iOS=0}">
+                                <Entry
+                                    FontSize="{OnPlatform Android=15,iOS=16}"
+                                    Keyboard="Text"
+                                    MaxLength="25"
+                                    Placeholder="Enter the address"
+                                    Text="{Binding Direccion}" />
+                            </Frame>
+                        </StackLayout>
+                        <!--
+                        <Frame
+                            Margin="0,0,0,5"
+                            BackgroundColor="White"
+                            CornerRadius="{OnPlatform Android=7}"
+                            HasShadow="{OnPlatform Android=true,iOS=false}"
+                            Padding="{OnPlatform Android=6,iOS=0}">
+                            <Entry
+                                BackgroundColor="White"
+                                FontSize="18"
+                                HorizontalOptions="Start"
+                                Placeholder="Ingrese su dirección"
+                                Text="{Binding Direccion}"
+                                TextColor="Black"
+                                VerticalOptions="Center" />
+                        </Frame>-->
+                        <StackLayout
+                            Grid.Row="3"
+                            HorizontalOptions="Center"
+                            Orientation="Vertical"
+                            WidthRequest="{OnPlatform iOS=500,Android=500}">
+                            <Label
+                                FontSize="{OnPlatform Android=13}"
+                                Text="Customer's phone number"
+                                TextColor="Black" />
+                            <Frame
+                                CornerRadius="{OnPlatform Android=7}"
+                                HasShadow="{OnPlatform Android=true,iOS=false}"
+                                Padding="{OnPlatform Android=6,iOS=0}">
+                                <Entry
+                                    FontSize="{OnPlatform Android=15,iOS=16}"
+                                    Keyboard="Numeric"
+                                    MaxLength="18"
+                                    Placeholder="Enter your phone number"
+                                    Text="{Binding Numcontact}" />
+                            </Frame>
+                        </StackLayout>
+                        <!--
+                        <Frame
+                            Margin="0,0,0,5"
+                            BackgroundColor="White"
+                            CornerRadius="5"
+                            HasShadow="True"
+                            Padding="5">
+                            <Entry
+                                BackgroundColor="White"
+                                FontSize="18"
+                                HorizontalOptions="Start"
+                                Keyboard="Numeric"
+                                Placeholder="Ingrese su número de teléfono"
+                                Text="{Binding Numcontact}"
+                                TextColor="Black"
+                                VerticalOptions="Center" />
+                        </Frame>-->
+                    </StackLayout>
+                </Frame>
+                <ScrollView  VerticalScrollBarVisibility="Never">
+                    <StackLayout HeightRequest="250">
+                        <Label
+                            Margin="0,0,0,0"
+                            FontSize="{OnPlatform Android=16,iOS=16}"
+                            HorizontalOptions="Center"
+                            Text="Order Details"
+                            TextColor="Black" />
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                Margin="10,0,0,0"
+                                FontSize="{OnPlatform Android=16,iOS=16}"
+                                HorizontalOptions="Start"
+                                Text="Products"
+                                TextColor="Black"
+                                VerticalOptions="StartAndExpand" />
+                            <Label
+                                Margin="60,0,0,0"
+                                FontSize="{OnPlatform Android=16,iOS=16}"
+                                HorizontalOptions="Center"
+                                Text="Quantity"
+                                TextColor="Black" />
+                            <Label
+                                Margin="80,0,0,0"
+                                FontSize="{OnPlatform Android=16,iOS=16}"
+                                HorizontalOptions="Center"
+                                Text="Unit Price"
+                                TextColor="Black" />
+                        </StackLayout>
+                        <CollectionView x:Name="collectionView" ItemsSource="{Binding ItemPreview}">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame
+                                        Margin="0,0,10,0"
+                                        BackgroundColor="White"
+                                        CornerRadius="10"
+                                        HasShadow="True"
+                                        Padding="10">
+                                        <StackLayout>
+                                            <Label
+                                                FontSize="{OnPlatform Android=16,iOS=16}"
+                                                HorizontalOptions="StartAndExpand"
+                                                Text="{Binding Nombre}"
+                                                TextColor="Black" />
+                                            <Label
+                                                FontSize="{OnPlatform Android=16,iOS=16}"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding Cantidad, StringFormat='{N2}'}"
+                                                TextColor="Black" />
+                                            <Label
+                                                FontSize="{OnPlatform Android=16,iOS=16}"
+                                                HorizontalOptions="End"
+                                                Text="{Binding Precio, StringFormat='{0:C}'}"
+                                                TextColor="#00C569" />
+                                        </StackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </ScrollView>
+                <StackLayout x:Name="Details">
+                    <Frame
+                        Margin="0,20,0,0"
+                        BackgroundColor="White"
+                        CornerRadius="10"
+                        HasShadow="True"
+                        Padding="10">
+                        <StackLayout>
+                            <Label
+                                Margin="0,5,0,0"
+                                FontSize="{OnPlatform Android=16}"
+                                Text="Subtotal" />
+                            <Label
+                                FontSize="{OnPlatform Android=14}"
+                                Text="{Binding SubTotal, StringFormat='{0:C}'}"
+                                TextColor="Black" />
+                            <Label
+                                Margin="0,5,0,0"
+                                FontSize="{OnPlatform Android=16}"
+                                Text="IVA (15%)" />
+                            <Label
+                                FontSize="{OnPlatform Android=14}"
+                                Text="{Binding Iva, StringFormat='{0:C}'}"
+                                TextColor="Black" />
+                            <Label
+                                Margin="0,5,0,0"
+                                FontSize="{OnPlatform Android=16}"
+                                Text="Total" />
+                            <Label
+                                FontSize="{OnPlatform Android=14}"
+                                Text="{Binding Total, StringFormat='{0:C}'}"
+                                TextColor="Black" />
+                        </StackLayout>
+                    </Frame>
+                    <!-- A este button debes de agregar el Command="{Binding ConfirmCommand}"
+                    Para finez ilustrativos usare el Evento Cliked-->
+                    <Button
+                        x:Name="btnPay"
+                        Margin="0,20,0,0"
+                        BackgroundColor="#3E3CFF"
+                        CornerRadius="7"
+                        Text="Pay"
+                        TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
