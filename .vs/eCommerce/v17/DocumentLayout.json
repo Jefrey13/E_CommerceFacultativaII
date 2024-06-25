@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\dataaccess\\cartdataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\dataaccess\\cartdataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\viewmodel\\cartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\viewmodel\\cartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\views\\cart.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\views\\cart.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\views\\cart.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\views\\cart.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,19 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\App.xaml.cs",
+              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\App.xaml.cs",
+              "RelativeToolTip": "eCommerce\\eCommerce\\App.xaml.cs",
+              "ViewState": "AQIAAJ4AAAAAAAAAAAAAAK4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T00:15:58.219Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CartViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\ViewModel\\CartViewModel.cs",
+              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\ViewModel\\CartViewModel.cs",
+              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\ViewModel\\CartViewModel.cs",
+              "RelativeToolTip": "eCommerce\\eCommerce\\ViewModel\\CartViewModel.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAtwEsAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T23:10:31.629Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Cart.xaml",
+              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Views\\Cart.xaml",
+              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\Views\\Cart.xaml",
+              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Views\\Cart.xaml",
+              "RelativeToolTip": "eCommerce\\eCommerce\\Views\\Cart.xaml",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAIwCUAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-24T23:21:01.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Cart.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Views\\Cart.xaml.cs",
+              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\Views\\Cart.xaml.cs",
+              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Views\\Cart.xaml.cs",
+              "RelativeToolTip": "eCommerce\\eCommerce\\Views\\Cart.xaml.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAgwDMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T00:46:59.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CartDataAccess.cs",
+              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\DataAccess\\CartDataAccess.cs",
+              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\DataAccess\\CartDataAccess.cs",
+              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\DataAccess\\CartDataAccess.cs",
+              "RelativeToolTip": "eCommerce\\eCommerce\\DataAccess\\CartDataAccess.cs",
+              "ViewState": "AQIAAK8AAAAAAAAAAAAowMkAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T23:32:13.522Z",
+              "EditorCaption": ""
             }
           ]
         }

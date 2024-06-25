@@ -40,5 +40,10 @@ namespace eCommerce.Views
 		{
 			return false;
 		}
+		private async void btnSearch_Clicked(object sender, EventArgs e)
+		{
+			string txt = txtSearch.Text.ToString();
+			await Navigation.PushModalAsync(new SearchPage(txt));
+		}
 	}
 }

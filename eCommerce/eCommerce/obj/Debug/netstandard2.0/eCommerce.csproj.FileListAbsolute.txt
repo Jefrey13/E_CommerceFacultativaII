@@ -30,3 +30,6 @@ C:\Users\Jefrey zuniga\Source\Repos\E_CommerceFacultativaII\eCommerce\eCommerce\
 C:\Users\Jefrey zuniga\Source\Repos\E_CommerceFacultativaII\eCommerce\eCommerce\obj\Debug\netstandard2.0\refint\eCommerce.dll
 C:\Users\Jefrey zuniga\Source\Repos\E_CommerceFacultativaII\eCommerce\eCommerce\obj\Debug\netstandard2.0\eCommerce.pdb
 C:\Users\Jefrey zuniga\Source\Repos\E_CommerceFacultativaII\eCommerce\eCommerce\obj\Debug\netstandard2.0\ref\eCommerce.dll
+C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce\obj\Debug\netstandard2.0\Views\AccessApp\ConfigUserPage.xaml.g.cs
+C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce\obj\Debug\netstandard2.0\Views\SearchPage.xaml.g.cs
+C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce\obj\Debug\netstandard2.0\Views\Confirmarorden.xaml.g.cs

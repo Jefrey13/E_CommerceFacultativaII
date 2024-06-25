@@ -96,3 +96,4 @@ C:\Users\Jefrey zuniga\Source\Repos\E_CommerceFacultativaII\eCommerce\eCommerce.
 C:\Users\Jefrey zuniga\Source\Repos\E_CommerceFacultativaII\eCommerce\eCommerce.iOS\obj\iPhone\Debug\eCommerc.01C71428.Up2Date
 C:\Users\Jefrey zuniga\Source\Repos\E_CommerceFacultativaII\eCommerce\eCommerce.iOS\obj\iPhone\Debug\eCommerce.iOS.exe
 C:\Users\Jefrey zuniga\Source\Repos\E_CommerceFacultativaII\eCommerce\eCommerce.iOS\obj\iPhone\Debug\eCommerce.iOS.pdb
+C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce.iOS\bin\iPhone\Debug\Xamarin.Forms.PancakeView.dll

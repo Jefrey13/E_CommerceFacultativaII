@@ -116,6 +116,10 @@
               "target": "Package",
               "version": "[5.0.0.2662, )"
             },
+            "Xamarin.Forms.PancakeView": {
+              "target": "Package",
+              "version": "[2.3.0.759, )"
+            },
             "XamarinFastEntry.Behaviors": {
               "target": "Package",
               "version": "[1.1.1, )"

@@ -45,6 +45,10 @@ namespace eCommerce.Views
 		{
 			await Navigation.PushModalAsync(new Account());
 		}
+		private async void btnConfirmar_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new Confirmarorden());
+		}
 
 		private async void btnPayment_Clicked(object sender, EventArgs e)
 		{

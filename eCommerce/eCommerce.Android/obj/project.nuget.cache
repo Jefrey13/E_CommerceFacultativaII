@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TQJTK+e2TV3JomeoLqskRbWpLyxro4gpDPsIepVdI+vh5Yb/yGDiJZRohASmccZgIXpifasIgTK/GtcHggHLvA==",
+  "dgSpecHash": "y8lrQaP29xU3K7n2Vt/RbldriwHuvFRcVwl9TkKtPqRa7YUFD7cnTiF0i/fhUtfPnJeUhu6+SU4h9Am8Iu1VoA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
   "expectedPackageFiles": [
@@ -26,6 +26,7 @@
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\square.okio\\1.11.0\\square.okio.1.11.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\stripe.net\\44.13.0\\stripe.net.44.13.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.componentmodel\\4.3.0\\system.componentmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
@@ -97,6 +98,7 @@
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.androidx.viewpager2\\1.0.0.10\\xamarin.androidx.viewpager2.1.0.0.10.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.essentials\\1.8.1\\xamarin.essentials.1.8.1.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.forms\\5.0.0.2662\\xamarin.forms.5.0.0.2662.nupkg.sha512",
+    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.forms.pancakeview\\2.3.0.759\\xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.google.android.material\\1.4.0.2\\xamarin.google.android.material.1.4.0.2.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.google.guava.listenablefuture\\1.0.0.12\\xamarin.google.guava.listenablefuture.1.0.0.12.nupkg.sha512",
     "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\xamarin.jetbrains.annotations\\24.0.1.1\\xamarin.jetbrains.annotations.24.0.1.1.nupkg.sha512",

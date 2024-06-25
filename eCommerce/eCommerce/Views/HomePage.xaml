@@ -38,29 +38,33 @@
                 <!--  Top Search Bar  -->
                 <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                     <Frame
-                        Padding="0"
                         BackgroundColor="#F7F7F7"
                         CornerRadius="45"
                         HasShadow="False"
-                        HeightRequest="40"
-                        HorizontalOptions="FillAndExpand">
+                        HeightRequest="45"
+                        HorizontalOptions="FillAndExpand"
+                        Padding="0">        
                         <StackLayout Orientation="Horizontal">
                             <Image
                                 Margin="20,10,0,10"
                                 Aspect="AspectFit"
                                 HeightRequest="18"
                                 Source="search"
-                                WidthRequest="18" />
-                            <ecommerce:CustomEntry HorizontalOptions="FillAndExpand" />
+                                WidthRequest="18" />    
+                            <ecommerce:CustomEntry HorizontalOptions="FillAndExpand" 
+                                                   x:Name="txtSearch"/>
                         </StackLayout>
                     </Frame>
                     <StackLayout>
-                        <Image
-                            Margin="13,0,0,0"
+                        <ImageButton
+                            x:Name="btnSearch"
+                            BackgroundColor="Transparent"
+                            Margin="13,8,0,0"
                             Aspect="AspectFit"
-                            HeightRequest="40"
-                            Source="Search_Camera"
-                            WidthRequest="40" />
+                            HeightRequest="30"
+                            Source="search"
+                            WidthRequest="35"
+                            Clicked="btnSearch_Clicked"/>           
                     </StackLayout>
                 </StackLayout>
 

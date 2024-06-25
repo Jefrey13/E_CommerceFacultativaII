@@ -176,6 +176,35 @@ namespace eCommerce.DataAccess
 				//return new GeneralResponse<CartProduct> { Message = "Error: " + ex.Message, IsSuccess = false, Data = null };
 			}
 		}
+		public GeneralResponse<CartProduct> RemoveCartItem(int productId)
+		{
+			try
+			{
+				_sqlConnection.BeginTransaction();
+
+				// Verificar si el producto existe en el carrito
+				var existingCartItem = _sqlConnection.Table<CartProduct>()
+													 .FirstOrDefault(cp => cp.CartId == 1 && cp.ProductId == productId);
+
+				if (existingCartItem != null)
+				{
+					// Si el producto está en el carrito, eliminarlo
+					_sqlConnection.Delete(existingCartItem);
+					_sqlConnection.Commit();
+					return new GeneralResponse<CartProduct> { Message = "Product removed successfully", IsSuccess = true, Data = null };
+				}
+				else
+				{
+					_sqlConnection.Rollback();
+					return new GeneralResponse<CartProduct> { Message = "Product not found in cart", IsSuccess = false, Data = null };
+				}
+			}
+			catch (Exception ex)
+			{
+				_sqlConnection.Rollback();
+				return new GeneralResponse<CartProduct> { Message = "Error: " + ex.Message, IsSuccess = false, Data = null };
+			}
+		}
 
 	}
 }
