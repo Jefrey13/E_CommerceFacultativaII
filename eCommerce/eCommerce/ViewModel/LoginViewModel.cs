@@ -74,18 +74,12 @@ namespace eCommerce.ViewModels
 		{
 			if (string.IsNullOrEmpty(this.email))
 			{
-				await Application.Current.MainPage.DisplayAlert(
-					"Error",
-					"You must enter an email.",
-					"Accept");
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				return;
 			}
 			if (string.IsNullOrEmpty(this.password))
 			{
-				await Application.Current.MainPage.DisplayAlert(
-					"Error",
-					"You must enter a password.",
-					"Accept");
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				return;
 			}
 
@@ -98,6 +92,8 @@ namespace eCommerce.ViewModels
 				var auth = await authProvider.SignInWithEmailAndPasswordAsync(EmailTxt.ToString(), PasswordTxt.ToString());
 				var content = await auth.GetFreshAuthAsync();
 				var serializedcontnet = JsonConvert.SerializeObject(content);
+
+				await SecureStorage.SetAsync("firebase_refresh_token", serializedcontnet);
 
 				Preferences.Set("MyFirebaseRefreshToken", serializedcontnet);
 				CrossToastPopUp.Current.ShowCustomToast("Welcome to factus", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);

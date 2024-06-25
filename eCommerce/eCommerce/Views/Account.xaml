@@ -227,8 +227,9 @@
                                     WidthRequest="10" />
 
                                 <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4" />
                                 </StackLayout.GestureRecognizers>
+
                             </StackLayout>
 
                         </StackLayout>

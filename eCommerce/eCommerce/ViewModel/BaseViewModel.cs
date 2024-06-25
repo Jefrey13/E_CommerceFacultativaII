@@ -22,15 +22,14 @@ namespace eCommerce.ViewModels
 
 		}
 
-		protected void SetValue<T>(ref T backingField, T value, [CallerMemberName] string propertyName = null)
+		protected bool SetValue<T>(ref T backingField, T value, [System.Runtime.CompilerServices.CallerMemberName] string propertyName = "")
 		{
 			if (EqualityComparer<T>.Default.Equals(backingField, value))
-			{
-				return;
-			}
+				return false;
 
 			backingField = value;
 			OnPropertyChanged(propertyName);
+			return true;
 		}
 	}
 }

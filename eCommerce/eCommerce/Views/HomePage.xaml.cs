@@ -3,6 +3,8 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using eCommerce;
+using static System.Net.Mime.MediaTypeNames;
+using Plugin.Toast;
 
 namespace eCommerce.Views
 {
@@ -42,8 +44,15 @@ namespace eCommerce.Views
 		}
 		private async void btnSearch_Clicked(object sender, EventArgs e)
 		{
-			string txt = txtSearch.Text.ToString();
-			await Navigation.PushModalAsync(new SearchPage(txt));
+			string txt = txtSearch.Text;
+			if (string.IsNullOrWhiteSpace(txt))
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Please enter some text", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+			}
+			else
+			{
+				await Navigation.PushModalAsync(new SearchPage(txt));
+			}
 		}
 	}
 }
