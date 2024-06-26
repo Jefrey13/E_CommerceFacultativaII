@@ -13,7 +13,7 @@ using Android;
 
 namespace eCommerce.Droid
 {
-    [Activity(Label = "eCommerce", Icon = "@mipmap/icon", Theme = "@style/MainTheme",
+    [Activity(Label = "Factus", Icon = "@mipmap/icon", Theme = "@style/MainTheme",
         MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

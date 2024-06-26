@@ -83,23 +83,23 @@ namespace eCommerce.ViewModels
 		{
 			if (string.IsNullOrEmpty(this.email))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
 
 			if (string.IsNullOrEmpty(this.password))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
 			if (string.IsNullOrEmpty(this.NameTxt))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a name.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a name.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
 			if (string.IsNullOrEmpty(this.AgeTxt))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a age.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a age.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
 
@@ -112,12 +112,12 @@ namespace eCommerce.ViewModels
 				var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(EmailTxt.ToString(), PasswordTxt.ToString());
 				string gettoken = auth.FirebaseToken;
 
-				CrossToastPopUp.Current.ShowCustomToast("User account successfully created!", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				CrossToastPopUp.Current.ShowCustomToast("User account successfully created!", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				await Application.Current.MainPage.Navigation.PushModalAsync(new Views.AccessApp.LoginPage());
 			}
 			catch (Exception ex)
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Password Weak. Enter a stronger password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				CrossToastPopUp.Current.ShowCustomToast("Password Weak. Enter a stronger password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 			}
 		}
 		#endregion

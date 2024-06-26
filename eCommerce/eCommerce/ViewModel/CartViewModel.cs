@@ -72,8 +72,13 @@ namespace eCommerce.ViewModel
 			DeleteProduvtCartCommand = new Command<ItemsPreview>(item =>
 			{
 				int Id = item.Id;
-				_cartDataAccess.RemoveCartItem(Id);
-				ItemToCartCollection();
+				var result = _cartDataAccess.RemoveCartItem(Id);
+
+				if (result.IsSuccess)
+				{
+					CrossToastPopUp.Current.ShowCustomToast("Success. Product has been removed from your cart.", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+					ItemToCartCollection();
+				}
 			});
 		}
 
