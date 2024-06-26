@@ -180,7 +180,7 @@
                     TextColor="White"
                     WidthRequest="300"
                     x:Name="btnSaveChanges"
-                    Command="{Binding SaveCommand}"
+                    Command="{Binding UpdateCommand}"
                     CommandParameter="{Binding .}" />
                 <Button
                     BackgroundColor="#DB073D"

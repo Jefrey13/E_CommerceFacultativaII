@@ -12,53 +12,52 @@
             <ScrollView>
                 <StackLayout Margin="15,30,15,15">
 
-                    <StackLayout Orientation="Horizontal">
-                        <Frame
+                        <StackLayout Orientation="Horizontal">
+                            <Frame
                             Margin="0"
-                            Padding="0"
                             BackgroundColor="Transparent"
                             HeightRequest="120"
+                            Padding="0"
                             WidthRequest="120">
-                            <Image
+                                <Image
                                 Aspect="AspectFit"
                                 HeightRequest="120"
-                                Source="Avatar"
+                                Source="https://i.ibb.co/T15fsD0/Test.png"
                                 WidthRequest="120" />
-
-                        </Frame>
-                        <StackLayout Margin="20" VerticalOptions="CenterAndExpand">
-                            <Label
+                            </Frame>
+                            <StackLayout Margin="20" VerticalOptions="CenterAndExpand">
+                                <Label
                                 FontAttributes="Bold"
                                 FontSize="26"
                                 HorizontalOptions="CenterAndExpand"
-                                Text="David Spade"
+                                Text="Account Settings"
                                 TextColor="Black"
                                 VerticalTextAlignment="Center">
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
 
-                            <Label
+                                <Label
                                 FontSize="14"
                                 HorizontalOptions="CenterAndExpand"
-                                Text="iamdavid@gmail.com"
+                                Text="Factus.com"
                                 TextColor="Black"
                                 VerticalTextAlignment="Center">
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                            </StackLayout>
                         </StackLayout>
-                    </StackLayout>
 
-                    <StackLayout Margin="0,30,0,0">
+                        <StackLayout Margin="0,30,0,0">
 
-                        <!--  Start of Menu Item  -->
+                        <!--  Start account data  -->
                         <StackLayout Margin="0,5,5,5">
 
                             <StackLayout Orientation="Horizontal">
@@ -102,271 +101,7 @@
                         </StackLayout>
                         <!--  End of Menu Item  -->
 
-                        <!--  Start of Menu Item  -->
-                        <StackLayout Margin="0,5,5,5">
-
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image
-                                        Aspect="AspectFill"
-                                        HeightRequest="40"
-                                        HorizontalOptions="StartAndExpand"
-                                        Source="Icon_Location"
-                                        WidthRequest="40" />
-                                    <Label
-                                        Margin="15,0,0,0"
-                                        FontSize="18"
-                                        HorizontalOptions="StartAndExpand"
-                                        HorizontalTextAlignment="Start"
-                                        Text="Shipping Address"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center">
-                                        <Label.FontFamily>
-                                            <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
-                                            </OnPlatform>
-                                        </Label.FontFamily>
-                                    </Label>
-                                </StackLayout>
-
-                                <Image
-                                    Margin="20,0,20,0"
-                                    Aspect="AspectFit"
-                                    HeightRequest="10"
-                                    HorizontalOptions="EndAndExpand"
-                                    Source="more"
-                                    VerticalOptions="CenterAndExpand"
-                                    WidthRequest="10" />
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </StackLayout.GestureRecognizers>
-                            </StackLayout>
-
-                        </StackLayout>
-                        <!--  End of Menu Item  -->
-
-                        <!--  Start of Menu Item  -->
-                        <StackLayout Margin="0,5,5,5">
-
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image
-                                        Aspect="AspectFill"
-                                        HeightRequest="40"
-                                        HorizontalOptions="StartAndExpand"
-                                        Source="Icon_Wishlist"
-                                        WidthRequest="40" />
-                                    <Label
-                                        Margin="15,0,0,0"
-                                        FontSize="18"
-                                        HorizontalOptions="StartAndExpand"
-                                        HorizontalTextAlignment="Start"
-                                        Text="Wishlist"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center">
-                                        <Label.FontFamily>
-                                            <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
-                                            </OnPlatform>
-                                        </Label.FontFamily>
-                                    </Label>
-                                </StackLayout>
-
-                                <Image
-                                    Margin="20,0,20,0"
-                                    Aspect="AspectFit"
-                                    HeightRequest="10"
-                                    HorizontalOptions="EndAndExpand"
-                                    Source="more"
-                                    VerticalOptions="CenterAndExpand"
-                                    WidthRequest="10" />
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </StackLayout.GestureRecognizers>
-                            </StackLayout>
-
-                        </StackLayout>
-                        <!--  End of Menu Item  -->
-
-                        <!--  Start of Menu Item  -->
-                        <StackLayout Margin="0,5,5,5">
-
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image
-                                        Aspect="AspectFill"
-                                        HeightRequest="40"
-                                        HorizontalOptions="StartAndExpand"
-                                        Source="Icon_History"
-                                        WidthRequest="40" />
-                                    <Label
-                                        Margin="15,0,0,0"
-                                        FontSize="18"
-                                        HorizontalOptions="StartAndExpand"
-                                        HorizontalTextAlignment="Start"
-                                        Text="Order History"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center">
-                                        <Label.FontFamily>
-                                            <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
-                                            </OnPlatform>
-                                        </Label.FontFamily>
-                                    </Label>
-                                </StackLayout>
-
-                                <Image
-                                    Margin="20,0,20,0"
-                                    Aspect="AspectFit"
-                                    HeightRequest="10"
-                                    HorizontalOptions="EndAndExpand"
-                                    Source="more"
-                                    VerticalOptions="CenterAndExpand"
-                                    WidthRequest="10" />
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </StackLayout.GestureRecognizers>
-                            </StackLayout>
-
-                        </StackLayout>
-                        <!--  End of Menu Item  -->
-
-                        <!--  Start of Menu Item  -->
-                        <StackLayout Margin="0,5,5,5">
-
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image
-                                        Aspect="AspectFill"
-                                        HeightRequest="40"
-                                        HorizontalOptions="StartAndExpand"
-                                        Source="Icon_Order"
-                                        WidthRequest="40" />
-                                    <Label
-                                        Margin="15,0,0,0"
-                                        FontSize="18"
-                                        HorizontalOptions="StartAndExpand"
-                                        HorizontalTextAlignment="Start"
-                                        Text="Track Order"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center">
-                                        <Label.FontFamily>
-                                            <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
-                                            </OnPlatform>
-                                        </Label.FontFamily>
-                                    </Label>
-                                </StackLayout>
-
-                                <Image
-                                    Margin="20,0,20,0"
-                                    Aspect="AspectFit"
-                                    HeightRequest="10"
-                                    HorizontalOptions="EndAndExpand"
-                                    Source="more"
-                                    VerticalOptions="CenterAndExpand"
-                                    WidthRequest="10" />
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </StackLayout.GestureRecognizers>
-                            </StackLayout>
-
-                        </StackLayout>
-                        <!--  End of Menu Item  -->
-
-                        <!--  Start of Menu Item  -->
-                        <StackLayout Margin="0,5,5,5">
-
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image
-                                        Aspect="AspectFill"
-                                        HeightRequest="40"
-                                        HorizontalOptions="StartAndExpand"
-                                        Source="Icon_Payment"
-                                        WidthRequest="40" />
-                                    <Label
-                                        Margin="15,0,0,0"
-                                        FontSize="18"
-                                        HorizontalOptions="StartAndExpand"
-                                        HorizontalTextAlignment="Start"
-                                        Text="Cards"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center">
-                                        <Label.FontFamily>
-                                            <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
-                                            </OnPlatform>
-                                        </Label.FontFamily>
-                                    </Label>
-                                </StackLayout>
-
-                                <Image
-                                    Margin="20,0,20,0"
-                                    Aspect="AspectFit"
-                                    HeightRequest="10"
-                                    HorizontalOptions="EndAndExpand"
-                                    Source="more"
-                                    VerticalOptions="CenterAndExpand"
-                                    WidthRequest="10" />
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </StackLayout.GestureRecognizers>
-                            </StackLayout>
-
-                        </StackLayout>
-                        <!--  End of Menu Item  -->
-
-                        <!--  Start of Menu Item  -->
-                        <StackLayout Margin="0,5,5,5">
-
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image
-                                        Aspect="AspectFill"
-                                        HeightRequest="40"
-                                        HorizontalOptions="StartAndExpand"
-                                        Source="Icon_Alert"
-                                        WidthRequest="40" />
-                                    <Label
-                                        Margin="15,0,0,0"
-                                        FontSize="18"
-                                        HorizontalOptions="StartAndExpand"
-                                        HorizontalTextAlignment="Start"
-                                        Text="Notifications"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center">
-                                        <Label.FontFamily>
-                                            <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
-                                            </OnPlatform>
-                                        </Label.FontFamily>
-                                    </Label>
-                                </StackLayout>
-
-                                <Image
-                                    Margin="20,0,20,0"
-                                    Aspect="AspectFit"
-                                    HeightRequest="10"
-                                    HorizontalOptions="EndAndExpand"
-                                    Source="more"
-                                    VerticalOptions="CenterAndExpand"
-                                    WidthRequest="10" />
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </StackLayout.GestureRecognizers>
-                            </StackLayout>
-
-                        </StackLayout>
-                        <!--  End of Menu Item  -->
-
-                        <!--  Start of Menu Item  -->
+                        <!--  Start log out  -->
                         <StackLayout Margin="0,5,5,5">
 
                             <StackLayout Orientation="Horizontal">
@@ -403,8 +138,9 @@
                                     WidthRequest="10" />
 
                                 <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4" />
                                 </StackLayout.GestureRecognizers>
+
                             </StackLayout>
 
                         </StackLayout>
@@ -507,7 +243,7 @@
                                         FontAttributes="Bold"
                                         FontSize="16"
                                         HorizontalTextAlignment="Center"
-                                        Text="."
+                                        Text=""
                                         TextColor="Black"
                                         VerticalTextAlignment="Start">
                                         <Label.FontFamily>
@@ -516,16 +252,11 @@
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
-
                                 </StackLayout>
-
                             </Frame>
-
                         </StackLayout>
-
                     </StackLayout>
                 </Frame>
-
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

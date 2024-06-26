@@ -21,6 +21,9 @@ namespace eCommerce.Model
 
 		[MaxLength(2)]
 		public string AgeField { get; set; }
+		[MaxLength(16)]
+		public string NumberField { get; set; }
+
 
 		public DateTime Creation_Date { get; set; }
 	}

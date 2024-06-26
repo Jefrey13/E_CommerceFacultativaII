@@ -21,7 +21,7 @@ namespace eCommerce
             InitializeComponent();
 			
 			
-			/*
+			
 			#region Data
 			var categoryRepository = new CategoryDataAccess();
 			var productRepository = new ProductDataAccess();
@@ -183,12 +183,13 @@ namespace eCommerce
 			//brandTagRepository.DeleteAllBrandTags();
 			#endregion
 			
-			*/
+			
+			
 
 			//ConfigureServices();
 
-			//MainPage = new Views.AccessApp.LoginPage();
-			MainPage = new Views.HomePage();
+			MainPage = new Views.AccessApp.LoginPage();
+			//MainPage = new Views.categoriesPage("Electronics");
 		}
 		/**private void ConfigureServices()
 		{

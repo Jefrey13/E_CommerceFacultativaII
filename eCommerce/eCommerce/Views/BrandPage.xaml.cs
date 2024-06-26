@@ -68,10 +68,7 @@ namespace eCommerce.Views
 						{
 							this.ItemsSource = new MainClass[]
 							{
-						new MainClass("All", source1),
-						new MainClass("Electronics", source1),
-						new MainClass("Furniture", source1),
-						new MainClass("Books", source1),
+						new MainClass("Explore the finest offerings from the iconic brand " + _brandName, source1),
 							};
 						});
 					}

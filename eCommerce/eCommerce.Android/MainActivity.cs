@@ -9,14 +9,17 @@ using Android.OS;
 using PayPal.Forms.Abstractions;
 using PayPal.Forms;
 using Android.Content;
+using Android;
 
 namespace eCommerce.Droid
 {
-    [Activity(Label = "eCommerce", Icon = "@mipmap/icon", Theme = "@style/MainTheme",
+    [Activity(Label = "Factus", Icon = "@mipmap/icon", Theme = "@style/MainTheme",
         MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+		const int RequestStorageId = 0;
+		readonly string[] StoragePermissions = { Manifest.Permission.ReadExternalStorage, Manifest.Permission.WriteExternalStorage };
+		protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
@@ -25,7 +28,13 @@ namespace eCommerce.Droid
             Rg.Plugins.Popup.Popup.Init(this);           
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+
+			if (CheckSelfPermission(Manifest.Permission.WriteExternalStorage) != Permission.Granted)
+			{
+				RequestPermissions(StoragePermissions, RequestStorageId);
+			}
+
+			LoadApplication(new App());
 
 			//Simulación de Paypal
 			var config = new PayPalConfiguration(PayPalEnvironment.NoNetwork, "YOUR-API-KEY")

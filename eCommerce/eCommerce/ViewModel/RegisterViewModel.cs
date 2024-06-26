@@ -83,21 +83,26 @@ namespace eCommerce.ViewModels
 		{
 			if (string.IsNullOrEmpty(this.email))
 			{
-				await Application.Current.MainPage.DisplayAlert(
-					"Error",
-					"You must enter an email.",
-					"Accept");
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
 
 			if (string.IsNullOrEmpty(this.password))
 			{
-				await Application.Current.MainPage.DisplayAlert(
-					"Error",
-					"You must enter a password.",
-					"Accept");
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
+			if (string.IsNullOrEmpty(this.NameTxt))
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a name.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				return;
+			}
+			if (string.IsNullOrEmpty(this.AgeTxt))
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a age.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				return;
+			}
+
 
 			string WebAPIkey = "AIzaSyCLiMPb_GvCkWFeR0pfdyIi9USwTUK9b58";
 
@@ -107,12 +112,12 @@ namespace eCommerce.ViewModels
 				var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(EmailTxt.ToString(), PasswordTxt.ToString());
 				string gettoken = auth.FirebaseToken;
 
-				CrossToastPopUp.Current.ShowCustomToast("User account successfully created!", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				CrossToastPopUp.Current.ShowCustomToast("User account successfully created!", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				await Application.Current.MainPage.Navigation.PushModalAsync(new Views.AccessApp.LoginPage());
 			}
 			catch (Exception ex)
 			{
-				await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
+				CrossToastPopUp.Current.ShowCustomToast("Password Weak. Enter a stronger password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 			}
 		}
 		#endregion

@@ -3,6 +3,7 @@ GalaSoft.MvvmLight.Platform.dll
 PayPal.Forms.dll
 Plugin.Toast.dll
 Rg.Plugins.Popup.dll
+SkiaSharp.dll
 SQLite.Net.Platform.XamarinAndroid.dll
 SQLitePCLRaw.batteries_v2.dll
 SQLitePCLRaw.lib.e_sqlite3.android.dll

@@ -8,15 +8,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:eCommerce.Model"
     BackgroundColor="White"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
-        <Grid>
+        <Grid Margin="0,5,0,0">
             <!--  Body  -->
             <CollectionView ItemsSource="{Binding itemPreviewP}">
 
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+                    <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal"/>
                 </CollectionView.ItemsLayout>
 
                 <CollectionView.ItemTemplate>
@@ -27,8 +28,7 @@
                              Aspect="AspectFit"
                              HeightRequest="200"
                              Source="{Binding ImageUrl}"
-                               
-                                />
+                            />
                             <BoxView Color="LightGray" HeightRequest="0.5" HorizontalOptions="FillAndExpand" Margin="0,5,0,0" />
                             <ScrollView Scrolled="ScrollView_Scrolled" >
                                 <StackLayout>
@@ -51,99 +51,99 @@
 
                                         </StackLayout>
 
-                                        <StackLayout Margin="0,15,0,15" Orientation="Horizontal">
+                                        <!--               <StackLayout Margin="0,15,0,15" Orientation="Horizontal">
 
-                                            <StackLayout>
-                                                <Frame
-                         BorderColor="#EBEBEB"
-                         CornerRadius="20"
-                         HasShadow="False"
-                         HorizontalOptions="FillAndExpand"
-                         Padding="0">
-                                                    <StackLayout
-                             HorizontalOptions="FillAndExpand"
-                             Orientation="Horizontal"
-                             VerticalOptions="CenterAndExpand">
-                                                        <Label
-                                 Margin="20,15,35,15"
-                                 FontSize="14"
-                                 HorizontalOptions="StartAndExpand"
-                                 Text="Size"
-                                 TextColor="Black"
-                                 VerticalTextAlignment="Center">
-                                                            <Label.FontFamily>
-                                                                <OnPlatform x:TypeArguments="x:String">
-                                                                    <On Value="SFPro.ttf#Bold" Platform="Android" />
-                                                                </OnPlatform>
-                                                            </Label.FontFamily>
-                                                        </Label>
-                                                        <Frame
-                                 Margin="0"
-                                 BackgroundColor="Transparent"
-                                 HasShadow="False"
-                                 Padding="0">
-                                                            <Label
-                                     x:Name="size"
-                                     Margin="35,15,20,15"
-                                     FontSize="14"
-                                     HorizontalOptions="StartAndExpand"
-                                     Text="XL"
-                                     TextColor="Black"
-                                     VerticalTextAlignment="Center">
-                                                                <Label.FontFamily>
-                                                                    <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
-                                                                    </OnPlatform>
-                                                                </Label.FontFamily>
-                                                            </Label>
-                                                            <Frame.GestureRecognizers>
-                                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
-                                                            </Frame.GestureRecognizers>
-                                                        </Frame>
+                   <StackLayout>
+                       <Frame
+BorderColor="#EBEBEB"
+CornerRadius="20"
+HasShadow="False"
+HorizontalOptions="FillAndExpand"
+Padding="0">
+                           <StackLayout
+    HorizontalOptions="FillAndExpand"
+    Orientation="Horizontal"
+    VerticalOptions="CenterAndExpand">
+                               <Label
+        Margin="20,15,35,15"
+        FontSize="14"
+        HorizontalOptions="StartAndExpand"
+        Text="Size"
+        TextColor="Black"
+        VerticalTextAlignment="Center">
+                                   <Label.FontFamily>
+                                       <OnPlatform x:TypeArguments="x:String">
+                                           <On Value="SFPro.ttf#Bold" Platform="Android" />
+                                       </OnPlatform>
+                                   </Label.FontFamily>
+                               </Label>
+                               <Frame
+        Margin="0"
+        BackgroundColor="Transparent"
+        HasShadow="False"
+        Padding="0">
+                                   <Label
+            x:Name="size"
+            Margin="35,15,20,15"
+            FontSize="14"
+            HorizontalOptions="StartAndExpand"
+            Text="XL"
+            TextColor="Black"
+            VerticalTextAlignment="Center">
+                                       <Label.FontFamily>
+                                           <OnPlatform x:TypeArguments="x:String">
+                                               <On Value="SFPro.ttf#Bold" Platform="Android" />
+                                           </OnPlatform>
+                                       </Label.FontFamily>
+                                   </Label>
+                                   <Frame.GestureRecognizers>
+                                       <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                                   </Frame.GestureRecognizers>
+                               </Frame>
 
-                                                    </StackLayout>
-                                                </Frame>
-                                            </StackLayout>
+                           </StackLayout>
+                       </Frame>
+                   </StackLayout>
 
-                                            <StackLayout HorizontalOptions="EndAndExpand">
-                                                <Frame
-                         BorderColor="#EBEBEB"
-                         CornerRadius="20"
-                         HasShadow="False"
-                         HorizontalOptions="FillAndExpand"
-                         Padding="0">
-                                                    <StackLayout
-                             HorizontalOptions="FillAndExpand"
-                             Orientation="Horizontal"
-                             VerticalOptions="CenterAndExpand">
-                                                        <Label
-                                 Margin="20,15,35,15"
-                                 FontSize="14"
-                                 HorizontalOptions="StartAndExpand"
-                                 Text="Color"
-                                 TextColor="Black"
-                                 VerticalTextAlignment="Center">
-                                                            <Label.FontFamily>
-                                                                <OnPlatform x:TypeArguments="x:String">
-                                                                    <On Value="SFPro.ttf#Bold" Platform="Android" />
-                                                                </OnPlatform>
-                                                            </Label.FontFamily>
-                                                        </Label>
+                   <StackLayout HorizontalOptions="EndAndExpand">
+                       <Frame
+BorderColor="#EBEBEB"
+CornerRadius="20"
+HasShadow="False"
+HorizontalOptions="FillAndExpand"
+Padding="0">
+                           <StackLayout
+    HorizontalOptions="FillAndExpand"
+    Orientation="Horizontal"
+    VerticalOptions="CenterAndExpand">
+                               <Label
+        Margin="20,15,35,15"
+        FontSize="14"
+        HorizontalOptions="StartAndExpand"
+        Text="Color"
+        TextColor="Black"
+        VerticalTextAlignment="Center">
+                                   <Label.FontFamily>
+                                       <OnPlatform x:TypeArguments="x:String">
+                                           <On Value="SFPro.ttf#Bold" Platform="Android" />
+                                       </OnPlatform>
+                                   </Label.FontFamily>
+                               </Label>
 
-                                                        <Frame
-                                 Margin="35,15,20,15"
-                                 BackgroundColor="#33427D"
-                                 CornerRadius="8"
-                                 HasShadow="False"
-                                 HeightRequest="22"
-                                 Padding="0"
-                                 WidthRequest="22" />
+                               <Frame
+        Margin="35,15,20,15"
+        BackgroundColor="#33427D"
+        CornerRadius="8"
+        HasShadow="False"
+        HeightRequest="22"
+        Padding="0"
+        WidthRequest="22" />
 
-                                                    </StackLayout>
-                                                </Frame>
-                                            </StackLayout>
+                           </StackLayout>
+                       </Frame>
+                   </StackLayout>
 
-                                        </StackLayout>
+               </StackLayout>-->
 
                                         <StackLayout>
                                             <Label
@@ -173,49 +173,49 @@
                                                 </Label.FontFamily>
                                             </Label>
 
-                                            <Label
-                     FontAttributes="Bold"
-                     FontSize="14"
-                     HorizontalOptions="StartAndExpand"
-                     Text="Read More"
-                     TextColor="#00C569"
-                     VerticalTextAlignment="Center">
-                                                <Label.FontFamily>
-                                                    <OnPlatform x:TypeArguments="x:String">
-                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
-                                                    </OnPlatform>
-                                                </Label.FontFamily>
-                                            </Label>
+                                            <!--                       <Label
+FontAttributes="Bold"
+FontSize="14"
+HorizontalOptions="StartAndExpand"
+Text="Read More"
+TextColor="#00C569"
+VerticalTextAlignment="Center">
+                           <Label.FontFamily>
+                               <OnPlatform x:TypeArguments="x:String">
+                                   <On Value="SFPro.ttf#Bold" Platform="Android" />
+                               </OnPlatform>
+                           </Label.FontFamily>
+                       </Label>
 
-                                            <Label
-                     Margin="0,30,0,0"
-                     FontAttributes="Bold"
-                     FontSize="18"
-                     HorizontalOptions="StartAndExpand"
-                     Text="Reviews"
-                     TextColor="Black"
-                     VerticalTextAlignment="Center">
-                                                <Label.FontFamily>
-                                                    <OnPlatform x:TypeArguments="x:String">
-                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
-                                                    </OnPlatform>
-                                                </Label.FontFamily>
-                                            </Label>
+                       <Label
+Margin="0,30,0,0"
+FontAttributes="Bold"
+FontSize="18"
+HorizontalOptions="StartAndExpand"
+Text="Reviews"
+TextColor="Black"
+VerticalTextAlignment="Center">
+                           <Label.FontFamily>
+                               <OnPlatform x:TypeArguments="x:String">
+                                   <On Value="SFPro.ttf#Bold" Platform="Android" />
+                               </OnPlatform>
+                           </Label.FontFamily>
+                       </Label>
 
-                                            <Label
-                     Margin="0,5,0,0"
-                     FontAttributes="Bold"
-                     FontSize="14"
-                     HorizontalOptions="StartAndExpand"
-                     Text="Write your review"
-                     TextColor="#00C569"
-                     VerticalTextAlignment="Center">
-                                                <Label.FontFamily>
-                                                    <OnPlatform x:TypeArguments="x:String">
-                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
-                                                    </OnPlatform>
-                                                </Label.FontFamily>
-                                            </Label>
+                       <Label
+Margin="0,5,0,0"
+FontAttributes="Bold"
+FontSize="14"
+HorizontalOptions="StartAndExpand"
+Text="Write your review"
+TextColor="#00C569"
+VerticalTextAlignment="Center">
+                           <Label.FontFamily>
+                               <OnPlatform x:TypeArguments="x:String">
+                                   <On Value="SFPro.ttf#Bold" Platform="Android" />
+                               </OnPlatform>
+                           </Label.FontFamily>
+                       </Label>-->
                                         </StackLayout>
 
                                     </StackLayout>
@@ -281,26 +281,26 @@
                                                                     </Label>
                                                                 </StackLayout>
 
-                                                                <StackLayout
-                                         Margin="0"
-                                         Orientation="Horizontal"
-                                         Spacing="0"
-                                         VerticalOptions="FillAndExpand">
-                                                                    <Label
-                                             Margin="0,5,0,0"
-                                             FontSize="14"
-                                             HorizontalOptions="StartAndExpand"
-                                             LineBreakMode="WordWrap"
-                                             Text="{Binding review}"
-                                             TextColor="Black"
-                                             VerticalTextAlignment="Center">
-                                                                        <Label.FontFamily>
-                                                                            <OnPlatform x:TypeArguments="x:String">
-                                                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
-                                                                            </OnPlatform>
-                                                                        </Label.FontFamily>
-                                                                    </Label>
-                                                                </StackLayout>
+                                                                <!--                       <StackLayout
+Margin="0"
+Orientation="Horizontal"
+Spacing="0"
+VerticalOptions="FillAndExpand">
+                           <Label
+    Margin="0,5,0,0"
+    FontSize="14"
+    HorizontalOptions="StartAndExpand"
+    LineBreakMode="WordWrap"
+    Text="{Binding review}"
+    TextColor="Black"
+    VerticalTextAlignment="Center">
+                               <Label.FontFamily>
+                                   <OnPlatform x:TypeArguments="x:String">
+                                       <On Value="SFPro.ttf#Bold" Platform="Android" />
+                                   </OnPlatform>
+                               </Label.FontFamily>
+                           </Label>
+                       </StackLayout>-->
                                                             </StackLayout>
 
                                                         </StackLayout>
@@ -418,7 +418,7 @@
                 BackgroundColor="Transparent"
                 CornerRadius="45"
                 HasShadow="False"
-                HeightRequest="40"
+                HeightRequest="300"
                 HorizontalOptions="StartAndExpand"
                 Padding="0"
                 WidthRequest="40">
