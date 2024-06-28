@@ -25,11 +25,11 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=638549145927465146
+_nugetassetstimestamp=638551219371281575
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a
 x86
 x86_64
 androidmanifestplaceholders=
-projectfullpath=c:\users\jefrey zuniga\source\repos\e_commercefacultativaii\ecommerce\ecommerce.android\ecommerce.android.csproj
+projectfullpath=c:\users\lenovo\documents\github\e_commercefacultativaii\ecommerce\ecommerce.android\ecommerce.android.csproj

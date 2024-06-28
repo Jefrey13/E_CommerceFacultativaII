@@ -1,94 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             x:Class="eCommerce.Views.ShowPage">
+<ContentPage
+    x:Class="eCommerce.Views.ShowPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}"
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        
-        <StackLayout         
-            Padding="10, 20, 10, 5"
-            BindingContext="{Binding Show}">
+
+        <StackLayout BindingContext="{Binding Show}" Padding="10, 20, 10, 5">
             <Grid Margin="0,30">
 
                 <Grid.ColumnDefinitions>
 
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
 
-                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1.5*" />
 
 
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2.5*"></RowDefinition>
+                    <RowDefinition Height="2.5*" />
 
                 </Grid.RowDefinitions>
 
                 <Button
-                   
-                   Scale="0.5"
-                   Grid.Row="0"
-                   Grid.Column="0"
-                   Margin="0,0,0,0"
-                   Command="{Binding HomeCommand}"
-                   Text="Back">
-                </Button>
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="0,0,0,0"
+                    Command="{Binding HomeCommand}"
+                    Scale="0.5"
+                    Text="Back" />
 
                 <Label
-                
-                    FontSize="20"
                     Grid.Row="0"
                     Grid.Column="1"
                     Margin="0,0,20,15"
-                    Text="Insert product">
-                </Label>
+                    FontSize="20"
+                    Text="Insert product" />
 
                 <Image
-                Scale="2"
-                   x:Name="imageNotFound"
-                   Grid.Row="1"
-                   Grid.Column="0"
-                   Margin="0,10"
-                   Source="Resources/drawable/notfound.png"
-                   >
-                </Image>
+                    x:Name="imageNotFound"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="0,10"
+                    Scale="2"
+                    Source="Resources/drawable/notfound.png" />
 
                 <Entry
                     x:Name="entryName"
-                    
-                    FontSize="13"
                     Grid.Row="1"
                     Grid.Column="1"
-                    InputTransparent="True"
-                
                     Margin="25,0,0,0"
-                    Placeholder="insert the name of the phone....">
-
-                </Entry>
+                    FontSize="13"
+                    InputTransparent="True"
+                    Placeholder="insert the name of the phone...." />
                 <Label
                     x:Name="lblScreen"
-                    FontSize="13"
                     Grid.Row="2"
                     Grid.Column="1"
                     Margin="25,0,0,0"
-                    Text="Screen">
-                </Label>
+                    FontSize="13"
+                    Text="Screen" />
                 <Label
                     x:Name="lblMemory"
-                    FontSize="13"
                     Grid.Row="3"
                     Grid.Column="1"
                     Margin="25,0,0,0"
-                    Text="Memory">
-                </Label>
+                    FontSize="13"
+                    Text="Memory" />
                 <Label
                     x:Name="lblRam"
-                    FontSize="13"
                     Grid.Row="4"
                     Grid.Column="1"
                     Margin="25,0,0,0"
-                    Text="RAM">
-                </Label>
+                    FontSize="13"
+                    Text="RAM" />
 
 
 

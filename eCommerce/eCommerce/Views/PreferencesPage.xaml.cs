@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerce.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,13 @@ namespace eCommerce.Views
     public partial class PreferencesPage : ContentPage
     {
         int index = 1;
-        public PreferencesPage()
+        private ProductViewModel ViewModel { get; set; } // Agregar una propiedad para el ViewModel
+        public PreferencesPage(int Id)
         {
             InitializeComponent();
+            // Crear una instancia de categoriesViewModel y asignarla como contexto de enlace
+            ViewModel = new ProductViewModel(Id);
+            BindingContext = ViewModel;
         }
 
         public void changeColor(object sender, EventArgs e)
@@ -41,6 +46,21 @@ namespace eCommerce.Views
                     index = 1;
                     break;
             }
+        }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+
+        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+
+        private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
         }
     }
 }

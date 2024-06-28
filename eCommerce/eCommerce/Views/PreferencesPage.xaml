@@ -1,18 +1,206 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="eCommerce.Views.PreferencesPage"
-             Title="Settings">
+<ContentPage
+    x:Class="eCommerce.Views.PreferencesPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:PanCake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:viewmodels="clr-namespace:eCommerce.Model"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout
-            BindingContext="{Binding Preference}">
-            <Label Text="Change color backgroud" 
-                   TextColor="Blue"/>
-            <Button
-                Text="Change"
-                Clicked="changeColor">
-                
-            </Button>
-        </StackLayout>
+        <Grid Margin="0,5,0,0">
+            <!--  Header  -->
+            <StackLayout
+                Margin="15"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                VerticalOptions="StartAndExpand">
+                <Frame
+                    BackgroundColor="Transparent"
+                    CornerRadius="45"
+                    HasShadow="False"
+                    HeightRequest="300"
+                    HorizontalOptions="StartAndExpand"
+                    Padding="0"
+                    WidthRequest="40">
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            Margin="0,10"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="26"
+                            HorizontalOptions="StartAndExpand"
+                            Text="&#xf141;"
+                            TextColor="Black" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <StackLayout />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                FontSize="{OnPlatform Android=13}"
+                                Text="Favorite&#10;"
+                                TextColor="Black" />
+                            <Span
+                                FontAttributes="Bold"
+                                FontSize="{OnPlatform Android=15}"
+                                Text="Products"
+                                TextColor="Black" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <StackLayout>
+                    <Frame
+                        BackgroundColor="White"
+                        CornerRadius="20"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        Padding="0"
+                        WidthRequest="40">
+                        <Image
+                            Margin="0,0,0,0"
+                            Aspect="AspectFit"
+                            HeightRequest="300"
+                            Source="https://factus.com.co/_astro/favicon.DMncryqX.ico"
+                            WidthRequest="100" />
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+
+            <!--  Body  -->
+            <CollectionView Margin="10,50,0,0" ItemsSource="{Binding itemPreviewP}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="0" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout IsClippedToBounds="True" Padding="10">
+                            <PanCake:PancakeView
+                                BackgroundColor="White"
+                                CornerRadius="20"
+                                Padding="10">
+                                <StackLayout>
+                                    <Grid>
+                                        <Image
+                                            x:Name="productImage"
+                                            Aspect="AspectFit"
+                                            HeightRequest="200"
+                                            Source="{Binding ImageUrl}" />
+                                        <Button
+                                            BackgroundColor="White"
+                                            CornerRadius="20"
+                                            HeightRequest="40"
+                                            HorizontalOptions="End"
+                                            ImageSource="Heart24"
+                                            VerticalOptions="Start"
+                                            WidthRequest="40" />
+                                    </Grid>
+                                    <StackLayout Margin="15,10,15,0">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            HorizontalOptions="StartAndExpand"
+                                            Text="{Binding Name}"
+                                            TextColor="Black" />
+                                        <Label
+                                            FontSize="16"
+                                            HorizontalOptions="StartAndExpand"
+                                            Text="{Binding Description}"
+                                            TextColor="Gray" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="18"
+                                            HorizontalOptions="StartAndExpand"
+                                            Text="{Binding Price, StringFormat='${0}'}"
+                                            TextColor="#00C569" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </PanCake:PancakeView>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!--  Footer  -->
+            <StackLayout
+                Margin="0,-5,0,10"
+                HeightRequest="80"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand">
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="#F7F7F7"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand" />
+                <Frame
+                    BackgroundColor="Transparent"
+                    HasShadow="True"
+                    HorizontalOptions="FillAndExpand"
+                    Padding="0">
+                    <StackLayout
+                        Margin="50,10,50,10"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+
+                        <StackLayout Margin="20,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                Padding="0"
+                                WidthRequest="0">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="20"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="Icon_Home"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="20" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                Padding="0"
+                                WidthRequest="10">
+                                <StackLayout>
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="14"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center"
+                                        Text="Account"
+                                        TextColor="Black">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -6092,39 +6092,43 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
+      "projectUniqueName": "C:\\Users\\LENOVO\\Documents\\GitHub\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
       "projectName": "eCommerce.Android",
-      "projectPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
-      "packagesPath": "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\obj\\",
+      "projectPath": "C:\\Users\\LENOVO\\Documents\\GitHub\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\eCommerce.Android.csproj",
+      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LENOVO\\Documents\\GitHub\\E_CommerceFacultativaII\\eCommerce\\eCommerce.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Jefrey zuniga\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "monoandroid13.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.devexpress.com/sxtdt1Q23qu973JCVYk3pv5O9SzZi1NIOdUKehPsrforZ6Q5gy/api/v3/index.json": {}
       },
       "frameworks": {
         "monoandroid13.0": {
           "projectReferences": {
-            "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj": {
-              "projectPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj"
+            "C:\\Users\\LENOVO\\Documents\\GitHub\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj": {
+              "projectPath": "C:\\Users\\LENOVO\\Documents\\GitHub\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj"
             }
           }
         }
@@ -6142,14 +6146,6 @@
             "target": "Package",
             "version": "[8.0.0, )"
           },
-          "Microsoft.Extensions.DependencyInjection": {
-            "target": "Package",
-            "version": "[8.0.0, )"
-          },
-          "MvvmLightLibsStd10": {
-            "target": "Package",
-            "version": "[5.4.1.1, )"
-          },
           "MvvmLightLibsStd10": {
             "target": "Package",
             "version": "[5.4.1.1, )"
@@ -6158,19 +6154,7 @@
             "target": "Package",
             "version": "[2.1.0, )"
           },
-          "Rg.Plugins.Popup": {
-            "target": "Package",
-            "version": "[2.1.0, )"
-          },
           "SQLite.Net-PCL": {
-            "target": "Package",
-            "version": "[3.1.1, )"
-          },
-          "SQLite.Net-PCL": {
-            "target": "Package",
-            "version": "[3.1.1, )"
-          },
-          "SQLite.Net.Core-PCL": {
             "target": "Package",
             "version": "[3.1.1, )"
           },
@@ -6182,21 +6166,9 @@
             "target": "Package",
             "version": "[2.1.8, )"
           },
-          "SQLitePCLRaw.bundle_green": {
-            "target": "Package",
-            "version": "[2.1.8, )"
-          },
           "SQLitePCLRaw.core": {
             "target": "Package",
             "version": "[2.1.8, )"
-          },
-          "SQLitePCLRaw.core": {
-            "target": "Package",
-            "version": "[2.1.8, )"
-          },
-          "Xamarin.Essentials": {
-            "target": "Package",
-            "version": "[1.8.1, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",
@@ -6206,21 +6178,9 @@
             "target": "Package",
             "version": "[5.0.0.2662, )"
           },
-          "Xamarin.Forms": {
-            "target": "Package",
-            "version": "[5.0.0.2662, )"
-          },
           "Xamarin.Forms.PancakeView": {
             "target": "Package",
             "version": "[2.3.0.759, )"
-          },
-          "Xamarin.Forms.PancakeView": {
-            "target": "Package",
-            "version": "[2.3.0.759, )"
-          },
-          "sqlite-net-pcl": {
-            "target": "Package",
-            "version": "[1.9.172, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",
@@ -6235,7 +6195,7 @@
       "code": "NU1605",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.AndroidX.RecyclerView from 1.2.1.5 to 1.2.1.1. Reference the package directly from the project to select a different version. \r\n eCommerce.Android -> Xamarin.Forms 5.0.0.2662 -> Xamarin.AndroidX.Preference 1.1.1.13 -> Xamarin.AndroidX.RecyclerView (>= 1.2.1.5) \r\n eCommerce.Android -> Xamarin.Forms 5.0.0.2662 -> Xamarin.AndroidX.RecyclerView (>= 1.2.1.1 && < 1.4.0)",
+      "message": "Degradación del paquete detectada: Xamarin.AndroidX.RecyclerView de 1.2.1.5 a 1.2.1.1. Haga referencia al paquete directamente desde el proyecto para seleccionar una versión diferente. \r\n eCommerce.Android -> Xamarin.Forms 5.0.0.2662 -> Xamarin.AndroidX.Preference 1.1.1.13 -> Xamarin.AndroidX.RecyclerView (>= 1.2.1.5) \r\n eCommerce.Android -> Xamarin.Forms 5.0.0.2662 -> Xamarin.AndroidX.RecyclerView (>= 1.2.1.1 && < 1.4.0)",
       "libraryId": "Xamarin.AndroidX.RecyclerView",
       "targetGraphs": [
         "MonoAndroid,Version=v13.0"

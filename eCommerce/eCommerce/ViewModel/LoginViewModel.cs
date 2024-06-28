@@ -74,12 +74,12 @@ namespace eCommerce.ViewModels
 		{
 			if (string.IsNullOrEmpty(this.email))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				return;
 			}
 			if (string.IsNullOrEmpty(this.password))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				return;
 			}
 
@@ -96,12 +96,12 @@ namespace eCommerce.ViewModels
 				await SecureStorage.SetAsync("firebase_refresh_token", serializedcontnet);
 
 				Preferences.Set("MyFirebaseRefreshToken", serializedcontnet);
-				CrossToastPopUp.Current.ShowCustomToast("Success. Welcome to factus", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Success. Welcome to factus", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				await Application.Current.MainPage.Navigation.PushModalAsync(new HomePage());
 			}
 			catch (Exception ex)
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Invalid useremail or password", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Invalid useremail or password", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				//await App.Current.MainPage.DisplayAlert("Alert", "Invalid useremail or password", "OK");
 			}
 

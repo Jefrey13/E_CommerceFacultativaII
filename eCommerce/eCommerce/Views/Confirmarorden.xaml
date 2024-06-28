@@ -7,13 +7,33 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:eCommerce.ViewModel"
     mc:Ignorable="d"
-    BackgroundColor="White">
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never">
-            <StackLayout Margin="20">
+            <StackLayout Margin="20,20,20,0">
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                    <Frame
+                        BackgroundColor="Transparent"
+                        HasShadow="False"
+                        HeightRequest="100"
+                        Padding="0"
+                        WidthRequest="100">
+                        <Label
+                            Margin="0,0,0,0"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="26"
+                            HorizontalOptions="StartAndExpand"
+                            Text="&#xf141;"
+                            TextColor="Black" />
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
                 <Frame
-                    Margin="0,0,0,20"
+                    Margin="0,-55,0,20"
                     BackgroundColor="White"
                     CornerRadius="10"
                     HasShadow="True"
@@ -214,7 +234,7 @@
                         </Frame>-->
                     </StackLayout>
                 </Frame>
-                <ScrollView  VerticalScrollBarVisibility="Never">
+                <ScrollView VerticalScrollBarVisibility="Never">
                     <StackLayout HeightRequest="250">
                         <Label
                             Margin="0,0,0,0"
@@ -316,13 +336,12 @@
                     Para finez ilustrativos usare el Evento Cliked-->
                     <Button
                         x:Name="btnPay"
-                        Margin="0,20,0,0"
-                        BackgroundColor="#3E3CFF"
+                        Margin="10,20,10,20"
+                        BackgroundColor="#00C569"
+                        Command="{Binding GenerarFacturaCommand}"
                         CornerRadius="7"
                         Text="Pay"
-                        TextColor="White"
-                        Command="{Binding GenerarFacturaCommand}"/>
-
+                        TextColor="White" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>
