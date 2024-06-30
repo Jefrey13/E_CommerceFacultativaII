@@ -22,7 +22,7 @@
   </queries>
   <permission android:name="com.companyname.ecommerce.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature" />
   <uses-permission android:name="com.companyname.ecommerce.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-  <application android:name="android.app.Application" android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:extractNativeLibs="true" android:label="eCommerce.Android">
+  <application android:name="android.app.Application" android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:extractNativeLibs="true" android:icon="@mipmap/ic_launcher" android:label="eCommerce.Android">
     <activity android:name="crc645a520274fac6aff7.SplashScreenActivity" android:exported="true" android:label="Factus" android:noHistory="true" android:theme="@style/Theme.Splash">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

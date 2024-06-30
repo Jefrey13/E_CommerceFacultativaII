@@ -1,6 +1,7 @@
 ﻿using eCommerce.DataAccess;
 using eCommerce.Views;
 using Plugin.Toast;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -46,10 +47,12 @@ namespace eCommerce.Model
 		}
 		void CreateDetailItemCollection()
 		{
-			var product = _productDataAccess.GetProductsById(_id);
-
-			if (product.Data != null)
+			try
 			{
+				var product = _productDataAccess.GetProductsById(_id);
+
+				if (product.Data != null)
+				{
 					sourceP.Add(new ItemsPreview
 					{
 						ImageUrl = product.Data.Image,
@@ -57,7 +60,20 @@ namespace eCommerce.Model
 						price = product.Data.Price,
 						Description = product.Data.Description
 					});
-				itemPreviewP = new ObservableCollection<ItemsPreview>(sourceP);
+					itemPreviewP = new ObservableCollection<ItemsPreview>(sourceP);
+				}
+			}
+			catch (SQLiteException ex)
+			{
+				itemPreviewP = new ObservableCollection<ItemsPreview>();
+				// Manejar excepciones de SQLite específicamente
+				Console.WriteLine($"Error al acceder a SQLite: {ex.Message}");
+			}
+			catch (Exception ex)
+			{
+				itemPreviewP = new ObservableCollection<ItemsPreview>();
+				Console.WriteLine($"Error al crear la colección de elementos: {ex.Message}");
+				// Manejar la excepción según sea necesario
 			}
 		}
 

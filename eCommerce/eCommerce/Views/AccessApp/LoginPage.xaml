@@ -3,7 +3,8 @@
     x:Class="eCommerce.Views.AccessApp.LoginPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="White">
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <ScrollView>
 
@@ -44,9 +45,7 @@
                         Text="Welcome Back To Factus!"
                         TextColor="{OnPlatform Android=Black}"
                         WidthRequest="300" />
-                    <Image 
-                        Source="https://factus.com.co/_astro/favicon.DMncryqX.ico" 
-                        HeightRequest="75"/>
+                    <Image HeightRequest="75" Source="https://factus.com.co/_astro/favicon.DMncryqX.ico" />
                     <Label
                         FontSize="15"
                         Text="Sign in to continue"
@@ -158,11 +157,11 @@
                 </StackLayout>
                 <Label
                     Grid.Row="9"
-                    TextColor="Black"
                     FontAttributes="None"
                     FontSize="15"
                     HorizontalOptions="Center"
                     Text="©2024 - Factus.NIC"
+                    TextColor="Black"
                     VerticalOptions="Center" />
             </Grid>
         </ScrollView>

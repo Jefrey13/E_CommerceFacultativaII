@@ -17,10 +17,12 @@ namespace eCommerce.DataAccess
 		}
 		#region CRUD - USER TABLE
 
-		public UserModel GetUserModelAynsc(int id)
+		/*
+		 * public UserModel GetUserModelAynsc(int id)
 		{ 
 			return _sqlConnection.Table<UserModel>().Where(i => i.UserID == id).FirstOrDefault(); 
 		}
+		 */
 
 		/* METOD-O SELECT ()*/
 		public List<UserModel> GetUserModel() {
@@ -28,7 +30,8 @@ namespace eCommerce.DataAccess
 		}
 
 		/* METOD-O GUARDAR Y ACTUALIZAR ()*/
-		public int SaveUserModelAsync(UserModel userModel)
+		/*
+			public int SaveUserModelAsync(UserModel userModel)
 		{
 			if (userModel.UserID != 0)
 			{
@@ -39,6 +42,7 @@ namespace eCommerce.DataAccess
 				return _sqlConnection.Insert(userModel);
 			}
 		}
+		 */
 
 		/* METOD-O ELIMINAR () */
 		public int DeleteUserModelAsync(UserModel userModel) { return _sqlConnection.Delete(userModel); }

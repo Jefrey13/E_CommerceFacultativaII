@@ -8,7 +8,7 @@ namespace eCommerce.Model
 	public class UserModel
 	{
 		[PrimaryKey, AutoIncrement]
-		public int UserID { get; set; }
+		public Guid UserID { get; set; }
 
 		[MaxLength(30)]
 		public string EmailField { get; set; }
@@ -21,6 +21,7 @@ namespace eCommerce.Model
 
 		[MaxLength(2)]
 		public string AgeField { get; set; }
+
 		[MaxLength(16)]
 		public string NumberField { get; set; }
 

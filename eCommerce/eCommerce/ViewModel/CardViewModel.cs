@@ -25,6 +25,7 @@ namespace eCommerce.ViewModel
 
         void RemoveCart(CartModel cart)
         {
+            
             if (itemPreview.Contains(cart))
             {
                 itemPreview.Remove(cart);

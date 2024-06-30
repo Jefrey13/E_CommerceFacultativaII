@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="eCommerce.Views.categoriesPage"
+    x:Name="catPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:eCommerce.Model"
-    x:Name="catPage"
-    BackgroundColor="White"
     mc:Ignorable="d"
+    BackgroundColor="White"
     NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Resources>
@@ -34,10 +34,10 @@
                 <!--  Nav Bar  -->
                 <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                     <Frame
-                        Padding="0"
                         BackgroundColor="Transparent"
                         HasShadow="False"
                         HeightRequest="100"
+                        Padding="0"
                         WidthRequest="40">
                         <Label
                             Margin="0,10"
@@ -46,7 +46,6 @@
                             HorizontalOptions="StartAndExpand"
                             Text="&#xf141;"
                             TextColor="Black" />
-
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                         </Frame.GestureRecognizers>
@@ -61,7 +60,7 @@
                         VerticalTextAlignment="Center">
                         <Label.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                             </OnPlatform>
                         </Label.FontFamily>
                     </Label>
@@ -89,7 +88,7 @@
                                 TextColor="Black">
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String">
-                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                                     </OnPlatform>
                                 </Label.FontFamily>
                             </Label>
@@ -108,19 +107,19 @@
                                         <Grid>
                                             <Frame
                                                 Margin="1,5,10,5"
-                                                Padding="0"
                                                 BorderColor="#F7F7F7"
                                                 HasShadow="False"
                                                 HorizontalOptions="CenterAndExpand"
+                                                Padding="0"
                                                 VerticalOptions="CenterAndExpand">
 
                                                 <StackLayout Margin="15,10,15,10" Orientation="Horizontal">
                                                     <Frame
-                                                        Padding="0"
                                                         CornerRadius="20"
                                                         HasShadow="False"
                                                         HeightRequest="40"
                                                         Opacity="10"
+                                                        Padding="0"
                                                         WidthRequest="40">
                                                         <Image
                                                             Aspect="AspectFit"
@@ -140,7 +139,7 @@
                                                             TextColor="Black">
                                                             <Label.FontFamily>
                                                                 <OnPlatform x:TypeArguments="x:String">
-                                                                    <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                    <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                                 </OnPlatform>
                                                             </Label.FontFamily>
                                                         </Label>
@@ -152,7 +151,7 @@
                                                             TextColor="#929292">
                                                             <Label.FontFamily>
                                                                 <OnPlatform x:TypeArguments="x:String">
-                                                                    <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                    <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                                 </OnPlatform>
                                                             </Label.FontFamily>
                                                         </Label>
@@ -183,8 +182,8 @@
                                     <DataTemplate>
                                         <Grid
                                             Margin="5"
-                                            Padding="0"
-                                            HeightRequest="350">
+                                            HeightRequest="350"
+                                            Padding="0">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="3*" />
                                                 <RowDefinition Height="*" />
@@ -214,7 +213,7 @@
                                                         VerticalOptions="Start">
                                                         <Label.FontFamily>
                                                             <OnPlatform x:TypeArguments="x:String">
-                                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                             </OnPlatform>
                                                         </Label.FontFamily>
                                                     </Label>
@@ -227,7 +226,7 @@
                                                         VerticalOptions="Start">
                                                         <Label.FontFamily>
                                                             <OnPlatform x:TypeArguments="x:String">
-                                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                             </OnPlatform>
                                                         </Label.FontFamily>
                                                     </Label>
@@ -240,7 +239,7 @@
                                                         VerticalOptions="Start">
                                                         <Label.FontFamily>
                                                             <OnPlatform x:TypeArguments="x:String">
-                                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                             </OnPlatform>
                                                         </Label.FontFamily>
                                                     </Label>

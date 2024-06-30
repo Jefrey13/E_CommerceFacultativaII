@@ -1,22 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage
     x:Class="eCommerce.Views.ProductsTag"
+    x:Name="productTagPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    BackgroundColor="White"
     mc:Ignorable="d"
-    x:Name="productTagPage">
-    
+     xmlns:viewmodels="clr-namespace:eCommerce.ViewModel">
+
+    <TabbedPage.BindingContext>
+        <viewmodels:ProductTagViewModel />
+    </TabbedPage.BindingContext>
+
     <NavigationPage.TitleView>
         <StackLayout
-            Padding="0"
             HorizontalOptions="CenterAndExpand"
             Orientation="Horizontal"
+            Padding="0"
             Spacing="0"
             VerticalOptions="CenterAndExpand">
-
             <Label
                 x:Name="title"
                 FontAttributes="Bold"
@@ -27,19 +30,16 @@
                 VerticalTextAlignment="Center">
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                     </OnPlatform>
                 </Label.FontFamily>
             </Label>
-
         </StackLayout>
     </NavigationPage.TitleView>
-    
-    
+
     <TabbedPage.ItemTemplate>
         <DataTemplate>
             <ContentPage Title="{Binding Name}">
-
                 <ContentPage.Resources>
                     <Style TargetType="Grid">
                         <Setter Property="VisualStateManager.VisualStateGroups">
@@ -60,13 +60,11 @@
                 <ContentPage.Content>
                     <StackLayout>
                         <StackLayout>
-
-                            <StackLayout Margin="15,15,15,0">
+                            <StackLayout Margin="15,-30,15,0">
                                 <StackLayout>
                                     <CollectionView
                                         Grid.Row="3"
                                         ItemsSource="{Binding list}"
-                                        SelectionChanged="OnItemSelected"
                                         SelectionMode="Multiple">
 
                                         <CollectionView.ItemsLayout>
@@ -77,8 +75,8 @@
                                             <DataTemplate>
                                                 <Grid
                                                     Margin="5"
-                                                    Padding="0"
-                                                    HeightRequest="350">
+                                                    HeightRequest="350"
+                                                    Padding="0">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="3*" />
                                                         <RowDefinition Height="*" />
@@ -108,20 +106,7 @@
                                                                 VerticalOptions="Start">
                                                                 <Label.FontFamily>
                                                                     <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
-                                                                    </OnPlatform>
-                                                                </Label.FontFamily>
-                                                            </Label>
-
-                                                            <Label
-                                                                FontSize="12"
-                                                                HorizontalOptions="Center"
-                                                                Text="{Binding brand}"
-                                                                TextColor="#929292"
-                                                                VerticalOptions="Start">
-                                                                <Label.FontFamily>
-                                                                    <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                                     </OnPlatform>
                                                                 </Label.FontFamily>
                                                             </Label>
@@ -134,12 +119,15 @@
                                                                 VerticalOptions="Start">
                                                                 <Label.FontFamily>
                                                                     <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                                     </OnPlatform>
                                                                 </Label.FontFamily>
                                                             </Label>
                                                         </StackLayout>
                                                     </StackLayout>
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Source={x:Reference productTagPage}, Path=BindingContext.ProductByIdCommand}" CommandParameter="{Binding .}" />
+                                                    </Grid.GestureRecognizers>
                                                 </Grid>
                                             </DataTemplate>
                                         </CollectionView.ItemTemplate>
@@ -154,8 +142,4 @@
             </ContentPage>
         </DataTemplate>
     </TabbedPage.ItemTemplate>
-
-
-
-
 </TabbedPage>

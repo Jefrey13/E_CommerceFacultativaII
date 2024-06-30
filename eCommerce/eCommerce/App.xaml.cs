@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -19,9 +20,9 @@ namespace eCommerce
 		public App()
         {
             InitializeComponent();
-			
-			
-			
+
+
+            
 			#region Data
 			var categoryRepository = new CategoryDataAccess();
 			var productRepository = new ProductDataAccess();
@@ -183,13 +184,13 @@ namespace eCommerce
 			//brandTagRepository.DeleteAllBrandTags();
 			#endregion
 			
-			
-			
 
-			//ConfigureServices();
 
-			MainPage = new Views.AccessApp.LoginPage();
-			//MainPage = new Views.categoriesPage("Electronics");
+
+            //ConfigureServices();
+
+            MainPage = new Views.AccessApp.LoginPage();
+            //MainPage = new Views.PreferencesPage(1);
 		}
 		/**private void ConfigureServices()
 		{

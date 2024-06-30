@@ -5,57 +5,76 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
     BackgroundColor="White"
-    mc:Ignorable="d">
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-                <StackLayout Margin="15,30,15,15">
-
-                        <StackLayout Orientation="Horizontal">
-                            <Frame
-                            Margin="0"
+                <StackLayout Margin="15,15,0,0">
+                    <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                        <Frame
+                            BackgroundColor="Transparent"
+                            HasShadow="False"
+                            HeightRequest="100"
+                            Padding="0"
+                            WidthRequest="100">
+                            <Label
+                                Margin="0,0,0,0"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="26"
+                                HorizontalOptions="StartAndExpand"
+                                Text="&#xf141;"
+                                TextColor="Black" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame
+                            Margin="0,-50,0,0"
                             BackgroundColor="Transparent"
                             HeightRequest="120"
                             Padding="0"
                             WidthRequest="120">
-                                <Image
+                            <Image
                                 Aspect="AspectFit"
                                 HeightRequest="120"
                                 Source="https://i.ibb.co/T15fsD0/Test.png"
                                 WidthRequest="120" />
-                            </Frame>
-                            <StackLayout Margin="20" VerticalOptions="CenterAndExpand">
-                                <Label
+                        </Frame>
+                        <StackLayout Margin="20,0,0,0" VerticalOptions="CenterAndExpand">
+                            <Label
                                 FontAttributes="Bold"
                                 FontSize="26"
                                 HorizontalOptions="CenterAndExpand"
                                 Text="Account Settings"
                                 TextColor="Black"
                                 VerticalTextAlignment="Center">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String">
-                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
-                                        </OnPlatform>
-                                    </Label.FontFamily>
-                                </Label>
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
 
-                                <Label
+                            <Label
                                 FontSize="14"
                                 HorizontalOptions="CenterAndExpand"
                                 Text="Factus.com"
                                 TextColor="Black"
                                 VerticalTextAlignment="Center">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String">
-                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
-                                        </OnPlatform>
-                                    </Label.FontFamily>
-                                </Label>
-                            </StackLayout>
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
                         </StackLayout>
+                    </StackLayout>
 
-                        <StackLayout Margin="0,30,0,0">
+                    <StackLayout Margin="0,30,0,0">
 
                         <!--  Start account data  -->
                         <StackLayout Margin="0,5,5,5">
@@ -78,7 +97,7 @@
                                         VerticalTextAlignment="Center">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
@@ -101,6 +120,50 @@
                         </StackLayout>
                         <!--  End of Menu Item  -->
 
+                        <!--  Start of Menu Item  -->
+                        <StackLayout Margin="0,5,5,5">
+
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image
+                                        Aspect="AspectFill"
+                                        HeightRequest="40"
+                                        HorizontalOptions="StartAndExpand"
+                                        Source="Icon_Wishlist"
+                                        WidthRequest="40" />
+                                    <Label
+                                        Margin="15,0,0,0"
+                                        FontSize="18"
+                                        HorizontalOptions="StartAndExpand"
+                                        HorizontalTextAlignment="Start"
+                                        Text="Wishlist"
+                                        TextColor="Black"
+                                        VerticalTextAlignment="Center">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                </StackLayout>
+
+                                <Image
+                                    Margin="20,0,20,0"
+                                    Aspect="AspectFit"
+                                    HeightRequest="10"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="more"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="10" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_5"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                        </StackLayout>
+                        <!--  End of Menu Item  -->
+
+
                         <!--  Start log out  -->
                         <StackLayout Margin="0,5,5,5">
 
@@ -122,7 +185,7 @@
                                         VerticalTextAlignment="Center">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
@@ -164,10 +227,10 @@
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="StartAndExpand" />
                 <Frame
-                    Padding="0"
                     BackgroundColor="Transparent"
                     HasShadow="True"
-                    HorizontalOptions="FillAndExpand">
+                    HorizontalOptions="FillAndExpand"
+                    Padding="0">
                     <StackLayout
                         Margin="50,10,50,10"
                         HorizontalOptions="FillAndExpand"
@@ -176,10 +239,10 @@
 
                         <StackLayout Margin="20,10,25,10" HorizontalOptions="FillAndExpand">
                             <Frame
-                                Padding="0"
                                 BackgroundColor="Transparent"
                                 HasShadow="False"
                                 HeightRequest="50"
+                                Padding="0"
                                 WidthRequest="0">
                                 <Image
                                     Aspect="AspectFit"
@@ -197,10 +260,10 @@
 
                         <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
                             <Frame
-                                Padding="0"
                                 BackgroundColor="Transparent"
                                 HasShadow="False"
                                 HeightRequest="50"
+                                Padding="0"
                                 WidthRequest="0">
                                 <Image
                                     Aspect="AspectFit"
@@ -218,22 +281,22 @@
 
                         <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
                             <Frame
-                                Padding="0"
                                 BackgroundColor="Transparent"
                                 HasShadow="False"
                                 HeightRequest="50"
-                                WidthRequest="0">
+                                Padding="0"
+                                WidthRequest="10">
                                 <StackLayout>
                                     <Label
                                         FontAttributes="Bold"
                                         FontSize="14"
-                                        HorizontalOptions="FillAndExpand"
+                                        HorizontalOptions="EndAndExpand"
                                         HorizontalTextAlignment="Center"
                                         Text="Account"
                                         TextColor="Black">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
@@ -248,7 +311,7 @@
                                         VerticalTextAlignment="Start">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>

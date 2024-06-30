@@ -3,6 +3,7 @@ using eCommerce.Model;
 using eCommerce.Views;
 using GalaSoft.MvvmLight;
 using Plugin.Toast;
+using SQLite;
 using Stripe;
 using Stripe.Climate;
 using System;
@@ -84,55 +85,68 @@ namespace eCommerce.ViewModel
 
 		void ItemToCartCollection(int id = -1, int type = 0)
 		{
-			var product = _cartDataAccess.GetCartProducts();
-
-			if (product.Data != null)
+			try
 			{
-				sourceP.Clear();
-				decimal totalPrice = 0m;
+				var product = _cartDataAccess.GetCartProducts();
 
-				foreach (var item in product.Data)
+				if (product.Data != null)
 				{
-					int quantity = item.Quantity;
-					decimal price;
+					sourceP.Clear();
+					decimal totalPrice = 0m;
 
-					// Intentar convertir el precio a decimal
-					if (!decimal.TryParse(item.Price, out price))
+					foreach (var item in product.Data)
 					{
-						// Si no se puede convertir, saltar este producto
-						continue;
+						int quantity = item.Quantity;
+						decimal price;
+
+						// Intentar convertir el precio a decimal
+						if (!decimal.TryParse(item.Price, out price))
+						{
+							// Si no se puede convertir, saltar este producto
+							continue;
+						}
+
+						if (type == 1 && id == item.Id) // Aumentar la cantidad de productos en el carrito
+						{
+							quantity++;
+						}
+						else if (type == 2 && id == item.Id) // Disminuir la cantidad de productos en el carrito
+						{
+							quantity = Math.Max(0, quantity - 1); // Asegurarse de que la cantidad no sea negativa
+						}
+
+						sourceP.Add(new ItemsPreview
+						{
+							Id = item.Id,
+							Name = item.Name,
+							ImageUrl = item.Image,
+							price = (price * quantity).ToString("F2"), // Formatear como cadena con 2 decimales
+							Description = item.Description,
+							Quantity = quantity
+						});
+
+						totalPrice += price * quantity;
 					}
 
-					if (type == 1 && id == item.Id) // Aumentar la cantidad de productos en el carrito
-					{
-						quantity++;
-					}
-					else if (type == 2 && id == item.Id) // Disminuir la cantidad de productos en el carrito
-					{
-						quantity = Math.Max(0, quantity - 1); // Asegurarse de que la cantidad no sea negativa
-					}
-
-					sourceP.Add(new ItemsPreview
-					{
-						Id = item.Id,
-						Name = item.Name,
-						ImageUrl = item.Image,
-						price = (price * quantity).ToString("F2"), // Formatear como cadena con 2 decimales
-						Description = item.Description,
-						Quantity = quantity
-					});
-
-					totalPrice += price * quantity;
+					TotalPrice = totalPrice; // Asegurarse de asignar el totalPrice calculado
+					itemPreviewP = new ObservableCollection<ItemsPreview>(sourceP);
+					OnPropertyChanged(nameof(itemPreviewP));
+					OnPropertyChanged(nameof(TotalPrice)); // Notificar cambio en TotalPrice si es necesario
 				}
-
-				TotalPrice = totalPrice; // Asegurarse de asignar el totalPrice calculado
-				itemPreviewP = new ObservableCollection<ItemsPreview>(sourceP);
-				OnPropertyChanged(nameof(itemPreviewP));
-				OnPropertyChanged(nameof(TotalPrice)); // Notificar cambio en TotalPrice si es necesario
+			}
+			catch (SQLiteException ex)
+			{
+				itemPreviewP = new ObservableCollection<ItemsPreview>();
+				// Manejar excepciones de SQLite específicamente
+				Console.WriteLine($"Error al acceder a SQLite: {ex.Message}");
+			}
+			catch (Exception ex)
+			{
+				itemPreviewP = new ObservableCollection<ItemsPreview>();
+				Console.WriteLine($"Error al crear la colección de elementos: {ex.Message}");
+				// Manejar la excepción según sea necesario
 			}
 		}
-
-
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

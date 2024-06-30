@@ -1,26 +1,32 @@
-﻿using eCommerce.Views;
+﻿using eCommerce.DataAccess;
+using eCommerce.Model;
+using eCommerce.Services;
+using eCommerce.Views;
 using eCommerce.Views.AccessApp;
 using Firebase.Auth;
 using GalaSoft.MvvmLight.Command;
 using Plugin.Toast;
 using System;
+using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace eCommerce.ViewModels
 {
-
 	class RegisterViewModel : BaseViewModel
 	{
 		#region Attributes
 		public string email;
 		public string password;
+		public string confirmPassword;
 		public string name;
 		public string age;
 
 		public bool isRunning;
 		public bool isVisible;
 		public bool isEnabled;
+		FirebaseService _firebaseService = new FirebaseService();
 		#endregion
 
 		#region Properties
@@ -34,6 +40,12 @@ namespace eCommerce.ViewModels
 		{
 			get { return this.password; }
 			set { SetValue(ref this.password, value); }
+		}
+
+		public string ConfirmPasswordTxt
+		{
+			get { return this.confirmPassword; }
+			set { SetValue(ref this.confirmPassword, value); }
 		}
 
 		public string NameTxt
@@ -65,7 +77,6 @@ namespace eCommerce.ViewModels
 			get { return this.isRunning; }
 			set { SetValue(ref this.isRunning, value); }
 		}
-
 		#endregion
 
 		#region Commands
@@ -83,42 +94,84 @@ namespace eCommerce.ViewModels
 		{
 			if (string.IsNullOrEmpty(this.email))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter an email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				return;
+			}
+			// Validar formato de correo electrónico
+			if (!Regex.IsMatch(this.email, @"^[^@\s]+@gmail\.com$"))
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Error. Invalid email format. Must be in the format 'text@gmail.com'.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
 
-			if (string.IsNullOrEmpty(this.password))
+			if (string.IsNullOrEmpty(this.password) || this.password.Length < 6)
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a stronger password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
+
+			if (this.password != this.confirmPassword)
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Error. Passwords do not match.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				return;
+			}
+
 			if (string.IsNullOrEmpty(this.NameTxt))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a name.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
-				return;
-			}
-			if (string.IsNullOrEmpty(this.AgeTxt))
-			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a age.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a name.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				return;
 			}
 
+			if (string.IsNullOrEmpty(this.AgeTxt))
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter an age.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				return;
+			}
 
 			string WebAPIkey = "AIzaSyCLiMPb_GvCkWFeR0pfdyIi9USwTUK9b58";
 
 			try
 			{
-				var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
-				var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(EmailTxt.ToString(), PasswordTxt.ToString());
-				string gettoken = auth.FirebaseToken;
+				IsRunningTxt = true;
+				IsEnabledTxt = false;
 
-				CrossToastPopUp.Current.ShowCustomToast("User account successfully created!", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
+				var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(EmailTxt, PasswordTxt);
+
+				var user = new UserModel
+				{
+					EmailField = EmailTxt,
+					NamesField = NameTxt,
+					AgeField = AgeTxt
+				};
+
+				InsertMethod(user);
+
+				CrossToastPopUp.Current.ShowCustomToast("User account successfully created!", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				await Application.Current.MainPage.Navigation.PushModalAsync(new Views.AccessApp.LoginPage());
+			}
+			catch (FirebaseAuthException ex) when (ex.Reason == AuthErrorReason.EmailExists)
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Error: Email already exists.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+			}
+			catch (HttpRequestException)
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Error: Network error. Please check your internet connection.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 			}
 			catch (Exception ex)
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Password Weak. Enter a stronger password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast($"Error: Network error. Please check your internet connection.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 			}
+			finally
+			{
+				IsRunningTxt = false;
+				IsEnabledTxt = true;
+			}
+		}
+
+		private async void InsertMethod(UserModel user)
+		{
+			await _firebaseService.AddUser(user);
 		}
 		#endregion
 

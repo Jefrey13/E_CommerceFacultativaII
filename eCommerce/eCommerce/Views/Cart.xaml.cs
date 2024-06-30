@@ -98,5 +98,10 @@ namespace eCommerce.Views
 		{
 			await Navigation.PushModalAsync(new StripePage());
 		}
-	}
+
+        private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+    }
 }

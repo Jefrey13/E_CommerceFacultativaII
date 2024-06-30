@@ -1,4 +1,5 @@
 ﻿using eCommerce.DataAccess;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +25,6 @@ namespace eCommerce.Model
 
             source = new List<BrandsItems>();
             source1 = new List<ItemsPreview>();
-            CreateMenuCollection();
             CreateItemCollection();
         }
 
@@ -35,46 +35,41 @@ namespace eCommerce.Model
                 return tapCommand; 
             }
         }
-        void CreateItemCollection()
-        {
-			var productBestS = _productTagDataAccess.GetProductsByTag("Bestseller");
-
-			var e = productBestS.Data;
-			foreach (var item in productBestS.Data)
+		void CreateItemCollection()
+		{
+			try
 			{
-				source1.Add(new ItemsPreview
+				var productBestSellers = _productTagDataAccess.GetProductsByTag("Bestseller");
+
+				// Limpiar source1 antes de agregar nuevos elementos (si es necesario)
+				source1.Clear();
+
+				foreach (var product in productBestSellers.Data)
 				{
-					ImageUrl = item.Image,
-					Name = item.Name,
-					price = item.Price
-				});
+					source1.Add(new ItemsPreview
+					{
+						ImageUrl = product.Image,
+						Name = product.Name,
+						price = product.Price
+					});
+				}
+
+				// Asignar source1 a itemPreview
+				itemPreview = new ObservableCollection<ItemsPreview>(source1);
 			}
-			itemPreview = new ObservableCollection<ItemsPreview>(source1);
-        }
-        void CreateMenuCollection()
-        {
-            source.Add(new BrandsItems
-            {                
-                brand = "Bang and Olufsen",
-                itemName = "All"
-            });
-            source.Add(new BrandsItems
-            {
-                brand = "Bang and Olufsen",
-                itemName = "Headphones"
-            });
-            source.Add(new BrandsItems
-            {
-                brand = "Bang and Olufsen",
-                itemName = "Speakers"
-            });
-            source.Add(new BrandsItems
-            {
-                brand = "Bang and Olufsen",
-                itemName = "Microphones"
-            });
-            itemList = new ObservableCollection<BrandsItems>(source);
-        }
+			catch (SQLiteException ex)
+			{
+				itemPreview = new ObservableCollection<ItemsPreview>();
+				// Manejar excepciones de SQLite específicamente
+				Console.WriteLine($"Error al acceder a SQLite: {ex.Message}");
+			}
+			catch (Exception ex)
+			{
+				itemPreview = new ObservableCollection<ItemsPreview>();
+				Console.WriteLine($"Error al crear la colección de elementos: {ex.Message}");
+				// Manejar la excepción según sea necesario
+			}
+		}
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

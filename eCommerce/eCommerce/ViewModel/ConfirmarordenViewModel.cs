@@ -63,14 +63,23 @@ namespace eCommerce.ViewModel
 		}
 		public void Load()
         {
-			if (ItemPreview != null)
+			try
 			{
-				foreach (var item in ItemPreview)
+				if (ItemPreview != null)
 				{
-					SubTotal += Convert.ToDecimal(item.price);
-					Iva = SubTotal * 0.15m;
-					Total = SubTotal + Iva;
+					foreach (var item in ItemPreview)
+					{
+						SubTotal += Convert.ToDecimal(item.price);
+						Iva = SubTotal * 0.15m;
+						Total = SubTotal + Iva;
+					}
 				}
+			}
+			catch (Exception ex)
+			{
+				
+				Console.WriteLine($"Error al crear la colección de elementos: {ex.Message}");
+				// Manejar la excepción según sea necesario
 			}
 		}
         private string GenerateRandomInvoiceNumber()
