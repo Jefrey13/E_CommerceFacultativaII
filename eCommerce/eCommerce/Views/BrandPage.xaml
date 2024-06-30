@@ -5,13 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
     BackgroundColor="White"
-    mc:Ignorable="d">
+    NavigationPage.HasNavigationBar="False">
     <NavigationPage.TitleView>
         <StackLayout
-            Padding="0"
             HorizontalOptions="CenterAndExpand"
             Orientation="Horizontal"
+            Padding="0"
             Spacing="0"
             VerticalOptions="CenterAndExpand">
 
@@ -25,7 +26,7 @@
                 VerticalTextAlignment="Center">
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                     </OnPlatform>
                 </Label.FontFamily>
             </Label>
@@ -141,8 +142,8 @@
                                             <DataTemplate>
                                                 <Grid
                                                     Margin="5"
-                                                    Padding="0"
-                                                    HeightRequest="350">
+                                                    HeightRequest="350"
+                                                    Padding="0">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="3*" />
                                                         <RowDefinition Height="*" />
@@ -172,7 +173,7 @@
                                                                 VerticalOptions="Start">
                                                                 <Label.FontFamily>
                                                                     <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                                     </OnPlatform>
                                                                 </Label.FontFamily>
                                                             </Label>
@@ -185,7 +186,7 @@
                                                                 VerticalOptions="Start">
                                                                 <Label.FontFamily>
                                                                     <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                                     </OnPlatform>
                                                                 </Label.FontFamily>
                                                             </Label>
@@ -198,7 +199,7 @@
                                                                 VerticalOptions="Start">
                                                                 <Label.FontFamily>
                                                                     <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                                     </OnPlatform>
                                                                 </Label.FontFamily>
                                                             </Label>

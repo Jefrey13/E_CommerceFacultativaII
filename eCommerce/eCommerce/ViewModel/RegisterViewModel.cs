@@ -118,7 +118,7 @@ namespace eCommerce.ViewModels
 
 			if (string.IsNullOrEmpty(this.NameTxt))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a name.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a name.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				return;
 			}
 
@@ -147,7 +147,7 @@ namespace eCommerce.ViewModels
 
 				InsertMethod(user);
 
-				CrossToastPopUp.Current.ShowCustomToast("User account successfully created!", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("User account successfully created!", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				await Application.Current.MainPage.Navigation.PushModalAsync(new Views.AccessApp.LoginPage());
 			}
 			catch (FirebaseAuthException ex) when (ex.Reason == AuthErrorReason.EmailExists)

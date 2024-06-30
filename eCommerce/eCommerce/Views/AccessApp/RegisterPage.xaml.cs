@@ -21,7 +21,22 @@ namespace eCommerce.Views.AccessApp
 
         private async void NavToLogin_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new Views.AccessApp.LoginPage());
+            await Navigation.PopModalAsync();
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+
+        //private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        //{
+        //await Navigation.PopModalAsync();
+        //}
+
+        //private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        //{
+        //await Navigation.PushModalAsync(new Views.AccessApp.LoginPage());
+        //}
     }
 }

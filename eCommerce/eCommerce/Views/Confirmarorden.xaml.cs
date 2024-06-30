@@ -24,5 +24,9 @@ namespace eCommerce.Views
 
         }
 
-	}
+        private async void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+    }
 }

@@ -73,12 +73,12 @@ namespace eCommerce.ViewModels
 		{
 			if (string.IsNullOrEmpty(this.email))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				return;
 			}
 			if (string.IsNullOrEmpty(this.password))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				return;
 			}
 

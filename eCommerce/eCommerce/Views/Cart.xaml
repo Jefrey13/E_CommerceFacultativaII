@@ -1,18 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="eCommerce.Views.Cart"
+    x:Name="cartPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:eCommerce.Model"
-    BackgroundColor="White"
     mc:Ignorable="d"
-    x:Name="cartPage">
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
         <StackLayout>
-
+            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                <Frame
+                    BackgroundColor="Transparent"
+                    HasShadow="False"
+                    HeightRequest="100"
+                    Padding="0"
+                    WidthRequest="100">
+                    <Label
+                        Margin="30,25,0,0"
+                        FontFamily="MaterialFontFamily"
+                        FontSize="26"
+                        HorizontalOptions="StartAndExpand"
+                        Text="&#xf141;"
+                        TextColor="Black" />
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>
+            <Label
+                Margin="20,-50,20,0"
+                Font="Montserrat-Medium.otf"
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Shopping cart"
+                TextColor="Black" />
             <StackLayout Margin="20,20,20,0">
                 <CollectionView x:Name="collectionView" ItemsSource="{Binding itemPreviewP}">
                     <CollectionView.ItemTemplate>
@@ -32,7 +58,8 @@
                                     <SwipeItems>
                                         <SwipeItem
                                             BackgroundColor="#FF3D00"
-                                            Command="{Binding Source={x:Reference cartPage}, Path = BindingContext.DeleteProduvtCartCommand}" CommandParameter="{Binding .}"
+                                            Command="{Binding Source={x:Reference cartPage}, Path = BindingContext.DeleteProduvtCartCommand}"
+                                            CommandParameter="{Binding .}"
                                             Text="Delete" />
                                     </SwipeItems>
                                 </SwipeView.RightItems>
@@ -40,9 +67,9 @@
                                 <StackLayout>
                                     <Frame
                                         Margin="0,8,0,8"
-                                        Padding="0"
                                         BackgroundColor="Transparent"
-                                        HasShadow="True">
+                                        HasShadow="True"
+                                        Padding="0">
                                         <StackLayout Orientation="Horizontal">
                                             <StackLayout Margin="0,0,15,0">
                                                 <Image
@@ -61,7 +88,7 @@
                                                     TextColor="Black">
                                                     <Label.FontFamily>
                                                         <OnPlatform x:TypeArguments="x:String">
-                                                            <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                         </OnPlatform>
                                                     </Label.FontFamily>
                                                 </Label>
@@ -73,17 +100,17 @@
                                                     TextColor="#00C569">
                                                     <Label.FontFamily>
                                                         <OnPlatform x:TypeArguments="x:String">
-                                                            <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                         </OnPlatform>
                                                     </Label.FontFamily>
                                                 </Label>
 
                                                 <Frame
                                                     Margin="0"
-                                                    Padding="0"
                                                     BackgroundColor="#F7F7F7"
                                                     CornerRadius="8"
-                                                    HasShadow="False">
+                                                    HasShadow="False"
+                                                    Padding="0">
                                                     <StackLayout Orientation="Horizontal">
                                                         <StackLayout
                                                             HeightRequest="40"
@@ -98,7 +125,7 @@
                                                                 VerticalTextAlignment="Center">
                                                                 <Label.FontFamily>
                                                                     <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                                     </OnPlatform>
                                                                 </Label.FontFamily>
                                                             </Label>
@@ -121,7 +148,7 @@
                                                                 VerticalTextAlignment="Center">
                                                                 <Label.FontFamily>
                                                                     <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                                     </OnPlatform>
                                                                 </Label.FontFamily>
                                                             </Label>
@@ -141,7 +168,7 @@
                                                                 VerticalTextAlignment="Center">
                                                                 <Label.FontFamily>
                                                                     <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                                     </OnPlatform>
                                                                 </Label.FontFamily>
                                                             </Label>
@@ -157,14 +184,9 @@
                                         </StackLayout>
                                     </Frame>
                                 </StackLayout>
-
                             </SwipeView>
-
-
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
-
-
                 </CollectionView>
             </StackLayout>
 
@@ -175,36 +197,36 @@
                 <StackLayout>
                     <!--  Footer_checkOut  -->
                     <StackLayout
-        Margin="0,-5,0,0"
-        BackgroundColor="White"
-        HeightRequest="80"
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="EndAndExpand">
+                        Margin="0,-5,0,0"
+                        BackgroundColor="White"
+                        HeightRequest="80"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="EndAndExpand">
                         <BoxView
-            Margin="0"
-            BackgroundColor="#F7F7F7"
-            HeightRequest="1"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="StartAndExpand" />
+                            Margin="0"
+                            BackgroundColor="#F7F7F7"
+                            HeightRequest="1"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="StartAndExpand" />
                         <Frame
-            BackgroundColor="Transparent"
-            HasShadow="True"
-            HorizontalOptions="FillAndExpand"
-            Padding="0"
-            VerticalOptions="CenterAndExpand">
+                            BackgroundColor="Transparent"
+                            HasShadow="True"
+                            HorizontalOptions="FillAndExpand"
+                            Padding="0"
+                            VerticalOptions="CenterAndExpand">
                             <StackLayout
-                Margin="0,0,0,10"
-                Orientation="Horizontal"
-                VerticalOptions="CenterAndExpand">
+                                Margin="0,0,0,10"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
                                 <StackLayout>
                                     <Label
-                        Margin="30,0,35,0"
-                        FontSize="12"
-                        HorizontalOptions="Center"
-                        Text="TOTAL"
-                        TextColor="#929292"
-                        VerticalOptions="CenterAndExpand"
-                        VerticalTextAlignment="Center">
+                                        Margin="30,0,35,0"
+                                        FontSize="12"
+                                        HorizontalOptions="Center"
+                                        Text="TOTAL"
+                                        TextColor="#929292"
+                                        VerticalOptions="CenterAndExpand"
+                                        VerticalTextAlignment="Center">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
                                                 <On Value="SFPro.ttf#Bold" Platform="Android" />
@@ -213,13 +235,13 @@
                                     </Label>
 
                                     <Label
-                        Margin="30,0,35,0"
-                        FontSize="18"
-                        HorizontalOptions="Center"
-                        Text="{Binding TotalPrice}"
-                        TextColor="#00C569"
-                        VerticalOptions="CenterAndExpand"
-                        VerticalTextAlignment="Center">
+                                        Margin="30,0,35,0"
+                                        FontSize="18"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding TotalPrice}"
+                                        TextColor="#00C569"
+                                        VerticalOptions="CenterAndExpand"
+                                        VerticalTextAlignment="Center">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
                                                 <On Value="SFPro.ttf#Bold" Platform="Android" />
@@ -253,16 +275,16 @@
                 
                 -->
 
-                            <Button
-                                x:Name="btnConfirmar"
-                                Margin="15,15,10,15"
-                                BackgroundColor="#3E3CFF"
-                                Clicked="btnConfirmar_Clicked"
-                                CornerRadius="5"
-                                FontSize="14"
-                                HorizontalOptions="EndAndExpand"
-                                Text="Checkout"
-                                TextColor="White" />        
+                                <Button
+                                    x:Name="btnConfirmar"
+                                    Margin="15,15,10,15"
+                                    BackgroundColor="#00C569"
+                                    Clicked="btnConfirmar_Clicked"
+                                    CornerRadius="5"
+                                    FontSize="14"
+                                    HorizontalOptions="EndAndExpand"
+                                    Text="Checkout"
+                                    TextColor="White" />
                             </StackLayout>
                         </Frame>
 
@@ -270,41 +292,41 @@
 
                     <!--  Footer  -->
                     <StackLayout
-        Margin="0,-5,0,10"
-        HeightRequest="80"
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="EndAndExpand">
+                        Margin="0,-5,0,10"
+                        HeightRequest="80"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="EndAndExpand">
                         <BoxView
-            Margin="0"
-            BackgroundColor="#F7F7F7"
-            HeightRequest="1"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="StartAndExpand" />
+                            Margin="0"
+                            BackgroundColor="#F7F7F7"
+                            HeightRequest="1"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="StartAndExpand" />
                         <Frame
-            BackgroundColor="Transparent"
-            HasShadow="True"
-            HorizontalOptions="FillAndExpand"
-            Padding="0">
+                            BackgroundColor="Transparent"
+                            HasShadow="True"
+                            HorizontalOptions="FillAndExpand"
+                            Padding="0">
                             <StackLayout
-                Margin="50,10,50,10"
-                HorizontalOptions="FillAndExpand"
-                Orientation="Horizontal"
-                VerticalOptions="CenterAndExpand">
+                                Margin="50,10,50,10"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
 
                                 <StackLayout Margin="20,10,25,10" HorizontalOptions="FillAndExpand">
                                     <Frame
-                        BackgroundColor="Transparent"
-                        HasShadow="False"
-                        HeightRequest="50"
-                        Padding="0"
-                        WidthRequest="0">
+                                        BackgroundColor="Transparent"
+                                        HasShadow="False"
+                                        HeightRequest="50"
+                                        Padding="0"
+                                        WidthRequest="0">
                                         <Image
-                            Aspect="AspectFit"
-                            HeightRequest="20"
-                            HorizontalOptions="CenterAndExpand"
-                            Source="Icon_Home"
-                            VerticalOptions="CenterAndExpand"
-                            WidthRequest="20" />
+                                            Aspect="AspectFit"
+                                            HeightRequest="20"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Source="Icon_Home"
+                                            VerticalOptions="CenterAndExpand"
+                                            WidthRequest="20" />
                                         <Frame.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                         </Frame.GestureRecognizers>
@@ -314,20 +336,20 @@
 
                                 <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
                                     <Frame
-                        BackgroundColor="Transparent"
-                        HasShadow="False"
-                        HeightRequest="50"
-                        Padding="0"
-                        WidthRequest="0">
+                                        BackgroundColor="Transparent"
+                                        HasShadow="False"
+                                        HeightRequest="50"
+                                        Padding="0"
+                                        WidthRequest="0">
 
                                         <StackLayout>
                                             <Label
-                                FontAttributes="Bold"
-                                FontSize="14"
-                                HorizontalOptions="FillAndExpand"
-                                HorizontalTextAlignment="Center"
-                                Text="Cart"
-                                TextColor="Black">
+                                                FontAttributes="Bold"
+                                                FontSize="14"
+                                                HorizontalOptions="FillAndExpand"
+                                                HorizontalTextAlignment="Center"
+                                                Text="Cart"
+                                                TextColor="Black">
                                                 <Label.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String">
                                                         <On Value="SFPro.ttf#Bold" Platform="Android" />
@@ -336,13 +358,13 @@
                                             </Label>
 
                                             <Label
-                                Margin="0,-15,0,0"
-                                FontAttributes="Bold"
-                                FontSize="16"
-                                HorizontalTextAlignment="Center"
-                                Text=""
-                                TextColor="Black"
-                                VerticalTextAlignment="Start">
+                                                Margin="0,-15,0,0"
+                                                FontAttributes="Bold"
+                                                FontSize="16"
+                                                HorizontalTextAlignment="Center"
+                                                Text=""
+                                                TextColor="Black"
+                                                VerticalTextAlignment="Start">
                                                 <Label.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String">
                                                         <On Value="SFPro.ttf#Bold" Platform="Android" />
@@ -358,18 +380,18 @@
 
                                 <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
                                     <Frame
-                        BackgroundColor="Transparent"
-                        HasShadow="False"
-                        HeightRequest="50"
-                        Padding="0"
-                        WidthRequest="0">
+                                        BackgroundColor="Transparent"
+                                        HasShadow="False"
+                                        HeightRequest="50"
+                                        Padding="0"
+                                        WidthRequest="0">
                                         <Image
-                            Aspect="AspectFit"
-                            HeightRequest="20"
-                            HorizontalOptions="CenterAndExpand"
-                            Source="chart"
-                            VerticalOptions="CenterAndExpand"
-                            WidthRequest="20" />
+                                            Aspect="AspectFit"
+                                            HeightRequest="20"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Source="chart"
+                                            VerticalOptions="CenterAndExpand"
+                                            WidthRequest="20" />
                                         <Frame.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
                                         </Frame.GestureRecognizers>

@@ -5745,39 +5745,43 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.iOS\\eCommerce.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\LENOVO\\Documents\\GitHub\\E_CommerceFacultativaII\\eCommerce\\eCommerce.iOS\\eCommerce.iOS.csproj",
       "projectName": "eCommerce.iOS",
-      "projectPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.iOS\\eCommerce.iOS.csproj",
-      "packagesPath": "C:\\Users\\Jefrey zuniga\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce.iOS\\obj\\",
+      "projectPath": "C:\\Users\\LENOVO\\Documents\\GitHub\\E_CommerceFacultativaII\\eCommerce\\eCommerce.iOS\\eCommerce.iOS.csproj",
+      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LENOVO\\Documents\\GitHub\\E_CommerceFacultativaII\\eCommerce\\eCommerce.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Jefrey zuniga\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.devexpress.com/sxtdt1Q23qu973JCVYk3pv5O9SzZi1NIOdUKehPsrforZ6Q5gy/api/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj": {
-              "projectPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj"
+            "C:\\Users\\LENOVO\\Documents\\GitHub\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj": {
+              "projectPath": "C:\\Users\\LENOVO\\Documents\\GitHub\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\eCommerce.csproj"
             }
           }
         }

@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="eCommerce.Views.HomePage"
+    x:Name="mainView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:ecommerce="clr-namespace:eCommerce"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:eCommerce.Model"
-    x:Name="mainView"
-    BackgroundColor="White"
     mc:Ignorable="d"
+    BackgroundColor="White"
     NavigationPage.HasNavigationBar="False">
 
     <ContentPage.BindingContext>
@@ -44,28 +44,27 @@
                         HasShadow="False"
                         HeightRequest="45"
                         HorizontalOptions="FillAndExpand"
-                        Padding="0">        
+                        Padding="0">
                         <StackLayout Orientation="Horizontal">
                             <Image
                                 Margin="20,10,0,10"
                                 Aspect="AspectFit"
                                 HeightRequest="18"
-                                Source="https://factus.com.co/_astro/favicon.DMncryqX.ico" 
-                                WidthRequest="18" />    
-                            <ecommerce:CustomEntry HorizontalOptions="FillAndExpand" 
-                                                   x:Name="txtSearch"/>
+                                Source="https://factus.com.co/_astro/favicon.DMncryqX.ico"
+                                WidthRequest="18" />
+                            <ecommerce:CustomEntry x:Name="txtSearch" HorizontalOptions="FillAndExpand" />
                         </StackLayout>
                     </Frame>
                     <StackLayout>
                         <ImageButton
                             x:Name="btnSearch"
-                            BackgroundColor="Transparent"
                             Margin="13,8,0,0"
                             Aspect="AspectFit"
+                            BackgroundColor="Transparent"
+                            Clicked="btnSearch_Clicked"
                             HeightRequest="30"
                             Source="search"
-                            WidthRequest="35"
-                            Clicked="btnSearch_Clicked"/>           
+                            WidthRequest="35" />
                     </StackLayout>
                 </StackLayout>
 
@@ -83,7 +82,7 @@
                                     TextColor="Black">
                                     <Label.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
                                         </OnPlatform>
                                     </Label.FontFamily>
                                 </Label>
@@ -104,11 +103,11 @@
 
                                                     <Frame
                                                         Margin="1,5,10,5"
-                                                        Padding="0"
                                                         CornerRadius="30"
                                                         HasShadow="True"
                                                         HeightRequest="60"
                                                         IsClippedToBounds="False"
+                                                        Padding="0"
                                                         WidthRequest="60">
                                                         <Image
                                                             Margin="15"
@@ -124,7 +123,7 @@
                                                         TextColor="Black">
                                                         <Label.FontFamily>
                                                             <OnPlatform x:TypeArguments="x:String">
-                                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                             </OnPlatform>
                                                         </Label.FontFamily>
                                                     </Label>
@@ -152,7 +151,7 @@
                                     TextColor="Black">
                                     <Label.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
                                         </OnPlatform>
                                     </Label.FontFamily>
                                 </Label>
@@ -164,7 +163,7 @@
                                         TextColor="Black">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
@@ -208,7 +207,7 @@
                                                         VerticalOptions="Start">
                                                         <Label.FontFamily>
                                                             <OnPlatform x:TypeArguments="x:String">
-                                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                             </OnPlatform>
                                                         </Label.FontFamily>
                                                     </Label>
@@ -221,7 +220,7 @@
                                                         VerticalOptions="Start">
                                                         <Label.FontFamily>
                                                             <OnPlatform x:TypeArguments="x:String">
-                                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                             </OnPlatform>
                                                         </Label.FontFamily>
                                                     </Label>
@@ -249,7 +248,7 @@
                                     TextColor="Black">
                                     <Label.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
                                         </OnPlatform>
                                     </Label.FontFamily>
                                 </Label>
@@ -269,19 +268,19 @@
                                             <StackLayout>
                                                 <Frame
                                                     Margin="1,5,10,5"
-                                                    Padding="0"
                                                     BorderColor="#F7F7F7"
                                                     HasShadow="False"
                                                     HorizontalOptions="CenterAndExpand"
+                                                    Padding="0"
                                                     VerticalOptions="CenterAndExpand">
 
                                                     <StackLayout Margin="15,10,15,10" Orientation="Horizontal">
                                                         <Frame
-                                                            Padding="0"
                                                             CornerRadius="20"
                                                             HasShadow="False"
                                                             HeightRequest="40"
                                                             Opacity="10"
+                                                            Padding="0"
                                                             WidthRequest="40">
                                                             <Image
                                                                 Aspect="AspectFit"
@@ -301,7 +300,7 @@
                                                                 TextColor="Black">
                                                                 <Label.FontFamily>
                                                                     <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                                     </OnPlatform>
                                                                 </Label.FontFamily>
                                                             </Label>
@@ -313,7 +312,7 @@
                                                                 TextColor="#929292">
                                                                 <Label.FontFamily>
                                                                     <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                                     </OnPlatform>
                                                                 </Label.FontFamily>
                                                             </Label>
@@ -344,7 +343,7 @@
                                     TextColor="Black">
                                     <Label.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
                                         </OnPlatform>
                                     </Label.FontFamily>
                                 </Label>
@@ -356,7 +355,7 @@
                                         TextColor="Black">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
@@ -401,7 +400,7 @@
                                                         VerticalOptions="Start">
                                                         <Label.FontFamily>
                                                             <OnPlatform x:TypeArguments="x:String">
-                                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                             </OnPlatform>
                                                         </Label.FontFamily>
                                                     </Label>
@@ -414,7 +413,7 @@
                                                         VerticalOptions="Start">
                                                         <Label.FontFamily>
                                                             <OnPlatform x:TypeArguments="x:String">
-                                                                <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                                                <On Value="SFPro.ttf#Bold" Platform="Android" />
                                                             </OnPlatform>
                                                         </Label.FontFamily>
                                                     </Label>
@@ -447,10 +446,10 @@
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="StartAndExpand" />
                 <Frame
-                    Padding="0"
                     BackgroundColor="Transparent"
                     HasShadow="True"
-                    HorizontalOptions="FillAndExpand">
+                    HorizontalOptions="FillAndExpand"
+                    Padding="0">
                     <StackLayout
                         Margin="50,10,50,10"
                         HorizontalOptions="FillAndExpand"
@@ -468,7 +467,7 @@
                                     TextColor="Black">
                                     <Label.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
                                         </OnPlatform>
                                     </Label.FontFamily>
                                 </Label>
@@ -483,7 +482,7 @@
                                     VerticalTextAlignment="Start">
                                     <Label.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="Android" Value="SFPro.ttf#Bold" />
+                                            <On Value="SFPro.ttf#Bold" Platform="Android" />
                                         </OnPlatform>
                                     </Label.FontFamily>
                                 </Label>
@@ -495,10 +494,10 @@
 
                         <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
                             <Frame
-                                Padding="0"
                                 BackgroundColor="Transparent"
                                 HasShadow="False"
                                 HeightRequest="50"
+                                Padding="0"
                                 WidthRequest="50">
                                 <Image
                                     Aspect="AspectFit"
@@ -516,10 +515,10 @@
 
                         <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
                             <Frame
-                                Padding="0"
                                 BackgroundColor="Transparent"
                                 HasShadow="False"
                                 HeightRequest="50"
+                                Padding="0"
                                 WidthRequest="50">
                                 <Image
                                     Aspect="AspectFit"

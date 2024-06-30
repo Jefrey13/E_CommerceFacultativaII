@@ -3,7 +3,8 @@
     x:Class="eCommerce.Views.AccessApp.RegisterPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="White">
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
             <Grid RowSpacing="{OnPlatform iOS=25, Android=20}">
