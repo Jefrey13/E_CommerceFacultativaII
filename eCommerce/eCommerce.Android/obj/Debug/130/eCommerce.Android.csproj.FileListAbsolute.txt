@@ -837,3 +837,8 @@ C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce.
 C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce.Android\obj\Debug\130\android\assets\LiteDB.dll
 C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce.Android\obj\Debug\130\android\assets\System.Reactive.dll
 C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce.Android\obj\Debug\130\android\assets\System.Runtime.InteropServices.WindowsRuntime.dll
+C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce.Android\obj\Debug\130\res\mipmap-hdpi\ic_launcher.png
+C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce.Android\obj\Debug\130\res\mipmap-mdpi\ic_launcher.png
+C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce.Android\obj\Debug\130\res\mipmap-xhdpi\ic_launcher.png
+C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce.Android\obj\Debug\130\res\mipmap-xxhdpi\ic_launcher.png
+C:\Users\Jefrey zuniga\source\repos\E_CommerceFacultativaII\eCommerce\eCommerce.Android\obj\Debug\130\res\mipmap-xxxhdpi\ic_launcher.png

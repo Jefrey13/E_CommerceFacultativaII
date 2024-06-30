@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\viewmodel\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\viewmodel\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\services\\firebaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\services\\firebaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|c:\\users\\jefrey zuniga\\source\\repos\\e_commercefacultativaii\\ecommerce\\ecommerce\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2AAD962-CF4A-4DB8-8C48-D55158D447E6}|eCommerce\\eCommerce\\eCommerce.csproj|solutionrelative:ecommerce\\ecommerce\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,27 +31,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RegisterViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\ViewModel\\RegisterViewModel.cs",
-              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\ViewModel\\RegisterViewModel.cs",
-              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\ViewModel\\RegisterViewModel.cs",
-              "RelativeToolTip": "eCommerce\\eCommerce\\ViewModel\\RegisterViewModel.cs",
-              "ViewState": "AQIAAIkAAAAAAAAAAAAQwKIAAABqAAAA",
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\App.xaml.cs",
+              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\App.xaml.cs",
+              "RelativeToolTip": "eCommerce\\eCommerce\\App.xaml.cs",
+              "ViewState": "AQIAALUAAAAAAAAAAAAQwLkAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T00:38:44.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FirebaseService.cs",
-              "DocumentMoniker": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Services\\FirebaseService.cs",
-              "RelativeDocumentMoniker": "eCommerce\\eCommerce\\Services\\FirebaseService.cs",
-              "ToolTip": "C:\\Users\\Jefrey zuniga\\source\\repos\\E_CommerceFacultativaII\\eCommerce\\eCommerce\\Services\\FirebaseService.cs",
-              "RelativeToolTip": "eCommerce\\eCommerce\\Services\\FirebaseService.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAA8wDcAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T00:39:08.238Z",
+              "WhenOpened": "2024-06-30T02:11:25.064Z",
               "EditorCaption": ""
             }
           ]

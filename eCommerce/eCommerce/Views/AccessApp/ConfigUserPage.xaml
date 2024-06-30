@@ -145,7 +145,6 @@
 
                     <Entry
                         FontSize="{OnPlatform Android=15,iOS=16}"
-                        IsEnabled="{Binding IsEnabledTxt}"
                         Keyboard="Text"
                         MaxLength="25"
                         x:Name="NameTxt"
@@ -173,7 +172,6 @@
 
                         <Entry
                             FontSize="{OnPlatform Android=15,iOS=16}"
-                            IsEnabled="{Binding IsEnabledTxt}"
                             Keyboard="Numeric"
                             MaxLength="2"
                             Placeholder="18"
@@ -207,7 +205,6 @@
                         Font="Montserrat-Medium.otf"
                         FontSize="{OnPlatform Android=15}"
                         HeightRequest="50"
-                        IsEnabled="{Binding IsEnabledTxt, Mode=TwoWay}"
                         Text="Save Changes"
                         TextColor="White"
                         WidthRequest="300" />

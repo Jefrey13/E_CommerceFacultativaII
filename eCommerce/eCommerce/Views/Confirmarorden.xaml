@@ -210,7 +210,7 @@
                                 <Entry
                                     FontSize="{OnPlatform Android=15,iOS=16}"
                                     Keyboard="Numeric"
-                                    MaxLength="18"
+                                    MaxLength="12"
                                     Placeholder="Enter your phone number"
                                     Text="{Binding Numcontact}" />
                             </Frame>
