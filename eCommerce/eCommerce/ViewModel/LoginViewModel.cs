@@ -69,7 +69,6 @@ namespace eCommerce.ViewModels
 
 		#region Methods
 
-
 		public async void LoginMethod()
 		{
 			if (string.IsNullOrEmpty(this.email))
@@ -85,24 +84,22 @@ namespace eCommerce.ViewModels
 
 			string WebAPIkey = "AIzaSyCLiMPb_GvCkWFeR0pfdyIi9USwTUK9b58";
 
-
 			var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
 			try
 			{
 				var auth = await authProvider.SignInWithEmailAndPasswordAsync(EmailTxt.ToString(), PasswordTxt.ToString());
 				var content = await auth.GetFreshAuthAsync();
-				var serializedcontnet = JsonConvert.SerializeObject(content);
+				var serializedContent = JsonConvert.SerializeObject(content);
 
-				await SecureStorage.SetAsync("firebase_refresh_token", serializedcontnet);
+				await SecureStorage.SetAsync("firebase_refresh_token", serializedContent);
+				Preferences.Set("MyFirebaseRefreshToken", serializedContent);
 
-				Preferences.Set("MyFirebaseRefreshToken", serializedcontnet);
-				CrossToastPopUp.Current.ShowCustomToast("Success. Welcome to factus", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Success. Welcome to the app", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				await Application.Current.MainPage.Navigation.PushModalAsync(new HomePage());
 			}
 			catch (Exception ex)
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Invalid useremail or password", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
-				//await App.Current.MainPage.DisplayAlert("Alert", "Invalid useremail or password", "OK");
+				CrossToastPopUp.Current.ShowCustomToast("Invalid email or password", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 			}
 
 			this.IsVisibleTxt = true;
@@ -111,39 +108,11 @@ namespace eCommerce.ViewModels
 
 			await Task.Delay(20);
 
-			/*
-
-            List<UserModel> e = App.Database.GetUsersValidate(email, password).Result;
-
-            if (e.Count == 0)
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                  "Error",
-                  "Email or Password Incorrect.",
-                  "Accept");
-
-                this.IsRunningTxt = false;
-                this.IsVisibleTxt = false;
-                this.IsEnabledTxt = true;
-            }
-            else if (e.Count > 0)
-            {
-
-                await Application.Current.MainPage.Navigation.PushAsync(new ContainerTabbedPage());
-
-                this.IsRunningTxt = false;
-                this.IsVisibleTxt = false;
-                this.IsEnabledTxt = true;
-
-            }
-
-            */
-
 			this.IsRunningTxt = false;
 			this.IsVisibleTxt = false;
 			this.IsEnabledTxt = true;
-
 		}
+
 
 		public async void ResetPasswordEmail()
 		{

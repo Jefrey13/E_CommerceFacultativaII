@@ -15,6 +15,8 @@ namespace eCommerce.Views
 		private ProductTagDataAccess _productTagDataAccess;
 		readonly List<ItemsPreview> source1;
 		private string _categoryName;
+
+		
 		public ProductsTag(string name)
 		{
 			InitializeComponent();
@@ -44,6 +46,7 @@ namespace eCommerce.Views
 						{
 							source1.Add(new ItemsPreview
 							{
+								Id = item.Id,
 								ImageUrl = item.Image,
 								Name = item.Name,
 								price = item.Price // Corregido a "Price" en lugar de "price"
@@ -94,13 +97,5 @@ namespace eCommerce.Views
             await Navigation.PopModalAsync();
 
         }
-
-        async void OnItemSelected(object sender, SelectionChangedEventArgs e)
-        {
-
-            await Navigation.PushModalAsync(new ProductPage(1));
-        }
-
-      
     }
 }

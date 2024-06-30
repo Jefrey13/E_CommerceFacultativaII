@@ -32,6 +32,7 @@ namespace eCommerce.Data
 				_sqlConnection.CreateTable<BrandCategory>();
 				_sqlConnection.CreateTable<CartModel>();
 				_sqlConnection.CreateTable<CartProduct>();
+				_sqlConnection.CreateTable<UserModel>();
 			}
 			return _sqlConnection;
 		}

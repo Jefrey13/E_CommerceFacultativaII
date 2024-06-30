@@ -1,5 +1,7 @@
 ﻿using eCommerce.DataAccess;
 using eCommerce.Views;
+using SQLite;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -52,45 +54,75 @@ namespace eCommerce.Model
                 Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new BrandPage(selBrand)));
             });
         }       
-
         void CreateItemCollection()
         {
-			var productC = _productCategoryDataAccess.GetProductsByCategory(SelectedCategoryName);
-
-            if (productC.Data != null)
+            try
             {
-				foreach (var item in productC.Data)
-				{
-					source.Add(new ItemsPreview
-					{
-                        Id = item.Id,
-						ImageUrl = item.Image,
-						Name = item.Name,
-						price = item.Price
-					});
-				}
+                var productC = _productCategoryDataAccess.GetProductsByCategory(SelectedCategoryName);
+
+                if (productC.Data != null)
+                {
+                    foreach (var item in productC.Data)
+                    {
+                        source.Add(new ItemsPreview
+                        {
+                            Id = item.Id,
+                            ImageUrl = item.Image,
+                            Name = item.Name,
+                            price = item.Price
+                        });
+                    }
+                }
+                itemPreview = new ObservableCollection<ItemsPreview>(source);
+            }
+			catch (SQLiteException ex)
+			{
+				itemPreview = new ObservableCollection<ItemsPreview>();
+				// Manejar excepciones de SQLite específicamente
+				Console.WriteLine($"Error al acceder a SQLite: {ex.Message}");
 			}
-			itemPreview = new ObservableCollection<ItemsPreview>(source);
-        }
+			catch (Exception ex)
+			{
+				itemPreview = new ObservableCollection<ItemsPreview>();
+				Console.WriteLine($"Error al crear la colección de elementos: {ex.Message}");
+				// Manejar la excepción según sea necesario
+			}
+		}
 
         void CreateFeaturedItemCollection()
         {
-            var topBrands = _brandCategoryDataAccess.GetBrandsByCategory(SelectedCategoryName);
-
-            if(topBrands.Data != null)
+            try
             {
-				foreach (var item in topBrands.Data)
-				{
-					sourceT.Add(new FeaturedBrands
-					{
-						ImageUrl = item.ImageUrl,
-						brand = item.Name,
-						details = item.Description
-					});
-				}
-				topBItemPreview = new ObservableCollection<FeaturedBrands>(sourceT);
+
+                var topBrands = _brandCategoryDataAccess.GetBrandsByCategory(SelectedCategoryName);
+
+                if (topBrands.Data != null)
+                {
+                    foreach (var item in topBrands.Data)
+                    {
+                        sourceT.Add(new FeaturedBrands
+                        {
+                            ImageUrl = item.ImageUrl,
+                            brand = item.Name,
+                            details = item.Description
+                        });
+                    }
+                    topBItemPreview = new ObservableCollection<FeaturedBrands>(sourceT);
+                }
+            }
+			catch (SQLiteException ex)
+			{
+				topBItemPreview = new ObservableCollection<FeaturedBrands>();
+				// Manejar excepciones de SQLite específicamente
+				Console.WriteLine($"Error al acceder a SQLite: {ex.Message}");
 			}
-        }
+			catch (Exception ex)
+			{
+				topBItemPreview = new ObservableCollection<FeaturedBrands>();
+				Console.WriteLine($"Error al crear la colección de elementos: {ex.Message}");
+				// Manejar la excepción según sea necesario
+			}
+		}
 
       
         #region INotifyPropertyChanged

@@ -69,9 +69,10 @@
                     Padding="{OnPlatform Android=6,iOS=0}">
                     <Entry
                         FontSize="{OnPlatform Android=15,iOS=16}"
-                        IsEnabled="{Binding IsEnabledTxt}"
                         Keyboard="Email"
+                        IsEnabled="False"
                         MaxLength="25"
+                        x:Name="EmailTxt"
                         Placeholder="BFortuna@gmail.com"
                         Text="{Binding EmailTxt, Mode=TwoWay}" />
                 </Frame>
@@ -85,7 +86,7 @@
 
                 <Label
                     FontSize="{OnPlatform Android=13}"
-                    Text="Password"
+                    Text="Add Password to Change data"
                     TextColor="Black" />
 
                 <Frame
@@ -95,9 +96,10 @@
 
                     <Entry
                         FontSize="{OnPlatform Android=15,iOS=16}"
-                        IsEnabled="{Binding IsEnabledTxt}"
                         IsPassword="True"
                         MaxLength="25"
+                        IsEnabled="False"
+                        
                         Placeholder="******************"
                         Text="{Binding PasswordTxt, Mode=TwoWay}" />
                 </Frame>
@@ -124,6 +126,7 @@
                         IsEnabled="{Binding IsEnabledTxt}"
                         Keyboard="Text"
                         MaxLength="25"
+                        x:Name="NameTxt"
                         Placeholder="Steve Jobs"
                         Text="{Binding NameTxt, Mode=TwoWay}" />
                 </Frame>
@@ -152,6 +155,7 @@
                             Keyboard="Numeric"
                             MaxLength="2"
                             Placeholder="18"
+                            x:Name="AgeTxt"
                             Text="{Binding AgeTxt, Mode=TwoWay}" />
                     </Frame>
                 </StackLayout>

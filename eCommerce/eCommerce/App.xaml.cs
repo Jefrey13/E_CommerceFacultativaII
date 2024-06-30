@@ -189,7 +189,7 @@ namespace eCommerce
 			//ConfigureServices();
 
 			MainPage = new Views.AccessApp.LoginPage();
-			//MainPage = new Views.categoriesPage("Electronics");
+			//MainPage = new Views.HomePage();
 		}
 		/**private void ConfigureServices()
 		{

@@ -1,5 +1,6 @@
 ﻿using eCommerce.DataAccess;
 using eCommerce.Views;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -81,84 +82,144 @@ namespace eCommerce.Model
 		//Categories
 		void CreateCategoriesCollection()
 		{
-			var categoriesR = _categoryDataAccess.GetCategories();
-
-			if(categoriesR != null)
+			try
 			{
-				foreach (var item in categoriesR.Data)
-				{
-					source2.Add(new Category
-					{
-						Image = item.Image,
-						Name = item.Name,
-						Link = item.Link
-					});
-				}
+				var categoriesR = _categoryDataAccess.GetCategories();
 
-				categories = new ObservableCollection<Category>(source2);
+				if (categoriesR != null)
+				{
+					foreach (var item in categoriesR.Data)
+					{
+						source2.Add(new Category
+						{
+							Image = item.Image,
+							Name = item.Name,
+							Link = item.Link
+						});
+					}
+
+					categories = new ObservableCollection<Category>(source2);
+				}
+			}
+			catch (SQLiteException ex)
+			{
+				categories = new ObservableCollection<Category>();
+				// Manejar excepciones de SQLite específicamente
+				Console.WriteLine($"Error al acceder a SQLite: {ex.Message}");
+			}
+			catch (Exception ex)
+			{
+				categories = new ObservableCollection<Category>();
+				Console.WriteLine($"Error al crear la colección de elementos: {ex.Message}");
+				// Manejar la excepción según sea necesario
 			}
 		}
 
 		//Featured Brands
 		void CreateFeaturedItemCollection()
 		{
-			var brandR = _brandTagDataAccess.GetBrandsByTag("Featured Brand");
-
-			if(brandR.Data != null)
+			try
 			{
-				foreach (var item in brandR.Data)
-				{
-					source1.Add(new FeaturedBrands
-					{
-						ImageUrl = item.ImageUrl,
-						brand = item.Name,
-						details = item.Description
-					});
-				}
+				var brandR = _brandTagDataAccess.GetBrandsByTag("Featured Brand");
 
-				featuredItemPreview = new ObservableCollection<FeaturedBrands>(source1);
+				if (brandR.Data != null)
+				{
+					foreach (var item in brandR.Data)
+					{
+						source1.Add(new FeaturedBrands
+						{
+							ImageUrl = item.ImageUrl,
+							brand = item.Name,
+							details = item.Description
+						});
+					}
+
+					featuredItemPreview = new ObservableCollection<FeaturedBrands>(source1);
+				}
+			}
+			catch (SQLiteException ex)
+			{
+				featuredItemPreview = new ObservableCollection<FeaturedBrands>();
+				// Manejar excepciones de SQLite específicamente
+				Console.WriteLine($"Error al acceder a SQLite: {ex.Message}");
+			}
+			catch (Exception ex)
+			{
+				featuredItemPreview = new ObservableCollection<FeaturedBrands>();
+				Console.WriteLine($"Error al crear la colección de elementos: {ex.Message}");
+				// Manejar la excepción según sea necesario
 			}
 		}
 
 		//Best Selling products
 		void CreateItemCollection()
 		{
-			var productRecommended = _productTagDataAccess.GetProductsByTag("Bestseller");
-
-			if(productRecommended != null)
+			try
 			{
-				foreach (var item in productRecommended.Data)
+				var productRecommended = _productTagDataAccess.GetProductsByTag("Bestseller");
+
+				if (productRecommended != null)
 				{
-					source.Add(new ItemsPreview
+					foreach (var item in productRecommended.Data)
 					{
-						Id = item.Id,
-						ImageUrl = item.Image,
-						Name = item.Name,
-						price = item.Price
-					});
+						source.Add(new ItemsPreview
+						{
+							Id = item.Id,
+							ImageUrl = item.Image,
+							Name = item.Name,
+							price = item.Price
+						});
+					}
+					itemPreview = new ObservableCollection<ItemsPreview>(source);
 				}
-				itemPreview = new ObservableCollection<ItemsPreview>(source);
+			}
+			catch (SQLiteException ex)
+			{
+				itemPreview = new ObservableCollection<ItemsPreview>();
+				// Manejar excepciones de SQLite específicamente
+				Console.WriteLine($"Error al acceder a SQLite: {ex.Message}");
+			}
+			catch (Exception ex)
+			{
+				itemPreview = new ObservableCollection<ItemsPreview>();
+				Console.WriteLine($"Error al crear la colección de elementos: {ex.Message}");
+				// Manejar la excepción según sea necesario
 			}
 		}
 
 		//Recommended products
 		void CreateItemCollection2()
 		{
-			var productBestS = _productTagDataAccess.GetProductsByTag("Recommended");
-
-			if (productBestS != null)
+			try
 			{
-				foreach (var item in productBestS.Data)
+				var productBestS = _productTagDataAccess.GetProductsByTag("Recommended");
+
+				if (productBestS != null)
 				{
-					sourceBS.Add(new ItemsPreview
+					foreach (var item in productBestS.Data)
 					{
-						Id = item.Id,
-						ImageUrl = item.Image,
-						Name = item.Name,
-						price = item.Price
-					});
+						sourceBS.Add(new ItemsPreview
+						{
+							Id = item.Id,
+							ImageUrl = item.Image,
+							Name = item.Name,
+							price = item.Price
+						});
+					}
+					itemPreview2 = new ObservableCollection<ItemsPreview>(sourceBS);
 				}
-				itemPreview2 = new ObservableCollection<ItemsPreview>(sourceBS);
+			}
+			catch (SQLiteException ex)
+			{
+				itemPreview2 = new ObservableCollection<ItemsPreview>();
+				// Manejar excepciones de SQLite específicamente
+				Console.WriteLine($"Error al acceder a SQLite: {ex.Message}");
+			}
+			catch (Exception ex)
+			{
+				itemPreview2 = new ObservableCollection<ItemsPreview>();
+				Console.WriteLine($"Error al crear la colección de elementos: {ex.Message}");
+				// Manejar la excepción según sea necesario
 			}
 		}
 

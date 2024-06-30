@@ -1,4 +1,6 @@
-﻿using eCommerce.ViewModel;
+﻿using eCommerce.DataAccess;
+using eCommerce.ViewModel;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

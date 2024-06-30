@@ -1,7 +1,9 @@
 ﻿using eCommerce.DataAccess;
 using eCommerce.Model;
 using eCommerce.Views;
+using SQLite;
 using Stripe;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -90,21 +92,36 @@ namespace eCommerce.ViewModel
 
 		void TopBrandItemCollection()
 		{
-			var producSearched = _brandTagDataAccess.GetBrandsByTag("TopBrand");
-
-			if (producSearched.Data != null)
+			try
 			{
-				foreach (var item in producSearched.Data)
-				{
-					brandSource.Add(new FeaturedBrands
-					{
-						ImageUrl = item.ImageUrl,
-						brand = item.Name,
-						details = item.Description
-					});
-				}
+				var producSearched = _brandTagDataAccess.GetBrandsByTag("TopBrand");
 
-				BrandItemPreview = new ObservableCollection<FeaturedBrands>(brandSource);
+				if (producSearched.Data != null)
+				{
+					foreach (var item in producSearched.Data)
+					{
+						brandSource.Add(new FeaturedBrands
+						{
+							ImageUrl = item.ImageUrl,
+							brand = item.Name,
+							details = item.Description
+						});
+					}
+
+					BrandItemPreview = new ObservableCollection<FeaturedBrands>(brandSource);
+				}
+			}
+			catch (SQLiteException ex)
+			{
+				BrandItemPreview = new ObservableCollection<FeaturedBrands>();
+				// Manejar excepciones de SQLite específicamente
+				Console.WriteLine($"Error al acceder a SQLite: {ex.Message}");
+			}
+			catch (Exception ex)
+			{
+				BrandItemPreview = new ObservableCollection<FeaturedBrands>();
+				Console.WriteLine($"Error al crear la colección de elementos: {ex.Message}");
+				// Manejar la excepción según sea necesario
 			}
 		}
 

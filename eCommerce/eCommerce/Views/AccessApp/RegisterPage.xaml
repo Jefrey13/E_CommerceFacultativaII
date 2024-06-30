@@ -5,194 +5,223 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     BackgroundColor="White">
     <ContentPage.Content>
-        <Grid RowSpacing="{OnPlatform iOS=25,Android=20}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <!--1-->
-                <RowDefinition Height="Auto" />
-                <!--2-->
-                <RowDefinition Height="Auto" />
-                <!--3-->
-                <RowDefinition Height="Auto" />
-                <!--4-->
-                <RowDefinition Height="Auto" />
-                <!--5-->
-                <RowDefinition Height="Auto" />
-                <!--6-->
-                <RowDefinition Height="Auto" />
-                <!--7-->
-                <RowDefinition Height="Auto" />
-                <!--8-->
-            </Grid.RowDefinitions>
+        <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="{OnPlatform iOS=25, Android=20}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <!--1-->
+                    <RowDefinition Height="Auto" />
+                    <!--2-->
+                    <RowDefinition Height="Auto" />
+                    <!--3-->
+                    <RowDefinition Height="Auto" />
+                    <!--4-->
+                    <RowDefinition Height="Auto" />
+                    <!--5-->
+                    <RowDefinition Height="Auto" />
+                    <!--6-->
+                    <RowDefinition Height="Auto" />
+                    <!--7-->
+                    <RowDefinition Height="Auto" />
+                    <!--8-->
+                    <RowDefinition Height="Auto" />
+                    <!--9-->
+                    <RowDefinition Height="Auto" />
+                    <!--10-->
+                    <RowDefinition Height="50" />
+                    <!-- Espacio extra para separar el borde inferior -->
+                </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
 
-            <StackLayout Grid.Row="1">
-                <Image
-             Margin="0,10,0,0"
-             HeightRequest="{OnPlatform iOS=90,Android=70}"
-             Source="https://factus.com.co/_astro/favicon.DMncryqX.ico"
-             WidthRequest="{OnPlatform iOS=90,Android=0}" />
-            </StackLayout>
+                <StackLayout Grid.Row="1">
+                    <Image
+                        Margin="0,10,0,0"
+                        HeightRequest="{OnPlatform iOS=90,Android=70}"
+                        Source="https://factus.com.co/_astro/favicon.DMncryqX.ico"
+                        WidthRequest="{OnPlatform iOS=90,Android=0}" />
+                </StackLayout>
 
-            <StackLayout Grid.Row="2" HorizontalOptions="Center">
-                <Label
-             Font="Montserrat-Medium.otf"
-             FontSize="{OnPlatform Android=20,iOS=23}"
-             Text="Sign up"
-             TextColor="Black"
-             WidthRequest="300" />
-            </StackLayout>
-
-            <StackLayout
-         Grid.Row="3"
-         HorizontalOptions="Center"
-         Orientation="Vertical"
-         WidthRequest="{OnPlatform iOS=300,Android=300}">
-                <Label
-             FontSize="{OnPlatform Android=13}"
-             Text="Email"
-             TextColor="Black" />
-                <Frame
-             CornerRadius="{OnPlatform Android=7}"
-             HasShadow="{OnPlatform Android=true,iOS=false}"
-             Padding="{OnPlatform Android=6,iOS=0}">
-                    <Entry
-                 FontSize="{OnPlatform Android=15,iOS=16}"
-                 IsEnabled="{Binding IsEnabledTxt}"
-                 Keyboard="Email"
-                 MaxLength="25"
-                 Placeholder="BFortuna@gmail.com"
-                 Text="{Binding EmailTxt, Mode=TwoWay}" />
-                </Frame>
-            </StackLayout>
-
-            <StackLayout
-         Grid.Row="4"
-         HorizontalOptions="Center"
-         Orientation="Vertical"
-         WidthRequest="300">
-
-                <Label
-             FontSize="{OnPlatform Android=13}"
-             Text="Password"
-             TextColor="Black" />
-
-                <Frame
-             CornerRadius="{OnPlatform Android=7}"
-             HasShadow="{OnPlatform Android=true,iOS=false}"
-             Padding="{OnPlatform Android=6,iOS=0}">
-
-                    <Entry
-                 FontSize="{OnPlatform Android=15,iOS=16}"
-                 IsEnabled="{Binding IsEnabledTxt}"
-                 IsPassword="True"
-                 MaxLength="25"
-                 Placeholder="******************"
-                 Text="{Binding PasswordTxt, Mode=TwoWay}" />
-
-                </Frame>
-            </StackLayout>
-
-            <StackLayout
-         Grid.Row="5"
-         HorizontalOptions="Center"
-         Orientation="Vertical"
-         WidthRequest="300">
-                <Label
-             FontSize="{OnPlatform Android=13}"
-             Text="Fullname"
-             TextColor="Black" />
-
-                <Frame
-             CornerRadius="{OnPlatform Android=7}"
-             HasShadow="{OnPlatform Android=true,iOS=false}"
-             Padding="{OnPlatform Android=6,iOS=0}">
-
-                    <Entry
-                 FontSize="{OnPlatform Android=15,iOS=16}"
-                 IsEnabled="{Binding IsEnabledTxt}"
-                 Keyboard="Text"
-                 MaxLength="25"
-                 Placeholder="Steve Jobs"
-                 Text="{Binding NameTxt, Mode=TwoWay}" />
-
-                </Frame>
-            </StackLayout>
-            <StackLayout
-         Grid.Row="6"
-         HorizontalOptions="Center"
-         Orientation="Horizontal"
-         Spacing="20"
-         WidthRequest="300">
-                <StackLayout WidthRequest="140">
-
+                <StackLayout Grid.Row="2" HorizontalOptions="Center">
                     <Label
-                 FontSize="{OnPlatform Android=13}"
-                 Text="Age"
-                 TextColor="Black" />
+                        Font="Montserrat-Medium.otf"
+                        FontSize="{OnPlatform Android=20,iOS=23}"
+                        Text="Sign up"
+                        TextColor="Black"
+                        WidthRequest="300" />
+                </StackLayout>
 
+                <StackLayout
+                    Grid.Row="3"
+                    HorizontalOptions="Center"
+                    Orientation="Vertical"
+                    WidthRequest="{OnPlatform iOS=300, Android=300}">
+                    <Label
+                        FontSize="{OnPlatform Android=13}"
+                        Text="Email"
+                        TextColor="Black" />
                     <Frame
-                 CornerRadius="{OnPlatform Android=7}"
-                 HasShadow="{OnPlatform Android=true,iOS=false}"
-                 Padding="{OnPlatform Android=6,iOS=0}">
-
+                        CornerRadius="{OnPlatform Android=7}"
+                        HasShadow="{OnPlatform Android=true, iOS=false}"
+                        Padding="{OnPlatform Android=6, iOS=0}">
                         <Entry
-                     FontSize="{OnPlatform Android=15,iOS=16}"
-                     IsEnabled="{Binding IsEnabledTxt}"
-                     Keyboard="Numeric"
-                     MaxLength="2"
-                     Placeholder="18"
-                     Text="{Binding AgeTxt, Mode=TwoWay}" />
-
+                            FontSize="{OnPlatform Android=15, iOS=16}"
+                            Keyboard="Email"
+                            MaxLength="25"
+                            Placeholder="BFortuna@gmail.com"
+                            Text="{Binding EmailTxt, Mode=TwoWay}" />
                     </Frame>
                 </StackLayout>
 
-            </StackLayout>
+                <StackLayout
+                    Grid.Row="4"
+                    HorizontalOptions="Center"
+                    Orientation="Vertical"
+                    WidthRequest="300">
+                    <Label
+                        FontSize="{OnPlatform Android=13}"
+                        Text="Password"
+                        TextColor="Black" />
+                    <Frame
+                        CornerRadius="{OnPlatform Android=7}"
+                        HasShadow="{OnPlatform Android=true, iOS=false}"
+                        Padding="{OnPlatform Android=6, iOS=0}">
+                        <Entry
+                            FontSize="{OnPlatform Android=15, iOS=16}"
+                            IsPassword="True"
+                            MaxLength="25"
+                            Placeholder="******************"
+                            Text="{Binding PasswordTxt, Mode=TwoWay}" />
+                    </Frame>
+                </StackLayout>
 
-            <StackLayout Grid.Row="7" HorizontalOptions="Center">
-                <ActivityIndicator
-             Color="Black"
-             IsRunning="{Binding IsRunningTxt, Mode=TwoWay}"
-             IsVisible="{Binding IsVisibleTxt, Mode=TwoWay}" />
-            </StackLayout>
+                <StackLayout
+                    Grid.Row="5"
+                    HorizontalOptions="Center"
+                    Orientation="Vertical"
+                    WidthRequest="300">
+                    <Label
+                        FontSize="{OnPlatform Android=13}"
+                        Text="Confirm Password"
+                        TextColor="Black" />
+                    <Frame
+                        CornerRadius="{OnPlatform Android=7}"
+                        HasShadow="{OnPlatform Android=true,iOS=false}"
+                        Padding="{OnPlatform Android=6,iOS=0}">
+                        <Entry
+                            FontSize="{OnPlatform Android=15,iOS=16}"
+                            IsEnabled="{Binding IsEnabledTxt}"
+                            IsPassword="True"
+                            MaxLength="25"
+                            Placeholder="******************"
+                            Text="{Binding ConfirmPasswordTxt, Mode=TwoWay}" />
+                    </Frame>
+                </StackLayout>
 
-            <StackLayout
-         Grid.Row="8"
-         HorizontalOptions="Center"
-         Orientation="Vertical">
-                <Button
-             BackgroundColor="#00C569"
-             BorderColor="#f2f2f2"
-             BorderWidth="1.5"
-             Command="{Binding RegisterCommand}"
-             CornerRadius="7"
-             Font="Montserrat-Medium.otf"
-             FontSize="{OnPlatform Android=15}"
-             HeightRequest="50"
-             IsEnabled="{Binding IsEnabledTxt, Mode=TwoWay}"
-             Text="Register"
-             TextColor="White"
-             WidthRequest="300" />
-                <Button
-             x:Name="NavToLogin"
-             BackgroundColor="White"
-             Clicked="NavToLogin_Clicked"
-             FontSize="{OnPlatform Android=11,iOS=12}"
-             Text="Already have an acount? Log in"
-             TextColor="{OnPlatform iOS=Black}" />
-            </StackLayout>
+                <StackLayout
+                    Grid.Row="6"
+                    HorizontalOptions="Center"
+                    Orientation="Vertical"
+                    WidthRequest="300">
+                    <Label
+                        FontSize="{OnPlatform Android=13}"
+                        Text="Fullname"
+                        TextColor="Black" />
+                    <Frame
+                        CornerRadius="{OnPlatform Android=7}"
+                        HasShadow="{OnPlatform Android=true,iOS=false}"
+                        Padding="{OnPlatform Android=6,iOS=0}">
+                        <Entry
+                            FontSize="{OnPlatform Android=15,iOS=16}"
+                            IsEnabled="{Binding IsEnabledTxt}"
+                            Keyboard="Text"
+                            MaxLength="25"
+                            Placeholder="Steve Jobs"
+                            Text="{Binding NameTxt, Mode=TwoWay}" />
+                    </Frame>
+                </StackLayout>
 
-            <Label
-         Grid.Row="9"
-         FontAttributes="None"
-         FontSize="15"
-         HorizontalOptions="Center"
-         Text="©2024 - Factus.NIC"
-         TextColor="Black"
-         VerticalOptions="Center" />
-        </Grid>
+                <StackLayout
+                    Grid.Row="7"
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    WidthRequest="300">
+                    <StackLayout WidthRequest="140">
+                        <Label
+                            FontSize="{OnPlatform Android=13}"
+                            Text="Age"
+                            TextColor="Black" />
+                        <Frame
+                            CornerRadius="{OnPlatform Android=7}"
+                            HasShadow="{OnPlatform Android=true,iOS=false}"
+                            Padding="{OnPlatform Android=6,iOS=0}">
+                            <Entry
+                                FontSize="{OnPlatform Android=15,iOS=16}"
+                                IsEnabled="{Binding IsEnabledTxt}"
+                                Keyboard="Numeric"
+                                MaxLength="2"
+                                Placeholder="18"
+                                Text="{Binding AgeTxt, Mode=TwoWay}" />
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="8"
+                    HorizontalOptions="Center"
+                    Padding="0">
+                       <ActivityIndicator
+                        Color="Black"
+                        IsRunning="{Binding IsRunningTxt}"
+                        IsVisible="{Binding IsVisibleTxt}"
+                        Scale="0.8" />
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="9"
+                    HorizontalOptions="Center"
+                    Orientation="Vertical">
+                    <Button
+                        BackgroundColor="#00C569"
+                        BorderColor="#f2f2f2"
+                        BorderWidth="1.5"
+                        Command="{Binding RegisterCommand}"
+                        CornerRadius="7"
+                        Font="Montserrat-Medium.otf"
+                        FontSize="{OnPlatform Android=15}"
+                        HeightRequest="50"
+                        IsEnabled="{Binding IsEnabledTxt, Mode=TwoWay}"
+                        Text="Register"
+                        TextColor="White"
+                        WidthRequest="300" />
+                    <Button
+                        x:Name="NavToLogin"
+                        BackgroundColor="White"
+                        Clicked="NavToLogin_Clicked"
+                        FontSize="{OnPlatform Android=11,iOS=12}"
+                        Text="Already have an account? Log in"
+                        TextColor="{OnPlatform iOS=Black}" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="10" HorizontalOptions="Center">
+                    <ActivityIndicator
+                        Color="Black"
+                        IsRunning="{Binding IsRunningTxt, Mode=TwoWay}"
+                        IsVisible="{Binding IsVisibleTxt, Mode=TwoWay}" />
+                </StackLayout>
+
+                <Label
+                    Grid.Row="11"
+                    FontAttributes="None"
+                    FontSize="15"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Margin="0,0,0,20"
+                    TextColor="Black"
+                    Text="©2024 - Factus.NIC" />
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
