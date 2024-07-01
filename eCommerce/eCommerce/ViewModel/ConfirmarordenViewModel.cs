@@ -45,17 +45,17 @@ namespace eCommerce.ViewModel
 			{
 				if (string.IsNullOrEmpty(this.NombreCliente))
 				{
-					CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a fullname.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+					CrossToastPopUp.Current.ShowCustomToast("You must enter a fullname.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 					return;
 				}
 				if (string.IsNullOrEmpty(this.Direccion))
 				{
-					CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a address.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+					CrossToastPopUp.Current.ShowCustomToast("You must enter a address.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 					return;
 				}
 				if (string.IsNullOrEmpty(this.Numcontact))
 				{
-					CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a cellphone number.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+					CrossToastPopUp.Current.ShowCustomToast("You must enter a cellphone number.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 					return;
 				}
 				await GenerarFactura();
@@ -286,17 +286,11 @@ namespace eCommerce.ViewModel
 				});
 			});
 
-			_cartDataAccess.RemoveAllCartItem();
+			await _cartDataAccess.RemoveAllCartItem();
 
 			await Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new HomePage()));
 		}
 	}
-
-	public class Item
-    {
-        public string Nombre { get; set; }
-        public decimal Precio { get; set; }
-    }
 }
 
 

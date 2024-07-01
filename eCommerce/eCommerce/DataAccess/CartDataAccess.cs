@@ -1,11 +1,15 @@
 ﻿using eCommerce.Data;
 using eCommerce.Model;
 using eCommerce.Utils;
+using Firebase.Auth;
+using Newtonsoft.Json;
 using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace eCommerce.DataAccess
 {
@@ -19,72 +23,104 @@ namespace eCommerce.DataAccess
 		}
 
 		// Método para guardar un producto en el carrito del usuario
-		// Método para guardar un producto en el carrito
-		public GeneralResponse<CartProduct> AddCartItem(int productId, int quantity)
+		public async Task<GeneralResponse<CartProduct>> AddCartItem(int productId, int quantity)
 		{
 			try
 			{
-				_sqlConnection.BeginTransaction();
+				var auth = await GetUserAsync();
 
-				// Verificar si el producto ya existe en el carrito
-				var existingCartItem = _sqlConnection.Table<CartProduct>()
-													 .FirstOrDefault(cp => cp.CartId == 1 && cp.ProductId == productId);
+				if (auth != null)
+				{
+					_sqlConnection.BeginTransaction();
 
-				if (existingCartItem != null)
-				{
-					// Si el producto ya está en el carrito, actualizar la cantidad
-					existingCartItem.Quantity += quantity;
-					_sqlConnection.Update(existingCartItem);
-				}
-				else
-				{
-					// Si el producto no está en el carrito, agregar uno nuevo
-					var newCartItem = new CartProduct
+					// Verificar si el producto ya existe en el carrito para el usuario actual
+					var existingCartItem = _sqlConnection.Table<CartProduct>()
+														 .FirstOrDefault(cp => cp.UserEmail == auth.User.Email && cp.ProductId == productId);
+
+					if (existingCartItem != null)
 					{
-						CartId = 1,
-						ProductId = productId,
-						Quantity = quantity
-					};
+						// Si el producto ya está en el carrito, no aumentar la cantidad y devolver un mensaje
+						return new GeneralResponse<CartProduct>
+						{
+							Message = "The product is already in your cart.",
+							IsSuccess = false,
+							Data = existingCartItem
+						};
+					}
+					else
+					{
+						// Si el producto no está en el carrito, agregar uno nuevo
+						var newCartItem = new CartProduct
+						{
+							UserEmail = auth.User.Email,
+							ProductId = productId,
+							Quantity = quantity
+						};
 
-					_sqlConnection.Insert(newCartItem);
+						_sqlConnection.Insert(newCartItem);
+						_sqlConnection.Commit();
+
+						return new GeneralResponse<CartProduct>
+						{
+							Message = "Success",
+							IsSuccess = true,
+							Data = newCartItem
+						};
+					}
 				}
 
-				_sqlConnection.Commit();
-
-				return new GeneralResponse<CartProduct> { Message = "Success", IsSuccess = true, Data = null };
+				return new GeneralResponse<CartProduct>
+				{
+					Message = "User not authenticated",
+					IsSuccess = false,
+					Data = null
+				};
 			}
 			catch (Exception ex)
 			{
 				_sqlConnection.Rollback();
-				return new GeneralResponse<CartProduct> { Message = "Error: " + ex.Message, IsSuccess = false, Data = null };
+				return new GeneralResponse<CartProduct>
+				{
+					Message = "Error: " + ex.Message,
+					IsSuccess = false,
+					Data = null
+				};
 			}
 		}
 
-
-		// Método para obtener todos los productos en el carrito
-		public GeneralResponse<List<Product>> GetCartProducts()
+		// Método para obtener todos los productos en el carrito del usuario
+		public async Task<GeneralResponse<List<Product>>> GetCartProducts()
 		{
 			try
 			{
-				// Obtener todos los productos asociados al carrito con ID 1
-				var cartProducts = _sqlConnection.Table<CartProduct>()
-												 .Where(cp => cp.CartId == 1)
-												 .ToList();
+				var auth = await GetUserAsync();
 
-				var products = new List<Product>();
-
-				foreach (var cartProduct in cartProducts)
+				if (auth != null)
 				{
-					// Obtener el producto desde la tabla Product
-					var product = _sqlConnection.Table<Product>()
-												.FirstOrDefault(p => p.Id == cartProduct.ProductId);
+					// Obtener todos los productos asociados al carrito del usuario actual
+					var cartProducts = _sqlConnection.Table<CartProduct>()
+													 .Where(cp => cp.UserEmail == auth.User.Email)
+													 .ToList();
 
-					// Actualizar la cantidad del producto en la lista
-					product.Quantity = cartProduct.Quantity; // Actualizar la cantidad del producto en el contexto del carrito
-					products.Add(product);
+					var products = new List<Product>();
+
+					foreach (var cartProduct in cartProducts)
+					{
+						// Obtener el producto desde la tabla Product
+						var product = _sqlConnection.Table<Product>()
+													.FirstOrDefault(p => p.Id == cartProduct.ProductId);
+
+						if (product != null)
+						{
+							// Actualizar la cantidad del producto en el contexto del carrito
+							product.Quantity = cartProduct.Quantity;
+							products.Add(product);
+						}
+					}
+
+					return new GeneralResponse<List<Product>> { Message = "Success", IsSuccess = true, Data = products };
 				}
-
-				return new GeneralResponse<List<Product>> { Message = "Success", IsSuccess = true, Data = products };
+				return new GeneralResponse<List<Product>> { Message = "User not authenticated", IsSuccess = false, Data = null };
 			}
 			catch (Exception ex)
 			{
@@ -93,111 +129,128 @@ namespace eCommerce.DataAccess
 			}
 		}
 
-
-
 		// Método para aumentar la cantidad de un producto en el carrito
-		public void IncreaseCartItemQuantity(int productId, int quantityToAdd)
+		// Método para aumentar la cantidad de un producto en el carrito del usuario
+		public async Task IncreaseCartItemQuantity(int productId, int quantityToAdd)
 		{
 			try
 			{
-				_sqlConnection.BeginTransaction();
+				var auth = await GetUserAsync();
 
-				// Buscar el producto en el carrito con ID 1
-				var cartProduct = _sqlConnection.Table<CartProduct>()
-												.FirstOrDefault(cp => cp.ProductId == productId);
-
-				if (cartProduct != null)
+				if (auth != null)
 				{
-					cartProduct.Quantity += quantityToAdd;
-					_sqlConnection.Update(cartProduct);
-					_sqlConnection.Commit();
+					_sqlConnection.BeginTransaction();
 
-					//return new GeneralResponse<CartProduct> { Message = "Success", IsSuccess = true, Data = cartProduct };
+					// Buscar el producto en el carrito del usuario actual
+					var cartProduct = _sqlConnection.Table<CartProduct>()
+													.FirstOrDefault(cp => cp.UserEmail == auth.User.Email && cp.ProductId == productId);
+
+					if (cartProduct != null)
+					{
+						cartProduct.Quantity += quantityToAdd;
+						_sqlConnection.Update(cartProduct);
+						_sqlConnection.Commit();
+					}
+					else
+					{
+						_sqlConnection.Rollback();
+						// Manejar el caso donde el producto no se encuentra en el carrito
+						// throw new Exception("Cart product not found");
+					}
 				}
-				else
-				{
-					_sqlConnection.Rollback();
-					//return new GeneralResponse<CartProduct> { Message = "Cart product not found", IsSuccess = false, Data = null };
-				}
+				//return new GeneralResponse<CartProduct> { Message = "User not authenticated", IsSuccess = false, Data = null };
 			}
 			catch (Exception ex)
 			{
 				_sqlConnection.Rollback();
-				//return new GeneralResponse<CartProduct> { Message = "Error: " + ex.Message, IsSuccess = false, Data = null };
+				// Manejar cualquier error y revertir la transacción si ocurre un problema
+				// throw new Exception("Error: " + ex.Message);
 			}
 		}
 
+
 		// Método para disminuir la cantidad de un producto en el carrito
-		public void DecreaseCartItemQuantity(int productId, int quantityToSubtract)
+		// Método para disminuir la cantidad de un producto en el carrito del usuario
+		public async Task DecreaseCartItemQuantity(int productId, int quantityToSubtract)
 		{
 			try
 			{
-				_sqlConnection.BeginTransaction();
+				var auth =  await GetUserAsync();
 
-				// Buscar el producto en el carrito con ID 1
-				var cartProduct = _sqlConnection.Table<CartProduct>()
-												.FirstOrDefault(cp => cp.CartId == 1 && cp.ProductId == productId);
-
-				if (cartProduct != null)
+				if (auth != null)
 				{
-					if (cartProduct.Quantity > quantityToSubtract)
+					_sqlConnection.BeginTransaction();
+
+					// Buscar el producto en el carrito del usuario actual
+					var cartProduct = _sqlConnection.Table<CartProduct>()
+													.FirstOrDefault(cp => cp.UserEmail == auth.User.Email && cp.ProductId == productId);
+
+					if (cartProduct != null)
 					{
-						if(cartProduct.Quantity > 1)
+						if (cartProduct.Quantity > quantityToSubtract)
 						{
 							cartProduct.Quantity -= quantityToSubtract;
 							_sqlConnection.Update(cartProduct);
 							_sqlConnection.Commit();
 						}
-
-						//return new GeneralResponse<CartProduct> { Message = "Success", IsSuccess = true, Data = cartProduct };
-					}
-					else if (cartProduct.Quantity == quantityToSubtract)
-					{
-						_sqlConnection.Delete(cartProduct);
-						_sqlConnection.Commit();
-
-						//return new GeneralResponse<CartProduct> { Message = "Success", IsSuccess = true, Data = null };
+						else if (cartProduct.Quantity == quantityToSubtract)
+						{
+							_sqlConnection.Delete(cartProduct);
+							_sqlConnection.Commit();
+						}
+						else
+						{
+							_sqlConnection.Rollback();
+							// Manejar el caso donde la cantidad no puede disminuir por debajo de 0
+							// throw new Exception("Cannot decrease quantity below 0");
+						}
 					}
 					else
 					{
 						_sqlConnection.Rollback();
-						//return new GeneralResponse<CartProduct> { Message = "Cannot decrease quantity below 0", IsSuccess = false, Data = null };
+						// Manejar el caso donde el producto no se encuentra en el carrito
+						// throw new Exception("Cart product not found");
 					}
 				}
-				else
-				{
-					_sqlConnection.Rollback();
-					//return new GeneralResponse<CartProduct> { Message = "Cart product not found", IsSuccess = false, Data = null };
-				}
+				//return new GeneralResponse<CartProduct> { Message = "User not authenticated", IsSuccess = false, Data = null };
 			}
 			catch (Exception ex)
 			{
 				_sqlConnection.Rollback();
-				//return new GeneralResponse<CartProduct> { Message = "Error: " + ex.Message, IsSuccess = false, Data = null };
+				// Manejar cualquier error y revertir la transacción si ocurre un problema
+				// throw new Exception("Error: " + ex.Message);
 			}
 		}
-		public GeneralResponse<CartProduct> RemoveCartItem(int productId)
+
+		// Método para eliminar un producto del carrito del usuario
+		public async Task<GeneralResponse<CartProduct>> RemoveCartItem(int productId)
 		{
 			try
 			{
-				_sqlConnection.BeginTransaction();
+				var auth = await GetUserAsync();
 
-				// Verificar si el producto existe en el carrito
-				var existingCartItem = _sqlConnection.Table<CartProduct>()
-													 .FirstOrDefault(cp => cp.CartId == 1 && cp.ProductId == productId);
+				if (auth != null)
+				{
+					_sqlConnection.BeginTransaction();
 
-				if (existingCartItem != null)
-				{
-					// Si el producto está en el carrito, eliminarlo
-					_sqlConnection.Delete(existingCartItem);
-					_sqlConnection.Commit();
-					return new GeneralResponse<CartProduct> { Message = "Product removed successfully", IsSuccess = true, Data = null };
+					// Verificar si el producto existe en el carrito del usuario actual
+					var existingCartItem = _sqlConnection.Table<CartProduct>()
+														 .FirstOrDefault(cp => cp.UserEmail == auth.User.Email && cp.ProductId == productId);
+
+					if (existingCartItem != null)
+					{
+						// Si el producto está en el carrito, eliminarlo
+						_sqlConnection.Delete(existingCartItem);
+						_sqlConnection.Commit();
+						return new GeneralResponse<CartProduct> { Message = "Product removed successfully", IsSuccess = true, Data = null };
+					}
+					else
+					{
+						_sqlConnection.Rollback();
+						return new GeneralResponse<CartProduct> { Message = "Product not found in cart", IsSuccess = false, Data = null };
+					}
 				}
-				else
-				{
-					_sqlConnection.Rollback();
-					return new GeneralResponse<CartProduct> { Message = "Product not found in cart", IsSuccess = false, Data = null };
-				}
+				return new GeneralResponse<CartProduct> { Message = "User not authenticated", IsSuccess = false, Data = null };
 			}
 			catch (Exception ex)
 			{
@@ -206,34 +259,44 @@ namespace eCommerce.DataAccess
 			}
 		}
 
-		public GeneralResponse<CartProduct> RemoveAllCartItem()
+
+		// Método para eliminar todos los productos del carrito del usuario
+		public async Task<GeneralResponse<CartProduct>> RemoveAllCartItem()
 		{
 			try
 			{
-				_sqlConnection.BeginTransaction();
+				var auth = await GetUserAsync();
 
-				// Obtener todos los productos en el carrito
-				var existingCartItems = _sqlConnection.Table<CartProduct>().ToList();
-
-				if (existingCartItems.Any())
+				if (auth != null)
 				{
-					// Eliminar cada producto individualmente
-					foreach (var cartItem in existingCartItems)
+					_sqlConnection.BeginTransaction();
+
+					// Obtener todos los productos en el carrito del usuario actual
+					var existingCartItems = _sqlConnection.Table<CartProduct>()
+														 .Where(cp => cp.UserEmail == auth.User.Email)
+														 .ToList();
+
+					if (existingCartItems.Any())
 					{
-						_sqlConnection.Delete(cartItem);
+						// Eliminar cada producto individualmente
+						foreach (var cartItem in existingCartItems)
+						{
+							_sqlConnection.Delete(cartItem);
+						}
+
+						// Confirmar la transacción
+						_sqlConnection.Commit();
+
+						return new GeneralResponse<CartProduct> { Message = "All products removed successfully", IsSuccess = true, Data = null };
 					}
-
-					// Confirmar la transacción
-					_sqlConnection.Commit();
-
-					return new GeneralResponse<CartProduct> { Message = "All products removed successfully", IsSuccess = true, Data = null };
+					else
+					{
+						// No hay productos en el carrito para eliminar
+						_sqlConnection.Rollback();
+						return new GeneralResponse<CartProduct> { Message = "No products found in cart", IsSuccess = false, Data = null };
+					}
 				}
-				else
-				{
-					// No hay productos en el carrito para eliminar
-					_sqlConnection.Rollback();
-					return new GeneralResponse<CartProduct> { Message = "No products found in cart", IsSuccess = false, Data = null };
-				}
+				return new GeneralResponse<CartProduct> { Message = "User not authenticated", IsSuccess = false, Data = null };
 			}
 			catch (Exception ex)
 			{
@@ -243,5 +306,41 @@ namespace eCommerce.DataAccess
 			}
 		}
 
+		private async Task<FirebaseAuth> GetUserAsync()
+		{
+			try
+			{
+				var token = await GetTokenAsync();
+				if (!string.IsNullOrEmpty(token))
+				{
+					var auth = JsonConvert.DeserializeObject<FirebaseAuth>(token);
+					return auth;
+				}
+				else
+				{
+					// Handle the case where the token is not available
+					return null;
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"Error al obtener usuario: {ex.Message}");
+				return null;
+			}
+		}
+
+		private async Task<string> GetTokenAsync()
+		{
+			try
+			{
+				var token = await SecureStorage.GetAsync("firebase_refresh_token");
+				return token;
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"Error al obtener token: {ex.Message}");
+				return null;
+			}
+		}
 	}
 }

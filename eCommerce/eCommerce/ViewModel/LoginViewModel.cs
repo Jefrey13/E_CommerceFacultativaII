@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Command;
 using Newtonsoft.Json;
 using Plugin.Toast;
 using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -65,6 +66,13 @@ namespace eCommerce.ViewModels
 				return new RelayCommand(LoginMethod);
 			}
 		}
+		public ICommand ForgotCommand
+		{
+			get
+			{
+				return new RelayCommand(ResetPasswordEmail);
+			}
+		}
 		#endregion
 
 		#region Methods
@@ -73,12 +81,18 @@ namespace eCommerce.ViewModels
 		{
 			if (string.IsNullOrEmpty(this.email))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				CrossToastPopUp.Current.ShowCustomToast("You must enter a email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				return;
+			}
+			// Validar formato de correo electrónico
+			if (!Regex.IsMatch(this.email, @"^[^@\s]+@gmail\.com$"))
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Invalid email format. Must be in the format 'text@gmail.com'.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
 			if (string.IsNullOrEmpty(this.password))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				CrossToastPopUp.Current.ShowCustomToast("You must enter a password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				return;
 			}
 
@@ -94,12 +108,12 @@ namespace eCommerce.ViewModels
 				await SecureStorage.SetAsync("firebase_refresh_token", serializedContent);
 				Preferences.Set("MyFirebaseRefreshToken", serializedContent);
 
-				CrossToastPopUp.Current.ShowCustomToast("Success. Welcome to the app", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Welcome to the app", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				await Application.Current.MainPage.Navigation.PushModalAsync(new HomePage());
 			}
 			catch (Exception ex)
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Invalid email or password", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast($"Network error. Please check your internet connection.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 			}
 
 			this.IsVisibleTxt = true;
@@ -116,16 +130,27 @@ namespace eCommerce.ViewModels
 
 		public async void ResetPasswordEmail()
 		{
+			if (string.IsNullOrEmpty(this.email))
+			{
+				CrossToastPopUp.Current.ShowCustomToast("You must enter a email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				return;
+			}
+			if (!Regex.IsMatch(this.email, @"^[^@\s]+@gmail\.com$"))
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Invalid email format. Must be in the format 'text@gmail.com'.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				return;
+			}
 			string WebAPIkey = "AIzaSyCLiMPb_GvCkWFeR0pfdyIi9USwTUK9b58";
 
 			try
 			{
 				var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
 				await authProvider.SendPasswordResetEmailAsync(email);
+				CrossToastPopUp.Current.ShowCustomToast("Password recovery sent, check your email", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 			}
 			catch (Exception ex)
 			{
-
+				CrossToastPopUp.Current.ShowCustomToast("Invalid useremail, An error occurs", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 			}
 
 		}

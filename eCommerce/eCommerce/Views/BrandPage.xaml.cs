@@ -27,8 +27,8 @@ namespace eCommerce.Views
 			source1 = new List<ItemsPreview>(); // Inicializar source1 aquí
 			Thread loadData = new Thread(LoadData);
 			loadData.Start();
+			BindingContext = new BrandViewModel();
 		}
-
 		private void LoadData()
 		{
 			try
@@ -56,6 +56,7 @@ namespace eCommerce.Views
 							{
 								source1.Add(new ItemsPreview
 								{
+									Id = item.Id,
 									ImageUrl = item.Image,
 									Name = item.Name,
 									price = item.Price

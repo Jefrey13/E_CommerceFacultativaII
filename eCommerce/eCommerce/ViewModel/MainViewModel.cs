@@ -62,8 +62,7 @@ namespace eCommerce.ViewModels
 			this.Home = new HomeViewModel();
 			this.Insert = new InsertViewModel();
 			this.Show = new ShowViewModel();
-			this.Preference = new PreferencesViewModel();
-
+			//this.Preference = new PreferencesViewModel();
 		}
 
 		//Para poder tener una sola instancia en toda la applicacion de la MainViewModel

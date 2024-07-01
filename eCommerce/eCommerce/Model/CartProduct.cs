@@ -10,7 +10,7 @@ namespace eCommerce.Model
 
 		[PrimaryKey, AutoIncrement]
 		public int Id { get; set; }  // Clave primaria de la tabla intermedia
-
+		public string UserEmail { get; set; }//Nuevo
 		public int CartId { get; set; }  // Clave foránea a CartModel
 
 		public int ProductId { get; set; }  // Clave foránea a Product

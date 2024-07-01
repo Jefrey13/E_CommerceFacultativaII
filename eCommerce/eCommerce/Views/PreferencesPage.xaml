@@ -6,7 +6,8 @@
     xmlns:PanCake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:viewmodels="clr-namespace:eCommerce.Model"
     BackgroundColor="White"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasNavigationBar="False"
+    x:Name="preferentPage">
     <ContentPage.Content>
         <Grid Margin="0,5,0,0">
             <!--  Header  -->
@@ -81,7 +82,24 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout IsClippedToBounds="True" Padding="10">
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItem BackgroundColor="#FFC107"
+                                               Command="{Binding Source={x:Reference preferentPage}, Path = BindingContext.AddFavoriteToCartCommand}"
+                                               CommandParameter="{Binding .}"
+                                               Text="Cart"/>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem  BackgroundColor="#FF3D00"
+                                             Command="{Binding Source={x:Reference preferentPage}, Path = BindingContext.RemoveProductCommand}"
+                                             CommandParameter="{Binding .}"
+                                             Text="Remove"/>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <StackLayout IsClippedToBounds="True" Padding="10">
                             <PanCake:PancakeView
                                 BackgroundColor="White"
                                 CornerRadius="20"
@@ -118,12 +136,13 @@
                                             FontAttributes="Bold"
                                             FontSize="18"
                                             HorizontalOptions="StartAndExpand"
-                                            Text="{Binding Price, StringFormat='${0}'}"
+                                            Text="{Binding price, StringFormat='${0}'}"
                                             TextColor="#00C569" />
                                     </StackLayout>
                                 </StackLayout>
                             </PanCake:PancakeView>
                         </StackLayout>
+                        </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
