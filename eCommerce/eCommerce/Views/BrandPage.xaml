@@ -6,6 +6,7 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    x:Name="brandPage"
     BackgroundColor="White"
     NavigationPage.HasNavigationBar="False">
     <NavigationPage.TitleView>
@@ -131,7 +132,6 @@
                                     <CollectionView
                                         Grid.Row="3"
                                         ItemsSource="{Binding list}"
-                                        SelectionChanged="OnItemSelected"
                                         SelectionMode="Multiple">
 
                                         <CollectionView.ItemsLayout>
@@ -179,19 +179,6 @@
                                                             </Label>
 
                                                             <Label
-                                                                FontSize="12"
-                                                                HorizontalOptions="Center"
-                                                                Text="{Binding brand}"
-                                                                TextColor="#929292"
-                                                                VerticalOptions="Start">
-                                                                <Label.FontFamily>
-                                                                    <OnPlatform x:TypeArguments="x:String">
-                                                                        <On Value="SFPro.ttf#Bold" Platform="Android" />
-                                                                    </OnPlatform>
-                                                                </Label.FontFamily>
-                                                            </Label>
-
-                                                            <Label
                                                                 FontSize="16"
                                                                 HorizontalOptions="Center"
                                                                 Text="{Binding price}"
@@ -205,6 +192,9 @@
                                                             </Label>
                                                         </StackLayout>
                                                     </StackLayout>
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Source={x:Reference brandPage}, Path=BindingContext.ProductCommand}" CommandParameter="{Binding .}" />
+                                                    </Grid.GestureRecognizers>
                                                 </Grid>
                                             </DataTemplate>
                                         </CollectionView.ItemTemplate>

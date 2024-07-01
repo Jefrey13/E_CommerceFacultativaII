@@ -6,8 +6,8 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:ecommerce="clr-namespace:eCommerce"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewmodels="clr-namespace:eCommerce.Model"
     mc:Ignorable="d"
+    x:Name="productPage"
     BackgroundColor="White"
     NavigationPage.HasNavigationBar="False">
 
@@ -455,7 +455,9 @@ VerticalOptions="FillAndExpand">
                             VerticalOptions="Center"
                             VerticalTextAlignment="Center" />
                     </Frame>
-
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FavoriteProductCommand}" />
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
             </StackLayout>
         </Grid>

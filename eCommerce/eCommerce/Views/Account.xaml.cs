@@ -56,7 +56,7 @@ namespace eCommerce.Views
         private async void TapGestureRecognizer_Tapped_5(object sender, EventArgs e)
         {
             // Seteamos un valor por defecto para mostrar un producto
-            await Navigation.PushModalAsync(new PreferencesPage(1));
+            await Navigation.PushModalAsync(new PreferencesPage());
         }
     }
 }

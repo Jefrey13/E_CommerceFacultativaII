@@ -94,37 +94,37 @@ namespace eCommerce.ViewModels
 		{
 			if (string.IsNullOrEmpty(this.email))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter an email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("You must enter an email.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
 			// Validar formato de correo electrónico
 			if (!Regex.IsMatch(this.email, @"^[^@\s]+@gmail\.com$"))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. Invalid email format. Must be in the format 'text@gmail.com'.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Invalid email format. Must be in the format 'text@gmail.com'.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
 
 			if (string.IsNullOrEmpty(this.password) || this.password.Length < 6)
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a stronger password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("You must enter a stronger password.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
 
 			if (this.password != this.confirmPassword)
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. Passwords do not match.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Passwords do not match.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
 
 			if (string.IsNullOrEmpty(this.NameTxt))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter a name.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				CrossToastPopUp.Current.ShowCustomToast("You must enter a name.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				return;
 			}
 
 			if (string.IsNullOrEmpty(this.AgeTxt))
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error. You must enter an age.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("You must enter an age.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 				return;
 			}
 
@@ -152,15 +152,15 @@ namespace eCommerce.ViewModels
 			}
 			catch (FirebaseAuthException ex) when (ex.Reason == AuthErrorReason.EmailExists)
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error: Email already exists.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Email already exists.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 			}
 			catch (HttpRequestException)
 			{
-				CrossToastPopUp.Current.ShowCustomToast("Error: Network error. Please check your internet connection.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast("Network error. Please check your internet connection.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 			}
 			catch (Exception ex)
 			{
-				CrossToastPopUp.Current.ShowCustomToast($"Error: Network error. Please check your internet connection.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast($"Network error. Please check your internet connection.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 			}
 			finally
 			{

@@ -95,6 +95,7 @@
                         <Button
                             BackgroundColor="White"
                             FontSize="{OnPlatform Android=13}"
+                            Command="{Binding ForgotCommand}"
                             HeightRequest="30"
                             HorizontalOptions="End"
                             IsEnabled="{Binding IsEnabledTxt}"

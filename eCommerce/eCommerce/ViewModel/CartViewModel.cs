@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
@@ -22,11 +23,13 @@ namespace eCommerce.ViewModel
 	{
 		private CartDataAccess _cartDataAccess;
 		private ProductDataAccess _productDataAccess;
+		private FavoriteDataAccess _favoriteDataAccess;
 
 		readonly List<ItemsPreview> sourceP;
 		public ObservableCollection<ItemsPreview> itemPreviewP { get; private set; }
 		public ICommand DecreseTapCommand { get; set; }
 		public ICommand IncreaseTapCommand { get; set; }
+		public ICommand FavoriteProductCommand { get; set; }
 		public ICommand DeleteProduvtCartCommand { get; set; }
 
 		private decimal totalPrice;
@@ -45,49 +48,85 @@ namespace eCommerce.ViewModel
 			sourceP = new List<ItemsPreview>();
 			_cartDataAccess = new CartDataAccess();
 			_productDataAccess = new ProductDataAccess();
+			_favoriteDataAccess = new FavoriteDataAccess();
 
-			ItemToCartCollection();
+			Task.Run(async () => await ItemToCartCollection());
 
-			IncreaseTapCommand = new Command<ItemsPreview>(item =>
+			IncreaseTapCommand = new Command<ItemsPreview>( async item =>
 			{
 				int Id = item.Id;
-				_cartDataAccess.IncreaseCartItemQuantity(Id, 1);
-				ItemToCartCollection(1, Id);
+				await _cartDataAccess.IncreaseCartItemQuantity(Id, 1);
+				await ItemToCartCollection(1, Id);
 
 			});
-			DecreseTapCommand = new Command<ItemsPreview>(item =>
+			DecreseTapCommand = new Command<ItemsPreview>(async item =>
 			{
 				if(item.Quantity > 1)
 				{
 					int Id = item.Id;
-					_cartDataAccess.DecreaseCartItemQuantity(Id, 1);
-					var product = _productDataAccess.GetProductsById(Id);
+					 await _cartDataAccess.DecreaseCartItemQuantity(Id, 1);
+					 var product = _productDataAccess.GetProductsById(Id);
 
-					ItemToCartCollection(2, Id);
+					 await ItemToCartCollection(2, Id);
 				}
 				else
 				{
 					CrossToastPopUp.Current.ShowCustomToast("You cannot decrease the quantity of this product any further.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				}
 			});
-			DeleteProduvtCartCommand = new Command<ItemsPreview>(item =>
+			FavoriteProductCommand = new Command<ItemsPreview>(async item =>
 			{
-				int Id = item.Id;
-				var result = _cartDataAccess.RemoveCartItem(Id);
-
-				if (result.IsSuccess)
+				try
 				{
-					CrossToastPopUp.Current.ShowCustomToast("Success. Product has been removed from your cart.", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
-					ItemToCartCollection();
+					var result = await _favoriteDataAccess.AddFavorite(item.Id); // Llamar al método con el parámetro item.Id
+
+					if (result == 1)
+					{ 
+						CrossToastPopUp.Current.ShowCustomToast("Product added to your favorites.", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+						Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new PreferencesPage());
+					} else if(result == 2)
+					{
+						CrossToastPopUp.Current.ShowCustomToast("Product has already been added to your favorites.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+					}
+					else
+					{
+						throw new Exception();
+					}
+				}
+				catch (Exception ex)
+				{
+					CrossToastPopUp.Current.ShowCustomToast("The product couldn't be added to your favorites.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				}
+			});
+			DeleteProduvtCartCommand = new Command<ItemsPreview>( async item =>
+			{
+				try
+				{
+					int Id = item.Id;
+					var result = await _cartDataAccess.RemoveCartItem(Id);
+
+					if (result.IsSuccess == true)
+					{
+						CrossToastPopUp.Current.ShowCustomToast("Product has been removed from your cart.", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+						await ItemToCartCollection();
+					}
+					else
+					{
+						throw new Exception();
+					}
+				}
+				catch(Exception ex)
+				{
+					CrossToastPopUp.Current.ShowCustomToast("Product couldn't be removed", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
 				}
 			});
 		}
 
-		void ItemToCartCollection(int id = -1, int type = 0)
+		async Task ItemToCartCollection(int id = -1, int type = 0)
 		{
 			try
 			{
-				var product = _cartDataAccess.GetCartProducts();
+				var product = await _cartDataAccess.GetCartProducts();
 
 				if (product.Data != null)
 				{

@@ -1,4 +1,6 @@
 ﻿using eCommerce.DataAccess;
+using eCommerce.ViewModels;
+using eCommerce.Views;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -7,10 +9,11 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace eCommerce.Model
 {
-    public class BrandViewModel : INotifyPropertyChanged
+    public class BrandViewModel : BaseViewModel
     {
 		private ProductTagDataAccess _productTagDataAccess;
 		readonly IList<BrandsItems> source;
@@ -19,13 +22,19 @@ namespace eCommerce.Model
         public ObservableCollection<ItemsPreview> itemPreview { get; private set; }
 
         ICommand tapCommand;
-        public  BrandViewModel()
+		public ICommand ProductCommand { get; set; }
+		public  BrandViewModel()
         {
 			_productTagDataAccess = new ProductTagDataAccess();
 
             source = new List<BrandsItems>();
             source1 = new List<ItemsPreview>();
             CreateItemCollection();
+
+			ProductCommand = new Command<ItemsPreview>(item =>
+			{
+				Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new ProductPage(item.Id));
+			});
         }
 
         public ICommand TapCommand

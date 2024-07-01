@@ -1,4 +1,5 @@
 ﻿using eCommerce.Model;
+using eCommerce.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +15,15 @@ namespace eCommerce.Views
     public partial class PreferencesPage : ContentPage
     {
         int index = 1;
-        private ProductViewModel ViewModel { get; set; } // Agregar una propiedad para el ViewModel
-        public PreferencesPage(int Id)
+        //private PreferencesViewModel ViewModel { get; set; } // Agregar una propiedad para el ViewModel
+        public PreferencesPage()
         {
             InitializeComponent();
             // Crear una instancia de categoriesViewModel y asignarla como contexto de enlace
-            ViewModel = new ProductViewModel(Id);
-            BindingContext = ViewModel;
-        }
+            //ViewModel = new PreferencesViewModel();
+            //BindingContext = ViewModel;
+			BindingContext = new PreferencesViewModel();
+		}
 
         public void changeColor(object sender, EventArgs e)
         {
