@@ -113,7 +113,7 @@ namespace eCommerce.ViewModels
 			}
 			catch (Exception ex)
 			{
-				CrossToastPopUp.Current.ShowCustomToast($"Network error. Please check your internet connection.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
+				CrossToastPopUp.Current.ShowCustomToast($"Network error. Please check your internet connection or verify that the data is correct.", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Short);
 			}
 
 			this.IsVisibleTxt = true;

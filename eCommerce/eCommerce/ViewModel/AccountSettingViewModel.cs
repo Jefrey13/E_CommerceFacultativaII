@@ -152,15 +152,24 @@ public class AccountSettingViewModel : BaseViewModel
 
 	private async void OnDelete()
 	{
-		var isSuccess = await DeleteUserAsync();
-		if (isSuccess)
+		var result = await Application.Current.MainPage.DisplayAlert("Alert!", "Are you ure you want to delete your user account?", "Yes", "No");
+		if (result)
 		{
-			CrossToastPopUp.Current.ShowCustomToast("Account Deleted", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
-			await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
+			var isSuccess = await DeleteUserAsync();
+			if (isSuccess)
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Account successfully deleted", bgColor: "#00C569", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+				//await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
+				Application.Current.MainPage = new LoginPage();
+			}
+			else
+			{
+				CrossToastPopUp.Current.ShowCustomToast("Failed to Delete Account", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+			}
 		}
 		else
 		{
-			CrossToastPopUp.Current.ShowCustomToast("Failed to Delete Account", bgColor: "Red", txtColor: "White", Plugin.Toast.Abstractions.ToastLength.Long);
+			return;
 		}
 	}
 
