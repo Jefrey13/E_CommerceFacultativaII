@@ -1,3 +1,11 @@
+## Clonación del Repositorio
+
+Por favor, al clonar el repositorio, trasládese a la rama `jefrey` utilizando el siguiente comando:
+
+```sh
+git checkout jefrey
+```
+
 # Nombre del Proyecto
 
 Este proyecto es una aplicación movil que ofrece una amplia gama de funcionalidades para gestionar cuentas de usuario, compras, y más.
