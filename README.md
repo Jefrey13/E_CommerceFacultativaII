@@ -1,33 +1,70 @@
-Introducción
-Xamarin es una plataforma de desarrollo multiplataforma que permite crear aplicaciones móviles nativas con C#. Esto la convierte en una herramienta ideal para desarrollar aplicaciones de comercio electrónico que funcionen en dispositivos iOS y Android.
+# Nombre del Proyecto
 
-Estructura básica de un proyecto eCommerce en Xamarin
-Un proyecto eCommerce en Xamarin se compone típicamente de los siguientes elementos:
+Este proyecto es una aplicación movil que ofrece una amplia gama de funcionalidades para gestionar cuentas de usuario, compras, y más.
 
-Modelos:
+## Funcionalidades Principales
 
-Las clases que representan las entidades del negocio, como productos, categorías, usuarios, pedidos, etc.
-Vistas:
+### 1. Registro e Inicio de Sesión
+- **Registrarse:**
+  ![Registrarse](https://i.ibb.co/x8CJhrh/NewReg.jpg)
 
-Las interfaces de usuario de la aplicación, que se crean utilizando Xamarin.Forms.
-Vistas Modelo:
+- **Inicio de Sesión:**
+  ![Inicio de Sesión](https://i.ibb.co/BffHDM1/Login2.jpg)
 
-Las clases que vinculan los modelos con las vistas, manejando la lógica de presentación y la interacción del usuario.
-Repositorios:
+- **Validación de Inicio de Sesión:**
+  ![Validación de Inicio de Sesión](https://i.ibb.co/x7MmfbS/Log-Validate.jpg)
 
-Las clases responsables de acceder a los datos, ya sea desde una base de datos local o un servicio web.
-Servicios:
+### 2. Página de Inicio
+- **Explorar Página de Inicio:**
+  ![Explorar Página](https://i.ibb.co/HYg3Kxc/Welcome-App.jpg)
 
-Las clases que encapsulan la lógica de negocio de la aplicación, como el manejo de carritos de compra, pagos, etc.
-Pasos para desarrollar un eCommerce en Xamarin
-Crear un nuevo proyecto Xamarin.Forms: Inicie Visual Studio y seleccione la opción "Nuevo proyecto" > "Aplicación móvil multiplataforma" > "Xamarin.Forms".
+### 3. Gestión de Productos
+- **Detalles de Productos:**
+  ![Detalles de Productos](https://i.ibb.co/vk8ySVL/Product-Add-Cart.jpg)
 
-Definir los modelos: Cree las clases que representan las entidades de su negocio, como Producto, Categoría, Usuario, Pedido, etc.
+- **Buscar Productos:**
+  ![Buscar Productos](https://i.ibb.co/tJ1w70k/Search-Page.png)
 
-Diseñar las vistas: Cree las interfaces de usuario de la aplicación utilizando Xamarin.Forms. Puede utilizar XAML para definir el diseño de las vistas y C# para el código subyacente.
+### 4. Carrito de Compras
+- **Añadir Producto al Carrito:**
+  ![Añadir Producto al Carrito](https://i.ibb.co/vk8ySVL/Product-Add-Cart.jpg)
 
-Implementar las vistas modelo: Cree las clases que vinculan los modelos con las vistas. Estas clases se encargarán de actualizar las vistas cuando los datos cambien y de manejar la interacción del usuario.
+- **Eliminar Producto del Carrito:**
+  ![Eliminar Producto del Carrito](https://i.ibb.co/Z6vMfNq/Delete-Products-Cart.jpg)
 
-Crear los repositorios: Cree las clases responsables de acceder a los datos. Puede utilizar SQLite para almacenar datos localmente o un servicio web para acceder a datos remotos.
+### 5. Validaciones
+- **Validar Carrito Vacío al Generar Checkout:**
+  ![Validación Generar Checkout de Carrito Vacío](https://i.ibb.co/0DddqV4/Validate-Cart.jpg)
 
-Implementar los servicios: Cree las clases que encapsulan la lógica de negocio de la aplicación. Estas clases se encargarán de tareas como el manejo de carritos de compra, pagos, etc.
+- **Validación en Checkout:**
+  ![Validación en Checkout](https://i.ibb.co/NsKRP7s/Validate-Factus.jpg)
+
+### 6. Funcionalidad de Favoritos
+- **Añadir a Favoritos:**
+  ![Añadir a Favoritos](https://i.ibb.co/QbMpz35/Add-Favorite-Products.jpg)
+
+### 7. Facturación
+- **Generar Factura:**
+  ![Generar Factura](https://i.ibb.co/Fq0yVc2/Invoice.png)
+
+- **Abrir PDF de Factura:**
+  ![Abrir PDF](https://i.ibb.co/7npdyt2/Pay-2.png)
+
+- **Generar PDF:**
+  ![Generar PDF](https://i.ibb.co/YLvMHdT/Pay.png)
+
+### 8. Gestión de Cuentas
+- **Configuración de Cuenta:**
+  ![Configuración de Cuenta](https://i.ibb.co/s5mj1Zk/Modify-Acc.jpg)
+
+- **Ver Cuentas:**
+  ![Ver Cuentas](https://i.ibb.co/m0Px2X9/New-Account-List.jpg)
+
+### 9. Cierre de Sesión
+- **Cerrar Sesión:**
+  ![Cerrar Sesión](https://i.ibb.co/0ctFRBx/Logout.png)
+
+## Y mucho mas.
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo [LICENSE](LICENSE).
